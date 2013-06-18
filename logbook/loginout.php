@@ -23,7 +23,7 @@
     <td align="center" valign="top" bgcolor="#FFFFFF"><table width="900" border="0" align="center" cellpadding="2" cellspacing="1" class="TableBorder">
       <tr>
         <td bgcolor="#FFFFFF" class="Normal">
-        <div id="DIV_loginout" style="min-height:110px">
+        <div id="DIV_loginout" style="min-height:110px;">
         <!--table width="100%" border="0" cellpadding="2" cellspacing="1" class="popBorder">
           <tr>
             <td rowspan="2" align="center" class="popHeader" style="font-size:18px">

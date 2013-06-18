@@ -422,7 +422,7 @@
 					foreach($defectCodeAr as $defc){
 						$msg .= $defc.':'.$glo_defectcode_table[$defc].'<br/>';
 					}
-					$msg .= '<a href="#" onclick="OpenDivShowSummary('.$eorderid.')" style="color:#FFF">คลิ๊กที่นี่เพื่อดูรายละเอียด</a>';
+					$msg .= '<a href="#" onclick="OpenDivShowSummary('.$eorderid.',\'repairrework\')" style="color:#FFF">คลิ๊กที่นี่เพื่อดูรายละเอียด</a>';
 					$msg .= "</div>";
 				}
 			}

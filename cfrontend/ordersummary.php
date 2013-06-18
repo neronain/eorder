@@ -115,8 +115,11 @@ function OrderSummaryChangeTab(name)
 	}
 	
 }
-function OpenDivShowSummary(id)
+function OpenDivShowSummary(id,tab)
 {
+	if(tab===undefined){
+		tab = 'overview';
+	}
 	OrderSummaryCurrentID = id;
 	<?=$OpenDivShowSummaryAlterMethod ?>;
 	activeBG();
@@ -125,7 +128,8 @@ function OpenDivShowSummary(id)
 	
 	makeCenterScreen('DivShowSummary');
 	showHideLayers('DivShowSummary','','show');
-	showHTML('DivAjaxOrderSummary','../eorder/eorder_preview.php?eorderid='+id);
+	OrderSummaryChangeTab(tab);
+	//showHTML('DivAjaxOrderSummary','../eorder/eorder_preview.php?eorderid='+id);
 	showHTML('DivAjaxOrderSummary_MENU','../cfrontend/ordersummary_menu.php?eorderid='+id);
 }
 <? $OpenDivShowSummaryAlterMethod=""; ?>
