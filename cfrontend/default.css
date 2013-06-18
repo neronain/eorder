@@ -1,0 +1,227 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #BCF08A;
+	font-family: Tahoma, verdana;
+	font-size: 12px;
+}
+
+a:link {
+	color: #0000FF;
+	text-decoration:none;
+}
+a:visited {
+	color: #0000FF;
+	text-decoration:none;
+}
+a:hover {
+	color: #000099;
+	text-decoration:none;
+}
+a:active {
+	color: #0000FF;
+	text-decoration:none;
+}
+
+.frameHeader {
+	font-size: 14px;
+	font-weight: bold;
+}
+h1{
+	font-size:18px;
+}
+.logout {
+	color: #FFFFFF;
+}
+.menuOver{
+	background-repeat:no-repeat;
+	cursor:pointer;
+	
+	font-size: 12px;
+	font-weight: bold;
+}
+.menuOut{
+	background-repeat:no-repeat;
+	cursor:pointer;
+	
+	font-size: 12px;
+	font-weight: bold;
+}
+
+
+.tableOnOver {
+	background-color: #FAE484;
+	cursor:pointer;
+	color: #0000FF;
+}
+.tableOnOut {
+	cursor:pointer;
+}
+.tdRowOnOver {
+	background-color: #FAE484;
+	cursor:pointer;
+	color: #0000FF;
+}
+.tdRowOnOut {
+	background-color: #FFFFFF;
+	cursor:pointer;	
+}
+.tdButtonOnOver {
+	background-color: #CCCCCC;
+	cursor:pointer;
+	color: #0000FF;
+}
+.tdButtonOnOut {
+	background-color: #F3F2F2;
+	cursor:pointer;
+}
+.tdButtonOnOverS {
+	background-color: #CCCCCC;
+	cursor:pointer;
+	color: #0000FF;
+	font-size: 12px;
+}
+.tdButtonOnOutS {
+	background-color: #F3F2F2;
+	cursor:pointer;
+	font-size: 12px;
+	
+}
+.btnTeethSelectL {
+	background-image: url(../cfrontend/images/teethselectl.gif);
+	cursor:pointer;
+	color: #0033CC;
+	font-weight:bold;
+}
+.btnTeethSelectR {
+	background-image: url(../cfrontend/images/teethselectr.gif);
+	cursor:pointer;
+	color: #0033CC;
+	font-weight:bold;
+}
+.btnTeethSelectC {
+	background-image: url(../cfrontend/images/attachselect.gif);
+	cursor:pointer;
+	color: #0033CC;
+	font-weight:bold;
+}
+
+.tdBridgeOnOver {
+	background-color: #CCCCCC;
+	cursor:pointer;
+	color: #0000FF;
+}
+
+.tdBridgeOnOut {
+	background-color: transparent;
+	cursor:pointer;
+	color: #0000FF;
+}
+
+.tdMethodOnHiLight {
+	cursor:pointer;
+	background-image: url(../resource/images/eorder/fix/methodbg_o.gif);
+	background-repeat:no-repeat;
+}
+
+.tdMethodOnSelect {
+	cursor:pointer;
+	background-image: url(../resource/images/eorder/fix/methodbg_s.gif);
+	font-weight: bold;
+	background-repeat:no-repeat;
+}
+.tdAlloyOnHiLight {
+	cursor:pointer;
+	background-image: url(../resource/images/eorder/fix/alloybg_o.gif);
+	background-repeat:no-repeat;
+}
+
+.tdAlloyOnSelect {
+	cursor:pointer;
+	background-image: url(../resource/images/eorder/fix/alloybg_s.gif);
+	font-weight: bold;
+	background-repeat:no-repeat;
+}
+.tdPonticOnHiLight {
+	cursor:pointer;
+	background-image: url(../resource/images/eorder/fix/ponticbg_o.gif);
+	background-repeat:no-repeat;
+}
+
+.tdPonticOnSelect {
+	cursor:pointer;
+	background-image: url(../resource/images/eorder/fix/ponticbg_s.gif);
+	font-weight: bold;
+	background-repeat:no-repeat;
+}
+#dateblock {
+	background:transparent url(images/dateblock.gif) no-repeat scroll 0%;
+	color:#FFFFFF;
+	float:left;
+	font-size:10px;
+	font-weight:bold;
+	height:60px;
+	margin:3px 10px 0px 0px;
+	padding-top:12px;
+	text-align:center;
+	width:47px;
+}
+#dateblock #day {
+	color:#000000;
+	font-size:18px;
+	font-weight:bold;
+	letter-spacing:-1px;
+	padding-top:5px;
+}
+#postheader {
+padding:5px;
+}
+#postheader h1 {
+font-size:18px;
+font-weight:bold;
+letter-spacing:-1px;
+margin:3px 0px;
+padding-top:5px;
+}
+#postheader h1 a:hover {
+text-decoration:none;
+}
+#postheader a {
+color:#000000;
+font-weight:bold;
+text-decoration:none;
+}
+#postheader #postdetails a {
+color:#4B858C;
+}
+#postheader #postdetails a:hover {
+border-bottom:1px dotted #4B7084;
+}
+#postcontent a:hover {
+border-bottom:1px dotted #2F63B3;
+}
+#postcontent a {
+color:#4B858C;
+font-weight:bold;
+text-decoration:none;
+}
+#postcontent {
+background:#FFFFFF none repeat scroll 0%;
+font-size:12px;
+line-height:200%;
+margin:10px 0px 0px;
+padding:5px 0px 0px;
+width:550px;
+
+}
+#postcontent div {
+padding:0px 0px 0px 0px;
+}
+.ClickAble {
+cursor:pointer;
+}

@@ -1,0 +1,204 @@
+!!user:admin
+!!password:$C!sc0%
+!!enable:VDOS050064
+
+!Hexadentallab#sho running-config 
+!Building configuration...
+
+!Current configuration : 5292 bytes
+!
+! Last configuration change at 10:20:34 TH Wed Jan 30 2008 by admin
+! NVRAM config last updated at 10:21:28 TH Wed Jan 30 2008 by admin
+!
+version 12.4
+service nagle
+no service pad
+service tcp-keepalives-in
+service tcp-keepalives-out
+service timestamps debug datetime msec localtime
+service timestamps log datetime msec localtime
+service password-encryption
+!
+hostname Hexadentallab
+!
+boot-start-marker
+boot-end-marker
+!
+logging buffered 5000 informational
+no logging console
+enable secret 5 $1$U.c6$pZW1qc8uZHcjHJzCxcfli.
+!
+no aaa new-model
+clock timezone TH 7
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!
+!
+!
+!
+ip cef
+ip domain lookup source-interface FastEthernet0
+ip domain name hexa.com
+ip name-server 202.69.137.137
+ip name-server 202.69.137.138
+ip sla monitor 1
+ type echo protocol ipIcmpEcho 192.168.50.73 source-ipaddr 192.168.50.74
+ frequency 30
+ip sla monitor schedule 1 life forever start-time now
+!
+!
+!
+!
+username admin privilege 7 secret 5 $1$fDHI$Fxs6Mbd7Q82Hk2OrrN.49.
+!
+!
+!
+track 1 rtr 1
+! 
+!
+!
+!
+interface Ethernet0
+ description "Connected ADSL router backup"
+ ip address 192.168.255.1 255.255.255.0
+ ip access-group 101 in
+ ip nbar protocol-discovery
+ ip route-cache flow
+ ip tcp adjust-mss 1400
+ shutdown
+ half-duplex
+ pppoe enable group global
+ pppoe-client dial-pool-number 1 dial-on-demand
+!
+interface FastEthernet0
+ ip address 192.168.254.1 255.255.255.0 secondary
+ ip address 58.147.82.65 255.255.255.248
+ ip access-group 101 in
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip nat inside
+ ip virtual-reassembly
+ ip route-cache flow
+ speed auto
+!
+interface Serial0
+ description "WAN Interface | s/o: VDOS050064 | install: 25Jan2008"
+ ip address 192.168.50.74 255.255.255.252
+ ip access-group 101 in
+ ip access-group 116 out
+ ip nbar protocol-discovery
+ ip nat outside
+ ip virtual-reassembly
+ ip route-cache flow
+ no fair-queue
+!
+interface Dialer1
+ description "Backup ADSL 1 Mbps"
+ bandwidth 1024
+ ip address negotiated
+ ip mtu 1492
+ ip nat outside
+ no ip virtual-reassembly
+ encapsulation ppp
+ dialer pool 1
+ dialer idle-timeout 20
+ dialer fast-idle 1
+ dialer string 1111
+ dialer vpdn
+ dialer-group 1
+ no cdp enable
+ ppp pap sent-username mbr05ej7@biz password 7 00011D113576383F1B
+ ppp timeout authentication 100
+!
+ip forward-protocol nd
+ip route 0.0.0.0 0.0.0.0 192.168.50.73 name default_route track 1
+ip route 0.0.0.0 0.0.0.0 Dialer1 254 name backup_adsl
+no ip http server
+no ip http secure-server
+ip flow-export source FastEthernet0
+ip flow-export version 5
+ip flow-export destination 202.69.137.143 9996
+!
+ip nat pool NAT_POOL 58.147.82.65 58.147.82.65 netmask 255.255.255.248
+ip nat inside source list acl_NAT_permit pool NAT_POOL overload
+!
+!
+!
+ip access-list extended acl_NAT_permit
+ permit ip 192.168.254.0 0.0.0.255 any
+access-list 10 permit 202.69.137.0 0.0.0.255
+access-list 10 permit 202.69.138.0 0.0.0.127
+access-list 10 permit 192.168.0.0 0.0.255.255
+access-list 10 permit 10.10.0.0 0.0.255.255
+access-list 10 permit 124.157.192.0 0.0.0.255
+access-list 10 permit 58.147.0.0 0.0.0.255
+access-list 10 permit 10.0.0.0 0.255.255.255
+access-list 10 remark For MRTG and Telnet          
+access-list 10 permit 10.10.10.0 0.0.0.255
+access-list 10 permit 10.11.6.0 0.0.0.255
+access-list 10 permit 58.147.0.0 0.0.255.255
+access-list 10 permit 222.123.0.0 0.0.255.255
+access-list 10 permit 117.47.0.0 0.0.255.255
+access-list 101 remark Anti_Virus
+access-list 101 deny   udp any any eq netbios-dgm
+access-list 101 deny   udp any any eq netbios-ns
+access-list 101 deny   udp any any eq netbios-ss
+access-list 101 deny   tcp any any eq 137
+access-list 101 deny   tcp any any eq 135
+access-list 101 deny   udp any any eq 135
+access-list 101 deny   tcp any any eq 139
+access-list 101 deny   tcp any any eq 445
+access-list 101 deny   tcp any any eq 4444
+access-list 101 permit ip any any
+access-list 115 deny   udp any any eq netbios-dgm
+access-list 115 deny   udp any any eq netbios-ns
+access-list 115 deny   udp any any eq netbios-ss
+access-list 115 deny   tcp any any eq 137
+access-list 115 deny   tcp any any eq 135
+access-list 115 deny   udp any any eq 135
+access-list 115 deny   tcp any any eq 139
+access-list 115 deny   tcp any any eq 445
+access-list 115 deny   tcp any any eq 4444
+access-list 115 permit ip any any
+access-list 116 deny   udp any any eq netbios-dgm
+access-list 116 deny   udp any any eq netbios-ns
+access-list 116 deny   udp any any eq netbios-ss
+access-list 116 deny   tcp any any eq 137
+access-list 116 deny   tcp any any eq 135
+access-list 116 deny   udp any any eq 135
+access-list 116 deny   tcp any any eq 139
+access-list 116 deny   tcp any any eq 445
+access-list 116 deny   tcp any any eq 4444
+access-list 116 permit ip any any
+access-list 190 deny   ip any host 255.255.255.255
+access-list 190 permit ip any any
+dialer watch-list 1 ip 0.0.0.0 0.0.0.0
+dialer-list 1 protocol ip list 190
+snmp-server community tttmaxnet RO 10
+snmp-server enable traps tty
+no cdp run
+!
+!
+!
+control-plane
+!
+!
+line con 0
+ logging synchronous
+ login local
+line aux 0
+line vty 0 4
+ access-class 10 in
+ password 7 070C285F4D06
+ logging synchronous
+ login local
+ transport input telnet ssh
+!
+ntp clock-period 17180016
+ntp source FastEthernet0
+ntp server 58.147.0.1 source FastEthernet0
+ntp server 202.69.137.143
+end

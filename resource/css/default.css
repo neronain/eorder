@@ -1,0 +1,276 @@
+@charset "utf-8";
+.HeaderW {
+	font-size: 16px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #99CC99;
+}
+.searchTD {
+	font-size: 12px;
+	color: #333399;
+	background-color: #CCCCFF;
+}
+.TableBorder {
+	background-color: #006600;
+}
+.FooterTD {
+	background-color: #CCFFCC;
+}
+
+
+body {
+	font-family:  Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 0px;
+	padding: 0px;
+}
+td{
+	font-family:  Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+.frameHeader {
+	font-size: 14px;
+	font-weight: bold;
+}
+.Normal {
+	font-size: 12px;
+}
+.Small {
+	font-size: 9px;
+}
+
+a:link {
+	color: #0000FF;
+	text-decoration: none;
+}
+a:visited {
+	color: #0000FF;
+	text-decoration: none;
+}
+a:hover {
+	color: #CC0000;
+	text-decoration: none;
+}
+a:active {
+	color: #CC0000;
+	text-decoration: none;
+}
+.HeaderTable {
+	font-size: 16px;
+	font-weight: bold;
+	color: #336600;
+	background-color: #EEEEAA;
+}
+.popBorder {
+	background-color: #3333CC;
+}
+.popHeader {
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #CCCCFF;
+	color: #003399;
+}
+.popNormal {
+	font-size: 14px;
+}
+.MenuTable {
+	background-color: #BCDEBC;
+}
+.MenuTab {
+	background-color: #CCCCCC;
+	font-weight: bold;
+}
+
+.MenuHighlight {
+	background-color: #CCFFCC;
+}
+.BTupdate {
+	border-style:solid;
+	border-collapse:collapse;
+	border-width:1;
+	cursor:pointer;
+	background-color:#99CC99;
+	border-color:#003300;
+	font-weight:bold;
+	color:#006600;
+	font-size:12px;
+	padding:2;
+}
+.BTok {
+	border-style:solid;
+	border-collapse:collapse;
+	border-width:1;
+	cursor:pointer;
+	background-color:#CCCCFF;
+	border-color:#003399;
+	font-weight:bold;
+	color:#003399;
+	font-size:12px;
+	padding:2;
+}
+.BToption {
+	border-style:solid;
+	border-collapse:collapse;
+	border-width:1;
+	cursor:pointer;
+	background-color:#CCCCFF;
+	border-color:#6666CC;
+	font-weight:bold;
+	color:#6666CC;
+	font-size:12px;
+	padding:2;
+}
+.BTnextback {
+	border-style:solid;
+	border-collapse:collapse;
+	border-width:1;
+	cursor:pointer;
+	background-color:#CCCCFF;
+	border-color:#003399;
+	font-weight:bold;
+	color:#003399;
+	font-size:12px;
+	padding:2;
+}
+.BTfinish {
+	border-style:solid;
+	border-collapse:collapse;
+	border-width:1;
+	cursor:pointer;
+	background-color:#FFCC99;
+	border-color:#CC3300;
+	font-weight:bold;
+	color:#CC3300;
+	font-size:12px;
+	padding:2;
+}
+.BTsearch {
+	border-style:solid;
+	border-collapse:collapse;
+	border-width:1;
+	cursor:pointer;
+	background-color:#FFCC99;
+	border-color:#CC3300;
+	font-weight:bold;
+	color:#CC3300;
+	font-size:12px;
+	padding:2;
+}
+.WhiteText {
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.Big {
+	font-size: 18px;
+}
+.tdButtonOnOver {
+	background-color: #CCCCCC;
+	cursor:pointer;
+	color: #0000FF;
+}
+.tdButtonOnOut {
+	background-color: #F3F2F2;
+	cursor:pointer;
+}
+.tdButtonOnOverS {
+	background-color: #CCCCCC;
+	cursor:pointer;
+	color: #0000FF;
+	font-size: 12px;
+}
+.tdButtonOnOutS {
+	background-color: #F3F2F2;
+	cursor:pointer;
+	font-size: 12px;
+	
+}
+.tdRowOnOver {
+	background-color: #FAE484;
+	cursor:pointer;
+	color: #0000FF;
+}
+.tdRowOnOut {
+	background-color: #FFFFFF;
+	cursor:pointer;	
+}
+.menuOver{
+	background-repeat:no-repeat;
+	cursor:pointer;
+	background-image: url(../cfrontend/images/tabover.png);
+	font-size: 12px;
+	font-weight: bold;
+}
+.menuOut{
+	background-repeat:no-repeat;
+	cursor:pointer;
+	background-image: url(../cfrontend/images/tabout.png);
+	font-size: 12px;
+	font-weight: bold;
+}
+
+
+.tableOnOver {
+	background-color: #FAE484;
+	cursor:pointer;
+	color: #0000FF;
+}
+.tableOnOut {
+	cursor:pointer;
+}
+
+.mac5_style {
+	font-family: "Microsoft Sans Serif";
+	font-size:12px;
+	
+}
+.numberfiled{
+	text-align:right;
+	padding-right:5px;
+}
+.div-selector-main{
+	border:solid;
+	border-width:1px;
+	border-color:#ca241e;
+	background-color:#FFFFFF;
+	color:#000000;
+	padding-left:2px;
+	padding-top:2px;
+	padding-bottom:2px;
+	margin:0px;
+	/*line-height:11px;*/
+	/*font-weight:bold;*/
+	font-size:11px;
+	/*height:20px;*/
+}
+.div-selector-main div.div-selector-option{
+	cursor:pointer;
+	background-color:#FFFFFF;
+	margin:1px;
+}
+.div-selector-main div.div-selector-option:hover{
+	color:#FFFFFF;
+	background-color:#FF0000;
+}
+
+
+.print{
+	font-size:16px;
+}
+.printm{
+	font-size:12px;
+}
+.prints{
+	font-size:10px;
+}
+.SBig {
+	font-size:42px;
+	font-weight: bold;
+}
+.HI {
+	font-size:16px;
+	font-style: italic;
+}
+.H {
+	font-size:14px;
+}
+.PrintTopic {font-size: 16px; font-style: italic; font-weight: bold; }

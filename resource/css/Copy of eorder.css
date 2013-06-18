@@ -1,0 +1,189 @@
+a:link {
+	color: #0000FF;
+	text-decoration: none;
+}
+a:visited {
+	color: #0000FF;
+	text-decoration: none;
+}
+a:hover {
+	color: #CC0000;
+	text-decoration: none;
+}
+a:active {
+	color: #CC0000;
+	text-decoration: none;
+}
+
+.HeadOrange {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	color: #F59945;
+}
+.TableHeading {
+	font-family: Verdana;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: bold;
+	color: #666666;
+	
+}
+.orderBold {
+	font-family: Verdana;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	color: #333333;
+}
+.orderNomal {
+
+	font-family: Verdana;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	color: #333333;
+}
+
+.orderNomalU{
+	font-family: Verdana;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	color: #333333;
+	text-decoration: underline;
+}
+
+.btnTeeth {
+	font-family: Verdana;
+	font-size: 12px;
+	font-style: normal;
+	background-color: #E9E9E9;
+	border: 1px solid #666666;
+}
+
+.btnTeeth2 {
+	font-family: Verdana;
+	font-size: 12px;
+	font-style: normal;
+	background-color: #00E900;
+	border: 1px solid #666666;
+}
+
+.ToothSelect {
+	font-family: Verdana;
+	font-size: 14px;
+	font-style: normal;
+	text-decoration: underline;
+	border: 1px solid #DDDDDD;
+}
+.orderNomalShade {
+	font-family: Verdana;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	color: #333333;
+	width: 50px;
+}
+.orderSmall {
+	font-size: 12px;
+	font-family: Verdana;
+	color: #333333;
+}
+
+.orderNormal {font-size: 14px; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.orderNormalth{font-size:14px; font-family:ms sans serif;}
+
+
+.comboText {
+	font-family: Verdana;
+	font-size: 12px;
+	border: none;
+	cursor: default;
+}
+;
+;.RowHighLight {
+	font-family: Verdana;
+	font-size: 12px;
+	font-style: normal;
+	color: #FFFFFF;
+	background-color: #003399;
+}
+.cursorDefault {
+	cursor: default;
+}
+
+.cursorDefault2{
+	cursor: default;
+	font-family: Verdana;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.MycomboBox {
+	font-family: Verdana;
+	font-size: 11px;
+	border: 1px solid #666666;
+	cursor: default;
+	height: 20px;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: right center;
+	padding: 1px;
+	background-image: url(images/tridown.gif);
+}
+.SingleSelect {
+
+	font-family: Verdana;
+	font-size: 14px;
+	font-style: normal;
+	text-decoration: none;
+	border: 1px solid #DDDDDD;
+}
+.MyCombo {
+	width: 250px;
+}
+.orderHeadTh {
+	font-size:16px;
+	font-family:"ms sans serif";
+	color: #0066CC;
+	font-weight: bold;
+}
+
+@media print { DIV.PAGEBREAK {page-break-before: always}}
+.Color_select {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-style: normal;
+	font-weight: bold;
+}
+.TableHeadingNormal {
+
+	font-family: Verdana;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	color: #666666;
+}
+.tip {
+	font:10px/12px
+	Arial,Helvetica,sans-serif; border:solid 1px
+	#666666; width:270px; padding:1px;
+	position:absolute; z-index:100;
+	visibility:hidden; color:#333333; top:20px;
+	left:90px; background-color:#ffffcc;
+	layer-background-color:#ffffcc;
+}
+.BTselect {
+	border-style:solid;
+	border-collapse:collapse;
+	border-width:1;
+	cursor:pointer;
+	background-color:#FFCC99;
+	border-color:#CC3300;
+	font-weight:bold;
+	color:#CC3300;
+	font-size:12px;
+	padding:2;
+}

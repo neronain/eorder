@@ -1,0 +1,1 @@
+<table border="0" cellpadding="0" cellspacing="0"  width="100%" height="100%" ><tr><td width="100%" align="left" valign="top"><table width="100%" height="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#F8DC58"><tr><td valign="top" bgcolor="#FFFFFF" background="../cfrontend/images/bgblockalpha_5.png" style="background-repeat:repeat-x">

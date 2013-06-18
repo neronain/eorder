@@ -1,0 +1,1 @@
+<? incluce_once("../core/default.php"); ?>

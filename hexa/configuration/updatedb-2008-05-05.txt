@@ -1,0 +1,237 @@
+ALTER TABLE `eorder_fix` ADD `ordf_shadeoption` SET( 'None', 'Translucent Gray', 'Translucent White', 'Translucent Blue', 'Translucent Yellow', 'Translucent Orange', 'Translucent Brown', 'Transparent', 'CrackLines', 'Infraction Line' ) NULL AFTER `ordf_shade` ;
+
+ ALTER TABLE `eorder_remove` CHANGE `ordr_method` `ordr_method` ENUM( 'Try-in', 'Contour', 'Finish', 'Repair', 'BiteBox', 'Setup', 'Remake' ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'Try-in'  ;
+
+update eorder_remove  set ordr_method = 'None'
+where eorder_removeid  > 1071612 
+and MID( ordr_option, 11, 1 ) ='A' ;
+
+update eorder_remove  set ordr_method = 'Try-in'
+where eorder_removeid > 1071612 
+and MID( ordr_option, 11, 1 ) ='B' ;
+
+update eorder_remove  set ordr_method = 'Setup'
+where eorder_removeid  > 1071612 
+and MID( ordr_option, 11, 1 ) ='C' ;
+
+update eorder_remove  set ordr_method = 'Finish'
+where eorder_removeid  > 1071612 
+and MID( ordr_option, 11, 1 ) ='D' ;
+
+update eorder_remove  set ordr_method = 'BiteBox'
+where eorder_removeid  > 1071612 
+and MID( ordr_option, 11, 1 ) ='E' ;
+
+update eorder_remove  set ordr_method = 'Repair'
+where eorder_removeid  > 1071612 
+and MID( ordr_option, 11, 1 ) ='F' ;
+
+update eorder_remove  set ordr_method = 'Remake'
+where eorder_removeid  > 1071612 
+and MID( ordr_option, 11, 1 ) ='G' ;
+
+
+
+update eorder
+set ord_typeofwork = ''
+where eorderid < 1071613;
+
+update eorder,eorder_fix 
+set ord_typeofwork = 'F:'
+where eorderid = eorder_fixid
+and eorderid < 1071613;
+
+update eorder,eorder_fix 
+set ord_typeofwork = CONCAT(ord_typeofwork,'{T}')
+where eorderid = eorder_fixid and eorderid < 1071613 and ordf_method='Try-in';
+
+update eorder,eorder_fix 
+set ord_typeofwork = CONCAT(ord_typeofwork,'{C}')
+where eorderid = eorder_fixid and eorderid < 1071613 and ordf_method='Contour';
+
+update eorder,eorder_fix 
+set ord_typeofwork = CONCAT(ord_typeofwork,'{F}')
+where eorderid = eorder_fixid and eorderid < 1071613 and ordf_method='Finish';
+
+update eorder,eorder_fix 
+set ord_typeofwork = CONCAT(ord_typeofwork,'{R}')
+where eorderid = eorder_fixid and eorderid < 1071613 and ordf_method='Repair';
+
+update eorder,eorder_fix 
+set ord_typeofwork = CONCAT(ord_typeofwork,'{M}')
+where eorderid = eorder_fixid and eorderid < 1071613 and ordf_method='Remake';
+
+update eorder,eorder_fix 
+set ord_typeofwork = CONCAT(ord_typeofwork,ordf_typeofworkt)
+where eorderid = eorder_fixid and eorderid < 1071613;
+
+
+update eorder,eorder_remove
+set ord_typeofwork = CONCAT(ord_typeofwork,'R:')
+where eorderid = eorder_removeid and eorderid < 1071613 ;
+
+
+update eorder,eorder_remove
+set ord_typeofwork = CONCAT(ord_typeofwork,'{T}')
+where eorderid = eorder_removeid and eorderid < 1071613 and ordr_method='Try-in';
+
+update eorder,eorder_remove
+set ord_typeofwork = CONCAT(ord_typeofwork,'{C}')
+where eorderid = eorder_removeid and eorderid < 1071613 and ordr_method='Contour';
+
+update eorder,eorder_remove
+set ord_typeofwork = CONCAT(ord_typeofwork,'{F}')
+where eorderid = eorder_removeid and eorderid < 1071613 and ordr_method='Finish';
+
+update eorder,eorder_remove
+set ord_typeofwork = CONCAT(ord_typeofwork,'{R}')
+where eorderid = eorder_removeid and eorderid < 1071613 and ordr_method='Repair';
+
+update eorder,eorder_remove
+set ord_typeofwork = CONCAT(ord_typeofwork,'{M}')
+where eorderid = eorder_removeid and eorderid < 1071613 and ordr_method='Remake';
+
+update eorder,eorder_remove
+set ord_typeofwork = CONCAT(ord_typeofwork,ordr_typeofworkt)
+where eorderid = eorder_removeid and eorderid < 1071613;
+
+
+
+update eorder,eorder_ortho
+set ord_typeofwork = CONCAT(ord_typeofwork,'O:')
+where eorderid = eorder_orthoid and eorderid < 1071613 ;
+
+
+update eorder,eorder_ortho
+set ord_typeofwork = CONCAT(ord_typeofwork,'{T}')
+where eorderid = eorder_orthoid and eorderid < 1071613 and ordo_method='Try-in';
+
+update eorder,eorder_ortho
+set ord_typeofwork = CONCAT(ord_typeofwork,'{C}')
+where eorderid = eorder_orthoid and eorderid < 1071613 and ordo_method='Contour';
+
+update eorder,eorder_ortho
+set ord_typeofwork = CONCAT(ord_typeofwork,'{F}')
+where eorderid = eorder_orthoid and eorderid < 1071613 and ordo_method='Finish';
+
+update eorder,eorder_ortho
+set ord_typeofwork = CONCAT(ord_typeofwork,'{R}')
+where eorderid = eorder_orthoid and eorderid < 1071613 and ordo_method='Repair';
+
+update eorder,eorder_ortho
+set ord_typeofwork = CONCAT(ord_typeofwork,'{M}')
+where eorderid = eorder_orthoid and eorderid < 1071613 and ordo_method='Remake';
+
+update eorder,eorder_ortho
+set ord_typeofwork = CONCAT(ord_typeofwork,ordo_typeofworkt)
+where eorderid = eorder_orthoid and eorderid < 1071613;
+
+update eorder
+set ord_arrivedate = ord_date
+where eorderid < 1071613;
+
+update eorder,eorder_fix ,eorder_remove 
+set ord_typeofwork = 'F:R:See observation'
+where eorderid = eorder_fixid and
+eorderid = eorder_removeid and eorderid > 1071612 and ordr_typeofworkt ='' ;
+
+update eorder,eorder_fix 
+set ord_typeofwork = 'F:See observation'
+where eorderid = eorder_fixid and eorderid > 1071612 and ordf_typeofworkt ='' ;
+update eorder,eorder_remove 
+set ord_typeofwork = 'R:See observation'
+where eorderid = eorder_removeid and eorderid > 1071612 and ordr_typeofworkt ='' ;
+update eorder,eorder_ortho
+set ord_typeofwork = 'O:See observation'
+where eorderid = eorder_orthoid and eorderid > 1071612 and ordo_typeofworkt ='' ;
+
+
+
+update eorder,eorder_fix 
+set ord_typeofwork = REPLACE(ord_typeofwork, 'F:', 'F:{T}')
+where eorderid = eorder_fixid and eorderid > 1071612 and ordf_method='Try-in';
+
+update eorder,eorder_fix 
+set ord_typeofwork = REPLACE(ord_typeofwork, 'F:', 'F:{C}')
+where eorderid = eorder_fixid and eorderid > 1071612 and ordf_method='Contour';
+
+update eorder,eorder_fix 
+set ord_typeofwork = REPLACE(ord_typeofwork, 'F:', 'F:{F}')
+where eorderid = eorder_fixid and eorderid > 1071612 and ordf_method='Finish';
+
+update eorder,eorder_fix 
+set ord_typeofwork = REPLACE(ord_typeofwork, 'F:', 'F:{R}')
+where eorderid = eorder_fixid and eorderid > 1071612 and ordf_method='Repair';
+
+update eorder,eorder_fix 
+set ord_typeofwork = REPLACE(ord_typeofwork, 'F:', 'F:{M}')
+where eorderid = eorder_fixid and eorderid > 1071612 and ordf_method='Remake';
+
+
+
+
+update eorder,eorder_remove 
+set ord_typeofwork = REPLACE(ord_typeofwork, 'R:', 'R:{T}')
+where eorderid = eorder_removeid and eorderid > 1071612 and ordr_method='Try-in';
+
+update eorder,eorder_remove 
+set ord_typeofwork = REPLACE(ord_typeofwork, 'R:', 'R:{C}')
+where eorderid = eorder_removeid and eorderid > 1071612 and ordr_method='Contour';
+
+update eorder,eorder_remove 
+set ord_typeofwork = REPLACE(ord_typeofwork, 'R:', 'R:{F}')
+where eorderid = eorder_removeid and eorderid > 1071612 and ordr_method='Finish';
+
+update eorder,eorder_remove 
+set ord_typeofwork = REPLACE(ord_typeofwork, 'R:', 'R:{R}')
+where eorderid = eorder_removeid and eorderid > 1071612 and ordr_method='Repair';
+
+update eorder,eorder_remove 
+set ord_typeofwork = REPLACE(ord_typeofwork, 'R:', 'R:{M}')
+where eorderid = eorder_removeid and eorderid > 1071612 and ordr_method='Remake';
+
+update eorder,eorder_ortho 
+set ord_typeofwork = REPLACE(ord_typeofwork, 'O:', 'O:{T}')
+where eorderid = eorder_orthoid and eorderid > 1071612 and ordo_method='Try-in';
+
+update eorder,eorder_ortho 
+set ord_typeofwork = REPLACE(ord_typeofwork, 'O:', 'O:{C}')
+where eorderid = eorder_orthoid and eorderid > 1071612 and ordo_method='Contour';
+
+update eorder,eorder_ortho 
+set ord_typeofwork = REPLACE(ord_typeofwork, 'O:', 'O:{F}')
+where eorderid = eorder_orthoid and eorderid > 1071612 and ordo_method='Finish';
+
+update eorder,eorder_ortho 
+set ord_typeofwork = REPLACE(ord_typeofwork, 'O:', 'O:{R}')
+where eorderid = eorder_orthoid and eorderid > 1071612 and ordo_method='Repair';
+
+update eorder,eorder_ortho 
+set ord_typeofwork = REPLACE(ord_typeofwork, 'O:', 'O:{M}')
+where eorderid = eorder_orthoid and eorderid > 1071612 and ordo_method='Remake';
+
+
+
+
+
+
+
+select 
+eorderid,
+ord_typeofwork,
+ordf_typeofworkt,
+ordr_typeofworkt,
+ordo_typeofworkt,
+eorder_fixid,
+eorder_removeid,
+eorder_orthoid
+
+
+ from eorder
+
+left join eorder_fix on eorderid = eorder_fixid
+left join eorder_remove on eorderid = eorder_removeid
+left join eorder_ortho on eorderid = eorder_orthoid
+
+having eorderid > 1071612
+
