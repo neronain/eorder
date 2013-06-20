@@ -15,7 +15,7 @@ set :application, "eorder2"
 set :user, "pppstudio"
 
 set :scm, :git
-set :repository,  "ssh://110.164.212.183/home/pppstudio/eorder_src"
+set :repository,  "ssh://hexaceram/home/pppstudio/eorder2.git"
 #set :repository,  "/home/pppstudio/eorder_src"
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
