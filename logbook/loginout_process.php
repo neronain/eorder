@@ -91,7 +91,8 @@
 						if(strlen($barcode)>0 && substr($barcode,0,1)=='E'){
 							$step = S_CHECKDB;
 						}elseif(strlen($barcode)>0 && substr($barcode,0,2)=='DF'){
-							$step = S_CHECKDEFECT;
+							$step = S_WAITORDER;						
+							$msg = 'Insert E-Order code &gt;&gt;';
 						}else{
 							$step = S_WAITORDER;						
 							$msg = 'Insert E-Order code &gt;&gt;';
