@@ -334,7 +334,7 @@
 						break;
 					case S_WAITCONFIRMDEFECT:
 						//error_log("S_WAITCONFIRMDEFECT ",3,"debug.log");
-						include_once("../eorder/eorder_repairrework_conftable.php");
+						include_once("../textdb/eorder_repairrework_conftable.php");
 						
 						if(strlen($barcode)>0 && substr($barcode,0,1)=='E'){
 							$step = S_CHECKDB;
@@ -368,7 +368,7 @@
 						break;
 					case S_DEFECTCODE:
 						//error_log("S_DEFECTCODE ",3,"debug.log");
-						include_once("../eorder/eorder_repairrework_conftable.php");
+						include_once("../textdb/eorder_repairrework_conftable.php");
 						
 
 						
@@ -407,7 +407,7 @@
 				$defectData->Connect();
 				$defectData->Query($defectSql);
 				if(!$defectData->EOF){
-					include_once("../eorder/eorder_repairrework_conftable.php");
+					include_once("../textdb/eorder_repairrework_conftable.php");
 					while(!$defectData->EOF){
 						$defectCodeAr[] = $defectData->Rs("eorder_repairrework_defectcode");
 						$defectData->MoveNext();

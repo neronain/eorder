@@ -21,7 +21,7 @@
 	$repair=="true"?$repair=1:$repair=0;
 	$rework=="true"?$rework=1:$rework=0;
 	
-	include_once("../eorder/eorder_repairrework_conftable.php");	
+	include_once("../textdb/eorder_repairrework_conftable.php");	
 	//echo "<pre>";
 	//var_dump($_GET);
 	//echo "</pre>";

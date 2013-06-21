@@ -327,7 +327,7 @@
   
   $rwdata->Query("select * from eorder_repairrework  where eorder_repairrework.eorder_id = $eorder_id order by eorder_repairrework.eorder_repairrework_date ");
   
-  include_once("../eorder/eorder_repairrework_conftable.php");
+  include_once("../textdb/eorder_repairrework_conftable.php");
   
   /*-------------- optimize -------------------*/
   

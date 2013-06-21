@@ -7,10 +7,10 @@ GetVar($defectcode, 'defectcode');
 if($act=='save'){
 	$conf = var_export($defectcode,true);
 	$conf = "<?\n\$glo_defectcode_table = ".$conf."\n\n?>";
-	file_put_contents("../eorder/eorder_repairrework_conftable.php", $conf);	
+	file_put_contents("../textdb/eorder_repairrework_conftable.php", $conf);	
 }
 
-include_once("../eorder/eorder_repairrework_conftable.php"); 
+include_once("../textdb/eorder_repairrework_conftable.php"); 
 
 
 $data = new Csql();

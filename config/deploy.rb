@@ -33,7 +33,7 @@ set :keep_releases, 2
 after "deploy:update", "deploy:cleanup" 
 #set :copy_exclude, [ '.git' ]
 #set :copy_exclude, [".svn", "**/.svn"]
-
+set :shared_children, shared_children + %w{textdb}
 
 default_run_options[:pty] = true
 

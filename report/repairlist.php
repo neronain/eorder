@@ -1,6 +1,6 @@
 <? include_once("../core/default.php"); 
 
-include_once("../eorder/eorder_repairrework_conftable.php");
+include_once("../textdb/eorder_repairrework_conftable.php");
 ?>
 
 
