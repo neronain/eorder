@@ -61,6 +61,7 @@
 <title>Eorder Scan shipout</title>
 <link href="../resource/css/default.css" rel="stylesheet" type="text/css" />
 <script src="../resource/javascript/default.js"></script>
+<script src="../resource/javascript/jquery-1.9.1.min.js"></script>
 </head>
 
 <body>

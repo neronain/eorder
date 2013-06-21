@@ -22,6 +22,7 @@
 <link href="../cfrontend/default.css" rel="stylesheet" type="text/css" />
 <script src="../resource/javascript/ajax.js"></script>
 <script src="../resource/javascript/default.js"></script>
+<script src="../resource/javascript/jquery-1.9.1.min.js"></script>
 </head>
 <body>
 <? /* */ include_once "../resource/divbackground.php" ?>

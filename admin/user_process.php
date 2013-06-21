@@ -187,6 +187,7 @@ function validateEmail($email)
 				$data->Query("select * from staff where staffid = $staff_id limit 1");
 				$data->TableName = "staff";
 				$data->Set("stf_usr_id","'0'");
+				$data->Set("stf_enable","'0'");
 				$data->Update();
 				$gr = "ST";
 			} elseif($customer_id != 0) {

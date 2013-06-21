@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="../resource/css/default.css" rel="stylesheet" type="text/css" />
 <script src="../resource/javascript/default.js"></script>
+<script src="../resource/javascript/jquery-1.9.1.min.js"></script>
 <script type="text/javascript">
 function OnclickRemark(){
 	if(!findObj("isremark").checked){

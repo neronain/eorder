@@ -6,6 +6,7 @@
 <link href="../cfrontend/default.css" rel="stylesheet" type="text/css" />
 <script src="../resource/javascript/ajax.js"></script>
 <script src="../resource/javascript/default.js"></script>
+<script src="../resource/javascript/jquery-1.9.1.min.js"></script>
 <style>
 a#yaprak {
     width: 64px;

@@ -13,7 +13,7 @@
 <script src="../resource/javascript/eorder/func_main.js" type="text/javascript"></script>
 
 <link href="../SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
-
+<script src="../resource/javascript/jquery-1.9.1.min.js"></script>
 </head>
 
 <body leftmargin="8" topmargin="8" marginwidth="8" marginheight="8">

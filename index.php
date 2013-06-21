@@ -7,6 +7,7 @@ exit();
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>HEXACERAM </title>
+<script src="../resource/javascript/jquery-1.9.1.min.js"></script>
 </head>
 
 <body><br />

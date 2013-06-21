@@ -15,7 +15,7 @@
 	$cquery = "select count(*) as countrow ";
 	switch($group) {
 		case "ST":
-			$iquery = "select staffid,sec_room,userdentalid,usr_status,usr_username,stf_name ";
+			$iquery = "select staffid,sec_room,userdentalid,usr_status,usr_username,stf_name,stf_enable  ";
 			$criteria = ($section != 0) ? " and stf_sec_id=$section " : " ";
 			if($enable_staff==1 && $disable_staff==1) {
 				$criteria .= " ";

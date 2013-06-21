@@ -7,6 +7,7 @@
 <script src="../resource/javascript/default.js"></script>
 <script src="../resource/javascript/ajax.js"></script>
 <script src="../resource/javascript/smooth.pack.js"></script>
+<script src="../resource/javascript/jquery-1.9.1.min.js"></script>
 </head>
 <body>
 <table width="100%" border="0" cellpadding="3" cellspacing="3">

@@ -5,7 +5,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?=WEBSITE_HEADER  ?></title>
 <link href="../resource/css/default.css" rel="stylesheet" type="text/css" />
+<script src="../resource/javascript/jquery-1.9.1.min.js"></script>
 </head>
+
 
 <body >
 <table border="0" cellspacing="0" cellpadding="0">

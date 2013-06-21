@@ -313,7 +313,7 @@ showHideLayers('div_eorder_tooltip','','hide');
 			    <td width="100" class="HeaderTable">Doctor</td>
 			    <td width="100" class="HeaderTable">Patient</td>
 			    <td class="HeaderTable">Type of work</td>
-			    <td class="HeaderTable">Processing</td>
+			    <!--td class="HeaderTable">Processing</td-->
 		      </tr>
 			<?
                     $firstEntry = 1;
@@ -327,13 +327,13 @@ showHideLayers('div_eorder_tooltip','','hide');
 				<td>
                 <? /* onClick="showHTML('DivShowOrder','../order/orderdetail_c.php?eorderid=<?= $dt_order["eorderid"]; ?>');activeBG();showHideLayers('DivShowOrder','','show');makeCenterScreen('DivShowOrder');"> */?>
 				<?= $dt_order["ord_code"]; ?></td>
-				<td width="80"><div style="width:80px;height:20px;overflow:hidden"><?= $dt_order["ord_releasedatel"]; ?></div></td>
-				<td width="150"><div style="width:150px;height:20px;overflow:hidden"><?= $dt_order["cus_name"]; ?></div></td>
-				<td width="100"><div style="width:100px;height:20px;overflow:hidden"><?= $dt_order["doc_name"]; ?></div></td>
-				<td width="100"><div style="width:100px;height:20px;overflow:hidden">
+				<td width="80"><div style="width:80px;height:50px;overflow:hidden"><?= $dt_order["ord_releasedatel"]; ?></div></td>
+				<td width="150"><div style="width:150px;height:50px;overflow:hidden"><?= $dt_order["cus_name"]; ?></div></td>
+				<td width="100"><div style="width:100px;height:50px;overflow:hidden"><?= $dt_order["doc_name"]; ?></div></td>
+				<td width="100"><div style="width:100px;height:50px;overflow:hidden">
 				  <?= $dt_order["ord_patientname"]; ?>
 				  </div></td>
-				<td align="left"><?= $dt_order["ord_typeofwork"]; ?></td>
+				<td align="left" style="padding:4px 1px;"><?= $dt_order["ord_typeofwork"]; ?><!--/td--><br/>
 			 <? 
 				$pdata = new CSql();
 				$pdata->Connect();
@@ -344,7 +344,7 @@ showHideLayers('div_eorder_tooltip','','hide');
 				WHERE logt_ord_id = $order_id order by logt_date");
 				
 				?>
-                <td>
+                <!--td-->
                 <?
                 	while(!$pdata->EOF){
                 		

@@ -5,8 +5,9 @@
 <title><?=WEBSITE_HEADER  ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="../resource/css/default.css" rel="stylesheet" type="text/css" />
-</head>
 <script src="../resource/javascript/default.js"></script>
+<script src="../resource/javascript/jquery-1.9.1.min.js"></script>
+</head>
 <script>
 function refreshVisibleData(){
 	obj = findObj("isdocdate");

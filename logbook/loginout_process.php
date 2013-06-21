@@ -440,6 +440,7 @@ if(0){	?><head>
 <script src="../resource/javascript/default.js"></script>
 <script src="../resource/javascript/ajax.js"></script>
 <link href="../resource/css/default.css" rel="stylesheet" type="text/css" />
+<script src="../resource/javascript/jquery-1.9.1.min.js"></script>
 </head>
 	<?
 }

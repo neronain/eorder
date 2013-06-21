@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="../resource/javascript/eorder/html_teeth_image.js"></script>
 <script src="../resource/javascript/eorder/func_main.js"></script>
+<script src="../resource/javascript/jquery-1.9.1.min.js"></script>
 <title>Untitled Document</title>
 </head>
 

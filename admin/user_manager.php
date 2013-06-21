@@ -126,8 +126,9 @@
 <? while(!$user_data->EOF) { 
 		$userid = $user_data->Rs("userdentalid");
 		$staffid = $user_data->Rs("staffid");
+		$stf_enable = $user_data->Rs("stf_enable");
 ?>
-			  <tr class="tdRowOnOut" valign="top" onmouseover="this.className='tdRowOnOver'" onmouseout="this.className=''">
+			  <tr id="tr_<?=$staffid?>" class="tdRowOnOut" style="<?=$stf_enable?'':'text-decoration:line-through'?>" valign="top" onmouseover="this.className='tdRowOnOver'" onmouseout="this.className=''">
 				<td onclick="OpenDivShowUserData('ST',<?=($userid != "") ? $userid : 0 ?>,<?=$staffid?>,0);"><div id="DivStatus<?=$user_data->Rs("userdentalid")?>"><?= $user_data->Rs("usr_username"); ?></div></td>
 				<td onclick="OpenDivShowUserData('ST',<?=($userid != "") ? $userid : 0 ?>,<?=$staffid?>,0);">&nbsp;<?= $user_data->Rs("stf_name") ?></td>
 				<td align="left" onclick="OpenDivShowUserData('<?=$group?>',<?=($userid != "") ? $userid : 0 ?>,<?=$staffid?>,0);">&nbsp;<?= $user_data->Rs("sec_room") ?></td>
@@ -141,7 +142,7 @@
                     onclick="OpenDivEditUserData('<?=$group?>',<?=($userid != "") ? $userid : 0 ?>,<?=$staffid?>,0);"><img src="../resource/images/silkicons/user_edit.gif" alt="Edit"/></td>
                     <td width="30" align="center" class="tdButtonOnOutS" 
                     onmouseover="this.className='tdButtonOnOverS'" onmouseout="this.className='tdButtonOnOutS'"
-					onclick="if(confirm('Are you sure u want to delete this user?')) {showHTML('DivStatus<?=$user_data->Rs("userdentalid")?>','../admin/user_process.php?gr=ST&act=del&uid=<?=$user_data->Rs("userdentalid")?>&sid=<?=$staffid?>');}"><img src="../resource/images/silkicons/user_delete.gif" alt="Delete"/></td>
+					onclick="if(confirm('Are you sure u want to delete this user?')) {showHTML('DivStatus<?=$user_data->Rs("userdentalid")?>','../admin/user_process.php?gr=ST&act=del&uid=<?=$user_data->Rs("userdentalid")?>&sid=<?=$staffid?>',function(){ $('#tr_<?=$staffid?>').css('text-decoration','line-through');});}"><img src="../resource/images/silkicons/user_delete.gif" alt="Delete"/></td>
                   </tr>
                 </table></td>
 			  </tr>	

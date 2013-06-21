@@ -2,10 +2,12 @@
 
 
 <html>
-<head></head>
+<head>
 <title><?=WEBSITE_HEADER  ?></title>
 <link href="../resource/css/default.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="../resource/javascript/jquery-1.9.1.min.js"></script>
+</head>
 <body style="background-color:#FFFFFF">
 <? /* */ include_once("../cfrontend/ordersummary.php"); ?>
 <? /* */ include_once "../resource/divbackground.php" ?>
