@@ -29,8 +29,8 @@ set :branch, 'master'
 set :use_sudo,false
 set :deploy_via, :remote_cache
 
-set :keep_releases, 3
-
+set :keep_releases, 2
+after "deploy:update", "deploy:cleanup" 
 #set :copy_exclude, [ '.git' ]
 #set :copy_exclude, [".svn", "**/.svn"]
 
