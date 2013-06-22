@@ -110,7 +110,7 @@
             <td width="13" height="8"><img src="../cfrontend/images/bgblockalpha_3a.png" width="13" height="8" /></td>
           </tr>
           <tr>
-            <td width="13" height="34" style="background-image: url('../cfrontend/images/bgblockalpha_6.png');"><img src="images/spacer.gif" width="1" height="1" /></td>
+            <td width="13" height="44" style="background-image: url('../cfrontend/images/bgblockalpha_6.png');"><img src="images/spacer.gif" width="1" height="1" /></td>
           </tr>
         </table>        </td>
       </tr>

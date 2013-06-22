@@ -1,0 +1,39 @@
+<phpunit>
+  <testsuite name="PHP_AutoResponder">
+      <!--file>model/MD_ModelTest.php</file-->
+      <!--file>model/DomainHostingTest.php</file-->
+      <!--file>model/MD_OptinTest.php</file-->
+      <!--file>model/MD_MemberTest.php</file-->
+      <file>model/MD_FileTest.php</file>
+      <!--file>model/MD_PaymentPlanTest.php</file-->
+      <!--file>model/MD_OptinTest.php</file-->
+      <!--file>control/ml_pipe_spam.php</file-->
+	  <!--file>model/MD_MemSiteTest_WordPress_UploadFile.php</file-->
+	  <!--file>model/MD_MemSiteTest_WordPress_UploadPage.php</file-->
+	  <!--file>model/DomainHostingTest.php</file-->
+	  <!--file>payment/MD_Paymentrecord_CreatePaypal.php</file-->
+  </testsuite>
+
+  <testsuite name="include">
+	  <file>framework/include/var.inc.php</file>
+  </testsuite>
+
+
+  <testsuite name="debug">
+	  <file>framework/include/var.inc.php</file>
+  </testsuite>
+  <testsuite name="domain">
+	  <file>framework/include/domain.inc.php</file>
+  </testsuite>
+  <testsuite name="profile">
+	  <file>app_fusionhq/profile/_ac_profile.php</file>
+  </testsuite>
+
+  <testsuite name="masspay">
+	  <file>app_fusionhq/affiliate/_ac_masspay.php</file>
+  </testsuite>
+<testsuite name="emailfunnel">
+	<file>app_fusionhq/emailfnl/_ac_efnnode.php</file>
+</testsuite>
+
+</phpunit>
