@@ -1,9 +1,13 @@
 <?
+$url = "cfrontend/login.php";
+header("Location: $url");
+echo "<meta http-equiv='refresh' content='0;url=$url'>";
+exit();
 ob_start();
 
 define('ROOT_PATH',dirname(__FILE__));
 
-chdir("tmp/chdir");
+chdir("app_hexa/_internalapp");
 
 require_once("../../framework/conf/classpath.php");
 require_once("../../framework/core/def.class.php");
