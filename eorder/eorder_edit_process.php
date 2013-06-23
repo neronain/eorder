@@ -197,6 +197,13 @@
 	//var_dump($remove_option);
 	//echo "</pre>";
 
+	
+	$ord_cache_typeAr = array();
+	if($order_fix)		$ord_cache_typeAr[] = "FIX";
+	if($order_remove)	$ord_cache_typeAr[] = "REMOVE";
+	if($order_ortho)	$ord_cache_typeAr[] = "ORTHO";
+	$ord_cache_type = implode(',', $ord_cache_typeAr);	
+	
 	// Parser from array to class member
 	$teeth = new Teeth();
 	$teeth->BuildFixTeethVariable($fix_material,$fix_attachment,$fix_stepbar,$fix_porcelain,$fix_opt_mat,$fix_bridge);
@@ -209,8 +216,9 @@
 
 	if($action =="add") {
 		// Add data into table eorder
-		$data->Query("select cus_nick from customer where customerid=$customer_id limit 1");
+		$data->Query("select cus_nick,cus_cnt_id from customer where customerid=$customer_id limit 1");
 		$customer_nick = (!$data->EOF)?$data->Rs("cus_nick"):"C000";
+		$cus_cnt_id = (!$data->EOF)?$data->Rs("cus_cnt_id"):"0";
 
 		$data->Query("select max(right(ord_code,2)) as maxcode
 		from eorder where ord_cus_id = $customer_id and left(ord_code,14)='ET".$customer_nick.$eorder_code."'");
@@ -218,9 +226,14 @@
 		$maxcode+=1;
 		$maxcode = str_pad($maxcode,2,'0',STR_PAD_LEFT);
 
+		
+		
 		$data->AddNew();
 		$data->TableName = "eorder";
 		$data->Set("ord_cus_id","$customer_id");
+		$data->Set("ord_cache_cnt_id","$cus_cnt_id");
+		$data->Set("ord_cache_type","'$ord_cache_type'");
+		
 		$data->Set("ord_code","'ET".$customer_nick.$eorder_code."".$maxcode.""."'");
 		$data->Set("ord_no","'$eorder_no'");
 		//$data->Set("ord_code","'ET".$customer_nick."[autono]"."01"."'");
@@ -301,6 +314,8 @@
 				ordt_doc_id = ord_doc_id,
 				ordt_agn_id = ord_agn_id,
 				ordt_cus_id = ord_cus_id,
+				ordt_cache_cnt_id = ord_cache_cnt_id,
+				ordt_cache_type = ord_cache_type,
 				ordt_patientname =ord_patientname,
 				ordt_arrivedate =ord_arrivedate,
 				ordt_releasedate =ord_releasedate,
@@ -457,6 +472,7 @@
 		$data->Set("ord_doc_id","$eorder_doctid");
 		$data->Set("ord_agn_id","$eorder_agentid");
 		$data->Set("ord_patientname","'$eorder_patname'");
+		$data->Set("ord_cache_type","'$ord_cache_type'");
 		//$data->Set("ord_date","NOW()");
 
 
@@ -623,6 +639,8 @@
 			ordt_doc_id =ord_doc_id,
 			ordt_agn_id =ord_agn_id,
 			ordt_cus_id = ord_cus_id,
+			ordt_cache_cnt_id = ord_cache_cnt_id,
+			ordt_cache_type = ord_cache_type,
 			ordt_patientname =ord_patientname,
 			ordt_arrivedate =ord_arrivedate,
 			ordt_releasedate =ord_releasedate,
@@ -631,7 +649,7 @@
 			ordt_priority =ord_priority,
 			ordt_detail =ord_detail,
 			ordt_remark =ord_remark,
-			ordt_typeofwork =ord_typeofwork
+			ordt_typeofwork = ord_typeofwork
 
 			where eorderid = $eorder_id and eordertodayid=$eorder_id and eordertodayid=eorderid ");
 

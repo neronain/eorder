@@ -65,11 +65,10 @@ Date :
           <input type="hidden" name="endate_month" value="<?=$endate_month?>">
           <input type="hidden" name="endate_year" value="<?=$endate_year?>">
 
-			<? $index=1;while(!$data_order->EOF){ ?>
+			<? $index=1;foreach($data_orderAr as $dt_order){ ?>
 			<?
-				$eorderid = $data_order->Rs("eorderid");
+				$eorderid = $dt_order["eorderid"];
 				if($eorderid== $oldid){
-					$data_order->MoveNext();
 					continue;
 				}
 			
@@ -77,47 +76,45 @@ Date :
 			
 			?>
 
-			  <tr valign="top" bgcolor="<?= $data_order->Rs("ordt_isdone")?"#FFCCCC":"#FFFFFF" ?>" class="Normal" >
+			  <tr valign="top" bgcolor="<?= $dt_order["ordt_isdone"]?"#FFCCCC":"#FFFFFF" ?>" class="Normal" >
 				<td align="right"><?= $index++ ?></td>
-				<td><?= $data_order->Rs("ord_no"); ?></td>
-				<td><?= $data_order->Rs("agn_name"); ?> </td>
-				<td><?= $data_order->Rs("doc_name"); ?></td>
-				<td><?= $data_order->Rs("ord_patientname"); ?> </td>
+				<td><?= $dt_order["ord_no"]; ?></td>
+				<td><?= $dt_order["agn_name"]; ?> </td>
+				<td><?= $dt_order["doc_name"]; ?></td>
+				<td><?= $dt_order["ord_patientname"]; ?> </td>
 				<td>&nbsp;
 				<? 
 					/*if($type=="F"){
-						echo $data_order->Rs("ordf_typeofworkt");
+						echo $dt_order["ordf_typeofworkt"];
 					}else if($type=="R"){
-						echo $data_order->Rs("ordr_typeofworkt"); 
+						echo $dt_order["ordr_typeofworkt"]; 
 					}else if($type=="M"){*/
-						//echo $data_order->Rs("ordf_typeofworkt")."&nbsp;".$data_order->Rs("ordr_typeofworkt")."&nbsp;".$data_order->Rs("ordo_typeofworkt");
-					echo $data_order->Rs("ordt_typeofwork");
+						//echo $dt_order["ordf_typeofworkt"]."&nbsp;".$dt_order["ordr_typeofworkt"]."&nbsp;".$dt_order["ordo_typeofworkt"];
+					echo $dt_order["ordt_typeofwork"];
 					
 					//}
 				 ?>			</td>
-				<td class="tdButtonOnOutS" style="color:#000000;<?= $data_order->Rs("sec_room")=="Delivery"?"background-color:#FFCC66":""?>" ><?= $data_order->Rs("sec_room"); ?></td>
-				<td class="tdButtonOnOutS" style="color: #000000"><a href="../staff/staffdetail_c.php?staffid=<?= $data_order->Rs("staffid"); ?>" target="_blank">
-                <?= $data_order->Rs("stf_code"); ?></a>&nbsp;</td>		        
-
-				<? 
-				$logtype = $data_order->Rs("logt_type");
-				$logdate = $data_order->Rs("logt_datef");
-				$diff 		 = $data_order->Rs("logt_dated");
+				<td class="logout" style="color: #000000"><?= $dt_order['current_status'][0]["sec_room"]; ?>&nbsp;</td>
+				<td class="logout" style="color: #000000"><a href="../staff/staffdetail_c.php?staffid=<?= $dt_order['current_status'][0]["staffid"]; ?>" target="_blank">
+                <?= $dt_order['current_status'][0]["stf_code"]; ?></a>&nbsp;</td>
+                <? 
+				$logtype = $dt_order['current_status'][0]["logt_type"];
+				$logdate = $dt_order['current_status'][0]["logt_datef"];
+				$diff 		 = $dt_order['current_status'][0]["logt_dated"];
 				
 				if($logtype == 'OUT' ){
-					$data_order->MoveNext();
-					$diff2 = $data_order->Rs("logt_dated");
-					echo "<td class=\"tdButtonOnOutS\">".$data_order->Rs("logt_datef") ."&nbsp;".($diff2>0?"[$diff2]":"")."</td>";
+					$diff2 = $dt_order['current_status'][1]["logt_dated"];
+					echo "<td>".$dt_order['current_status'][1]["logt_datef"] ."&nbsp;".($diff2>0?"[$diff2]":"")."</td>";
 					
-					echo "<td class=\"tdButtonOnOutS\">".$logdate ."&nbsp;".($diff>0?"[$diff]":"")."</td>";
+					echo "<td>".$logdate ."&nbsp;".($diff>0?"[$diff]":"")."</td>";
 				}else{
 				?>
                 
-				<td class="tdButtonOnOutS" style="color: #000000"><?= $data_order->Rs("logt_datef"); ?>&nbsp;<?=($diff>0?"[$diff]":"")?></td>
-				<td class="tdButtonOnOutS" style="color: #000000">&nbsp;</td>
+				<td class="logout" style="color: #000000"><?= $dt_order['current_status'][0]["logt_datef"]; ?>&nbsp;<?=($diff>0?"[$diff]":"")?></td>
+				<td class="logout" style="color: #000000">&nbsp;</td>
                 <? }?>
 		    </tr>
-			<? $data_order->MoveNext();	} ?>
+			<?	} ?>
 
 			  <tr valign="top" bgcolor="#FFFFFF" class="Normal" >
 			    <td colspan="3" align="left"><input type="submit" value="Save"></td>

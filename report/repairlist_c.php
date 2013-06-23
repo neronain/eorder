@@ -9,6 +9,9 @@ include_once("../order/inc_getstring.php");
 	$type = $_GET["type"];
 	$istype		 	= $_GET["selectTypeChkBox"];
 	
+	$output_type	= $_GET["output_type"];
+	
+	
 	if($istype != 1){
 		$type = "A";
 	}
@@ -58,8 +61,8 @@ include_once("../order/inc_getstring.php");
 //-----------------------------------------------------------------------------------------------------------------------------------	
 	
 	$iquery = "
-	select eorder_repairrework_defectcode,ord_code as ord_code,cus_name,doc_name,ord_patientname as ord_patientname,
-	eorderid as eorderid,prv_name,cnt_name,customerid,ord_typeofwork,
+	select eorder_repairrework_defectcode,ord_code as ord_code,
+	eorderid as eorderid,ord_cus_id,ord_typeofwork,
 
 `eorder_repairrework_problem`, `eorder_repairrework_repair`, `eorder_repairrework_rework`, `eorder_repairrework_detectby`, `eorder_repairrework_supervisor`, `eorder_repairrework_remark`,
 
@@ -79,16 +82,25 @@ include_once("../order/inc_getstring.php");
 	
 	
 	$query = "from 
-		(select * from eorder,customer,doctor,province,country,eorder_repairrework
+		(select * from eorder,eorder_repairrework
+			where 
+				eorder_id = eorderid 
+	";
+
+	if($iscountry){
+		$query  .= " and ord_cache_cnt_id = $country ";
+	}
+
+	if($istype){
+		switch($type){
+			case 'F': $query  .= " and ord_cache_type = 'FIX' "; break;
+			case 'R': $query  .= " and ord_cache_type = 'REMOVE' "; break;
+			case 'O': $query  .= " and ord_cache_type = 'ORTHO' "; break;
+			case 'M': $query  .= " and ord_cache_type = 'FIX,REMOVE' "; break;
+		}
 		
-		where 
-		eorder_id = eorderid and
-		
-		ord_cus_id = customerid and ord_doc_id = doctorid and cus_prv_id = provinceid and cus_cnt_id = countryid
-		
-		
-		 ";
-		
+	}
+	
 	
 	$query  .= " and DATE(eorder_repairrework_date) between  '$cyear-$cmonth-$cdate'  and  '$eyear-$emonth-$edate'";
 
@@ -109,16 +121,58 @@ include_once("../order/inc_getstring.php");
 	//$totalrow = $data_order->Rs("countrow");
 	$data_order->Query("$query");//Query("select * from ");
 	//$data_order->Query("$query  limit ".(($page-1)*$eachpage).",$eachpage");//Query("select * from ");
-		/* 
-		
-		
-			 =
-		
-		//*/
+
+	
+	
+	
+	/*-------------- optimize -------------------*/
+	$data_tmp = new Csql();
+	$data_tmp->Connect();
+	
+	$cache = array();
+	$data_orderAr = array();
+	
+	while(!$data_order->EOF){
+	
+	
+		$rowAr = $data_order->CurrentRowArray();
+	
+	
+		$key = $rowAr['ord_cus_id'];
+		if($cache['customer'][$key]==NULL){
+			$tmpRow = $data_tmp->ExecuteARecord("select customerid,cus_name,cus_prv_id,cus_cnt_id from customer where customerid = {$key} limit 0,1");
+			$cache['customer'][$key] = $tmpRow;
+		}
+		$rowAr['customerid'] = $cache['customer'][$key]["customerid"];
+		$rowAr['cus_name'] = $cache['customer'][$key]["cus_name"];
+		$rowAr['cus_prv_id'] = $cache['customer'][$key]["cus_prv_id"];
+		$rowAr['cus_cnt_id'] = $cache['customer'][$key]["cus_cnt_id"];
+	
+		$key = $rowAr['cus_cnt_id'];
+		if($cache['country'][$key]==NULL){
+			$tmpRow = $data_tmp->ExecuteARecord("select cnt_name from country where countryid = {$key} limit 0,1");
+			$cache['country'][$key] = $tmpRow;
+		}
+		$rowAr['cnt_name'] = $cache['country'][$key]["cnt_name"];
+	
+	
+		$data_orderAr[] = $rowAr;
+		$data_order->MoveNext();
+	
+	}
+	/*-------------- optimize -------------------*/	
+	
+	
+	
+	
 		
 	//echo $query;
 	//$page = 10;	
-	include("../report/repairlist.php");
+	if($output_type=='graph'){
+		include("../report/repairlist_graph.php");
+	}else{
+		include("../report/repairlist.php");
+	}
 
 	
 	//echo "[".$data_order->GetMaxID("eorder")."]";

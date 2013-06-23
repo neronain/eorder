@@ -59,7 +59,7 @@ function popUpWindow(URLStr, left, top, width, height)
 <input type="hidden" name="searchtype" value="date">
   <tr>
     <td class="Normal">ตั้งแต่วันที่</td>
-    <td align="left" class="Normal"><? 
+    <td align="left" class="Normal" colspan="2"><? 
 	$today = getdate();
 	
 	$orddate_day=1;//$today['mday'];
@@ -71,7 +71,7 @@ function popUpWindow(URLStr, left, top, width, height)
     </tr>
   <tr>
     <td align="left" class="Normal">ถึงวันที่</td>
-    <td align="left" class="Normal"><? 
+    <td align="left" class="Normal" colspan="2"><? 
 	$today = getdate();
 	
 	$orddate_day=$today['mday'];
@@ -81,12 +81,44 @@ function popUpWindow(URLStr, left, top, width, height)
 	
 	?></td>
     </tr>
+
+<tr>
+    <td align="right" class="Normal">
+      <input type="checkbox" name="selectTypeChkBox" id="selectTypeChkBox" value ="1" onClick="findObj('divSelectType').style.display=(this.checked?'inline':'none')">
+    </td>
+    <td align="left" class="Normal"><label for="selectTypeChkBox">Select type     </label> </td>
+    <td class="Normal">
+    <div id = divSelectType style="display:none">
+      <select name="type">
+        <option value="F">Fix Only</option>
+        <option value="R">Remove Only</option>
+        <option value="O">Ortho Only</option>
+        <option value="M">Mix</option>
+      </select></div>    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="right" class="Normal">
+      <input name="CountryChkBox" type="checkbox" id="CountryChkBox" value="1" onClick="findObj('divShowCountry').style.display=(this.checked?'inline':'none')">
+    </label></td>
+    <td align="left" class="Normal"><label for="CountryChkBox">Country</label></td>
+    <td><div id="divShowCountry" style="display:none"><?  buildComboBoxList('country','country','countryid',array('cnt_name'),$country,"") ?></div></td>
+    <td>&nbsp;</td>
+  </tr>
+   <tr>
+    <td class="Normal">&nbsp;</td>
+    <td align="center" class="Normal" colspan="2">
+	<label><input type="radio" name="output_type" value="graph" checked="checked"/>Graph</label> &nbsp;
+	<label><input type="radio" name="output_type" value="list" />List</label>
+
+	</td>
+  </tr>
   <tr>
     <td class="Normal">&nbsp;</td>
-    <td align="right" class="Normal"><input type="button" class="BTok" value="SUBMIT" onClick=" popUpWindow('', 100, 100, 800, 600);FormOrderRepairList.submit()" ></td>
+    <td align="center" class="Normal" colspan="2"><input type="button" class="BTok" value="SUBMIT" onClick=" popUpWindow('', 100, 100, 800, 600);FormOrderRepairList.submit()" ></td>
   </tr>
   </form>
-<tr><td colspan="2">
+<tr><td colspan="3">
 <hr></td>
 </tr>
 </table>

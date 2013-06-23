@@ -40,7 +40,6 @@ Entry Date :
 			<?
 				$eorderid = $dt_order["eorderid"];
 				if($eorderid== $oldid){
-					$data_order->MoveNext();
 					continue;
 				}
 			

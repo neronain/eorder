@@ -46,22 +46,22 @@ Date :
 
 $countarray = array();
 $isprintarray = array();
-while(!$data_order->EOF){ 
-	$countarray[$data_order->Rs("eorder_repairrework_defectcode")]++;
-	$data_order->MoveNext();	 
+foreach($data_orderAr as $dt_order){
+	$countarray[$dt_order["eorder_repairrework_defectcode"]]++;
 }
-
-$index=1;
-$data_order->MoveFirst();
-while(!$data_order->EOF){ 
-
 ?>
+<? $index=1;foreach($data_orderAr as $dt_order){ ?>
+			<?
+				$eorderid = $dt_order["eorderid"];
+
+			
+			?>
 			  <tr valign="top" bgcolor="#FFFFFF" class="Normal" >
-<? if(!$isprintarray[$data_order->Rs("eorder_repairrework_defectcode")]){
-	$isprintarray[$data_order->Rs("eorder_repairrework_defectcode")] = true;
+<? if(!$isprintarray[$dt_order["eorder_repairrework_defectcode"]]){
+	$isprintarray[$dt_order["eorder_repairrework_defectcode"]] = true;
 
 
-	$defectcode = $data_order->Rs("eorder_repairrework_defectcode");
+	$defectcode = $dt_order["eorder_repairrework_defectcode"];
     if($glo_defectcode_table[$defectcode]!=NULL){
   		$defectcode_text = $defectcode.":".$glo_defectcode_table[$defectcode];
   	}else{
@@ -70,24 +70,24 @@ while(!$data_order->EOF){
   ?>	
   
   
-				<td align="right" rowspan="<?=$countarray[$data_order->Rs("eorder_repairrework_defectcode")]?>"><? // $index++ ?><?=$defectcode?>
+				<td align="right" rowspan="<?=$countarray[$dt_order["eorder_repairrework_defectcode"]]?>"><? // $index++ ?><?=$defectcode?>
 <? } ?>                
                  
                	</td>               
-               	<td nowrap><?=$defectcode_text?><?= $data_order->Rs('eorder_repairrework_problem'); ?></td>
-				<td nowrap><?= $data_order->Rs("eorder_repairrework_remark"); ?> </td>
-<td  class="tdRowOnOut"  rowspan="<?=$countarray[$data_order->Rs("eorderid")]?>" onClick="OpenDivShowSummary(<?= $data_order->Rs("eorderid")?>)" onMouseOver="this.className='tdRowOnOver'" onMouseOut="this.className='tdRowOnOut'">
-				<span style="color: #0000FF"><?= $data_order->Rs("ord_code"); ?></span></a></td>	
-		<td nowrap rowspan="<?=$countarray[$data_order->Rs("eorderid")]?>">
-				<?=$data_order->Rs("ord_typeofwork");?>	               	
+               	<td nowrap><?=$defectcode_text?><?= $dt_order['eorder_repairrework_problem']; ?></td>
+				<td nowrap><?= $dt_order["eorder_repairrework_remark"]; ?> </td>
+<td  class="tdRowOnOut"  rowspan="<?=$countarray[$dt_order["eorderid"]]?>" onClick="OpenDivShowSummary(<?= $dt_order["eorderid"]?>)" onMouseOver="this.className='tdRowOnOver'" onMouseOut="this.className='tdRowOnOut'">
+				<span style="color: #0000FF"><?= $dt_order["ord_code"]; ?></span></a></td>	
+		<td nowrap rowspan="<?=$countarray[$dt_order["eorderid"]]?>">
+				<?=$dt_order["ord_typeofwork"];?>	               	
                	</td>
                	 
-				<td nowrap><?= $data_order->Rs('eorder_repairrework_date'); ?></td>
+				<td nowrap><?= $dt_order['eorder_repairrework_date']; ?></td>
 				
-				<td align="center" nowrap><?= $data_order->Rs('eorder_repairrework_repair')==1?"&#8226;":""; ?></td>
-				<td align="center" nowrap><?= $data_order->Rs('eorder_repairrework_rework')==1?"&#8226;":"";  ?></td>
-				<td nowrap><?= $data_order->Rs("eorder_repairrework_detectby"); ?> </td>
-				<td nowrap><?= $data_order->Rs("eorder_repairrework_supervisor"); ?> </td>
+				<td align="center" nowrap><?= $dt_order['eorder_repairrework_repair']==1?"&#8226;":""; ?></td>
+				<td align="center" nowrap><?= $dt_order['eorder_repairrework_rework']==1?"&#8226;":"";  ?></td>
+				<td nowrap><?= $dt_order["eorder_repairrework_detectby"]; ?> </td>
+				<td nowrap><?= $dt_order["eorder_repairrework_supervisor"]; ?> </td>
 				
 
 		    </tr>

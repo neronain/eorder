@@ -35,6 +35,8 @@ class MD_EOrder extends ModelObject {
 		"ord_totalcost" => "decimal",
 		"ord_user_id" => "int",
 		
+		"ord_cache_cnt_id" => "int",
+		"ord_cache_type" => "set|FIX,REMOVE,ORTHO",
 			
 
 	);
@@ -43,7 +45,7 @@ class MD_EOrder extends ModelObject {
 		"ord_code" => array("ord_code")
 	);}
 	
-	static function INDEXARRAY(){return array ("ord_doc_id","ord_cus_id","ord_date","ord_arrivedate","ord_releasedate");}	
+	static function INDEXARRAY(){return array ("ord_doc_id","ord_cus_id","ord_date","ord_arrivedate","ord_releasedate","ord_cache_cnt_id","ord_cache_type");}	
 	
 //############### Class template ###########################################
 	public static function GetPrimaryTable() {						
