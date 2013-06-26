@@ -56,7 +56,12 @@ $iquery .= " eorder_orthoid,ordo_method,ordo_typeofworkt,ordo_shade,ordo_observa
 $countrySQL = "";
 if($iscountry==1)
 {
-	$countrySQL = " and cus_cnt_id= $country ";
+	if($country==1){
+		$countrySQL .=" and ordt_cache_cnt_id in (0,1)";
+	}else{
+		$countrySQL .=" and ordt_cache_cnt_id = $country ";
+	}
+	
 }
 //echo $countrySQL;
 $iquery .= "  ";
@@ -65,12 +70,11 @@ $iquery .= "  ";
 
 
 //	$query = "from 	(select * ";
-$query  .= "  from eordertoday,customer
+$query  .= "  from eordertoday
 
 where
-ordt_cus_id = customerid  $countrySQL and
-ordt_isship=FALSE
-and DATE(ordt_arrivedate) =  '$cyear-$cmonth-$cdate' and ordt_priority='$ordpriority'
+
+ordt_isship=FALSE $countrySQL and DATE(ordt_arrivedate) =  '$cyear-$cmonth-$cdate' and ordt_priority='$ordpriority'
 
 
 

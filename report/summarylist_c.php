@@ -107,8 +107,13 @@ include_once("../order/inc_getstring.php");
 	
 	
 	
-	if($iscountry == 1){
-		$query = "from eorder,customer where ord_cus_id = customerid and cus_cnt_id=$country ";
+	if($iscountry){
+		$query = "from eorder where ";
+		if($country==1){
+			$query .=" ord_cache_cnt_id in (0,1)";
+		}else{
+			$query .=" ord_cache_cnt_id = $country ";
+		}
 	}else{
 		$query = "from eorder where TRUE ";
 	}
@@ -123,8 +128,17 @@ include_once("../order/inc_getstring.php");
 		
 	
 		
+		if($istype){
+			switch($type){
+				case 'F': $query  .= " and ord_cache_type = 'FIX' "; break;
+				case 'R': $query  .= " and ord_cache_type = 'REMOVE' "; break;
+				case 'O': $query  .= " and ord_cache_type = 'ORTHO' "; break;
+				case 'M': $query  .= " and ord_cache_type = 'FIX,REMOVE' "; break;
+			}
 		
+		}
 		
+		/*
 		
 		if($type=="M"){
 			$query  .= "  and
@@ -141,7 +155,7 @@ include_once("../order/inc_getstring.php");
 		}else if($type=="O"){
 			$query  .= "  and
 				ord_typeofwork like '%O:{%'  and NOT ( ord_typeofwork like '%F:{%'  or ord_typeofwork like '%R:{%' )";
-		}
+		}*/
 		
 		//$query  .= ")as main ";
 		

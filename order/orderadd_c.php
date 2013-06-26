@@ -285,9 +285,9 @@
 				}
 				
 				$data_order->Execute("insert into eordertoday
-				(eordertodayid, ordt_code, ordt_doc_id, ordt_patientname, ordt_cus_id, ordt_date, ordt_releasedate, ordt_docdate,ordt_priority, ordt_status, ordt_operateday, ordt_detail, ordt_remark, ordt_isship) 
+				(eordertodayid, ordt_code, ordt_doc_id, ordt_patientname, ordt_cus_id, ordt_date, ordt_releasedate, ordt_docdate,ordt_priority, ordt_status, ordt_operateday, ordt_detail, ordt_remark, ordt_isship,ordt_cache_cnt_id,ordt_cache_type) 
 				
-				 select eorderid, ord_code, ord_doc_id, ord_patientname, ord_cus_id, ord_date, ord_releasedate, ord_docdate,ord_priority, ord_status, ord_operateday, ord_detail, ord_remark,0 
+				 select eorderid, ord_code, ord_doc_id, ord_patientname, ord_cus_id, ord_date, ord_releasedate, ord_docdate,ord_priority, ord_status, ord_operateday, ord_detail, ord_remark,0 ,ord_cache_cnt_id,ord_cache_type
 				 from eorder where eorderid = $eorderid ");
 				// Fix table add
 				if($ordtypeF){

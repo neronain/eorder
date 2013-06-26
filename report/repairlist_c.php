@@ -88,7 +88,12 @@ include_once("../order/inc_getstring.php");
 	";
 
 	if($iscountry){
-		$query  .= " and ord_cache_cnt_id = $country ";
+		if($country==1){
+			$query .=" and ord_cache_cnt_id in (0,1) ";
+		}else{
+			$query .=" and ord_cache_cnt_id = $country ";
+		}		
+		
 	}
 
 	if($istype){

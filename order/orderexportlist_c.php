@@ -94,7 +94,12 @@
 	
 	
 	if($iscountry == 1){
-		$query = "from eordertoday,customer where ordt_cus_id = customerid and cus_cnt_id=$country ";
+		$query = "from eordertoday where ";
+		if($country==1){
+			$query .=" ordt_cache_cnt_id in (0,1) ";
+		}else{
+			$query .=" ordt_cache_cnt_id = $country ";
+		}		
 	}else{
 		$query = "from eordertoday where TRUE ";
 	}
@@ -106,8 +111,17 @@
 	
 		//$query  .= ")as main ";
 		
+		if($istype){
+			switch($type){
+				case 'F': $query  .= " and ordt_cache_type = 'FIX' "; break;
+				case 'R': $query  .= " and ordt_cache_type = 'REMOVE' "; break;
+				case 'O': $query  .= " and ordt_cache_type = 'ORTHO' "; break;
+				case 'M': $query  .= " and ordt_cache_type = 'FIX,REMOVE' "; break;
+			}
 		
+		}
 		
+		/*
 		if($type=="M"){
 			$query  .= "  and
 				ordt_typeofwork like '%F:{%'  and ( ordt_typeofwork like '%R:{%'  or ordt_typeofwork like '%O:{%' ) or
@@ -123,7 +137,7 @@
 		}else if($type=="O"){
 			$query  .= "  and
 				ordt_typeofwork like '%O:{%'  and NOT ( ordt_typeofwork like '%F:{%'  or ordt_typeofwork like '%R:{%' )";
-		}
+		}*/
 		
 		$query  .= " ";
 		
