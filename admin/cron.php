@@ -64,3 +64,14 @@ logcount_method<> '' and logcount_mat_short <> '' and logcount_mat_full <> ''
 ";*/
 
 $cronSQL->Execute($sql);
+
+
+
+$sql = "update `eorder`,customer set `ord_cache_cnt_id` = cus_cnt_id where ord_cus_id = customerid and `ord_cache_cnt_id` = 0;";
+$cronSQL->Execute($sql);
+
+$sql = "update `eordertoday`,customer set `ordt_cache_cnt_id` = cus_cnt_id where ordt_cus_id = customerid and `ordt_cache_cnt_id` = 0;"
+$cronSQL->Execute($sql);
+
+
+
