@@ -12,7 +12,11 @@
 
 	$data_eorder = new Csql();
 	$err =	$data_eorder->Connect();
-	$query = "select ord_code,cus_name,doc_name,ord_patientname,agent.agn_name ,ord_detail,ord_priority,
+	$query = "select ord_code,cus_name,cus_cnt_id,doc_name,ord_patientname,agent.agn_name ,ord_detail,ord_priority,
+	
+	
+		ord_cache_cnt_id,ord_cache_type,
+	
 		DATE_FORMAT(ord_arrivedate,'%e') as ord_dated,
 		DATE_FORMAT(ord_arrivedate,'%m') as ord_datem,
 		DATE_FORMAT(ord_arrivedate,'%Y') as ord_datey,
@@ -44,6 +48,7 @@
 		ordr_materialupper,ordr_materiallower,ordr_option,ordr_optenclosed,
 		
 		eorder_orthoid,ordo_method,ordo_work,ordo_workupper,ordo_worklower,ordo_typeofworkt,ordo_shade,ordo_observation
+		
 
 		from 
 		(select * from eorder,customer,doctor 
@@ -62,6 +67,13 @@
 	$ordtypeF			= $data_eorder->Rs("eorder_fixid")+0>0;
 	$ordtypeR			= $data_eorder->Rs("eorder_removeid")+0>0;
 	$ordtypeO			= $data_eorder->Rs("eorder_orthoid")+0>0;
+	
+	
+	$ord_cache_cnt_id	= $data_eorder->Rs("ord_cache_cnt_id");
+	$ord_cache_type		= $data_eorder->Rs("ord_cache_type");
+	$cus_cnt_id			= $data_eorder->Rs("cus_cnt_id");
+	
+	
 	
 	$ordfmethod			= $data_eorder->Rs("ordf_method");
 	$ordfboxcolor			= $data_eorder->Rs("ordf_boxcolor");
@@ -158,7 +170,32 @@
 	
 	
 	
+	//Fix cache
+	if($ord_cache_cnt_id==0){
+		$cus_cnt_id+=0;
+		$data_tmp->Execute("Update eorder set ord_cache_cnt_id = $cus_cnt_id where eorderid = $eorder_id ");
+	}
 	
+	if($ord_cache_type==NULL){
+		
+		if($ordtypeF){
+			$ord_cache_type[] = 'FIX';
+		}
+		if($ordtypeR){
+			$ord_cache_type[] = 'REMOVE';
+		}
+		if($ordtypeO){
+			$ord_cache_type[] = 'ORTHO';
+		}
+		
+		if($ord_cache_type!=NULL){
+			//var_dump($ord_cache_type);
+			$sql = "Update eorder set ord_cache_type = '".implode(',',$ord_cache_type)."' where eorderid = $eorder_id ";
+			//var_dump($sql);
+			$data_tmp->Execute($sql);
+		}
+		
+	}
 ?>
 
 
