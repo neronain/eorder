@@ -173,7 +173,10 @@
 	//Fix cache
 	if($ord_cache_cnt_id==0){
 		$cus_cnt_id+=0;
-		$data_tmp->Execute("Update eorder set ord_cache_cnt_id = $cus_cnt_id where eorderid = $eorder_id ");
+		$sql = "Update eorder set ord_cache_cnt_id = $cus_cnt_id where eorderid = $eorder_id ";
+		$data_tmp->Execute($sql);
+		$sql = "Update eordertoday set ordt_cache_cnt_id = $cus_cnt_id where eordertodayid = $eorder_id ";
+		$data_tmp->Execute($sql);
 	}
 	
 	if($ord_cache_type==NULL){
@@ -193,6 +196,12 @@
 			$sql = "Update eorder set ord_cache_type = '".implode(',',$ord_cache_type)."' where eorderid = $eorder_id ";
 			//var_dump($sql);
 			$data_tmp->Execute($sql);
+						
+			$sql = "Update eordertoday set ordt_cache_type = '".implode(',',$ord_cache_type)."' where eordertodayid = $eorder_id ";
+			//var_dump($sql);
+			$data_tmp->Execute($sql);
+				
+			
 		}
 		
 	}
