@@ -12,17 +12,17 @@
 <script>
 function refreshVisibleData(){
 	obj = findObj("isdocdate");
-	var isdocdate = obj.checked;
+	var isdocdate = obj!=null && obj.checked;
 	obj = findObj("isdeliverydate");
-	var isdeliverydate = obj.checked;
+	var isdeliverydate = obj!=null && obj.checked;
 	obj = findObj("ordtypeF");
-	var isFix = obj.checked;
+	var isFix = obj!=null && obj.checked;
 	obj = findObj("ordtypeR");
-	var isRemove = obj.checked;
+	var isRemove = obj!=null && obj.checked;
 	obj = findObj("ordtypeO");
-	var isOrtho = obj.checked;
+	var isOrtho = obj!=null && obj.checked;
     obj = findObj("ordtypeS");
-    var isSpecial = obj.checked;
+    var isSpecial = obj!=null && obj.checked;
 
 	if(isdocdate){
 		showHideLayers('divisdocdate','','show');
