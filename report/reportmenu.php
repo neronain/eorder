@@ -22,7 +22,8 @@ $currentMenu="report"; include ("../core/mainmenu.php");
 	<a href="../report/invoicelist_q.php">	  Invoice</a>  </td>
     <td width="120" height="26" align="center" <?=$temp=="repairorder"?'class="MenuTab"':''?>>
 	<a href="../report/repairlist_q.php">	  Repair</a>  </td>
-
+ 	<td width="120" height="26" align="center" <?=$temp=="random"?'class="MenuTab"':''?>>
+	<a href="../report/random.php">	  Random No.</a>  </td>
     <td></td>
   </tr>
 </table>

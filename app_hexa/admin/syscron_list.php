@@ -33,6 +33,7 @@ class ListPage_SysCron extends Joay_ListPage {
 						<th class="width-40">C2</th>
 						<th class="width-40">C3</th>
 						<th class="width-40">C4</th>
+						<th class="width-40">C5</th>
 						<th class="width-40">BD</th>
 						<th class="width-40">MJ</th>
 						<th class="width-40">R</th>
@@ -103,6 +104,8 @@ class ListPage_SysCron extends Joay_ListPage {
 							$enable_C2 = in_array('C2', $obj->allow_instant)?'control_play_blue':'control_stop';
 							$enable_C3 = in_array('C3', $obj->allow_instant)?'control_play_blue':'control_stop';
 							$enable_C4 = in_array('C4', $obj->allow_instant)?'control_play_blue':'control_stop';
+							$enable_C5 = in_array('C5', $obj->allow_instant)?'control_play_blue':'control_stop';
+							$enable_B5 = in_array('B5', $obj->allow_instant)?'control_play_blue':'control_stop';
 							$enable_BD = in_array('BD', $obj->allow_instant)?'control_play_blue':'control_stop';
 							$enable_MJ = in_array('MJ', $obj->allow_instant)?'control_play_blue':'control_stop';
 							
@@ -154,6 +157,12 @@ class ListPage_SysCron extends Joay_ListPage {
 												<td>
 							<a href="#" onclick="ToggleEnable(<?=$obj->id?>,'C4');return false;">
 							<img src="resources/images/fatcow/<?=$enable_C4?>.png" width="32" height="32" border="0"  /></a>
+						</td>						
+												<td>
+							<a href="#" onclick="ToggleEnable(<?=$obj->id?>,'C5');return false;">
+							<img src="resources/images/fatcow/<?=$enable_C5?>.png" width="32" height="32" border="0"  /></a>
+							<a href="#" onclick="ToggleEnable(<?=$obj->id?>,'B5');return false;">
+							<img src="resources/images/fatcow/<?=$enable_B5?>.png" width="32" height="32" border="0"  /></a>
 						</td>						
 												<td>
 							<a href="#" onclick="ToggleEnable(<?=$obj->id?>,'BD');return false;">
