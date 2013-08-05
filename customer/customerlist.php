@@ -260,12 +260,12 @@ function CustomerChangeTab(name)
 			break;
 		case 'order':
 			CustomerCurrentTab = name;
-			location='../order/orderlist_c.php?column=customerid&status=3&keyword='+lastCustomerID+'&METHOD=GO%21';
+			location='../order/orderlist_c.php?column=ord_cus_id&status=3&keyword='+lastCustomerID+'&METHOD=GO%21';
 			break;
 			
 		case 'payment':
 			CustomerCurrentTab = name;
-			location='../order/orderlist_c.php?column=customerid&status=56&keyword='+lastCustomerID+'&METHOD=GO%21';
+			location='../order/orderlist_c.php?column=ord_cus_id&status=56&keyword='+lastCustomerID+'&METHOD=GO%21';
 			break;
 		case 'addorder':
 			CustomerCurrentTab = name;

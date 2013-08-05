@@ -20,6 +20,7 @@
 			$cus_nick = $_POST["cus_nick"];
 			$cus_tel = $_POST["cus_tel"];
 			$cus_email = $_POST["cus_email"];
+			$cus_shipmethod = $_POST["cus_shipmethod"];
 			$country = $_POST["country"];
 			$province = $_POST["province"];
 			$address = $_POST["address"];
@@ -37,6 +38,7 @@
 			$data_customer->Set("cus_cnt_id","$country");
 		$data_customer->Set("cus_tel","'$cus_tel'");
 		$data_customer->Set("cus_email","'$cus_email'");
+		$data_customer->Set("cus_shipmethod","'$cus_shipmethod'");
 		$data_customer->Set("cus_address","'$address'");
 		$data_customer->Set("cus_shipaddress","'$shipaddress'");
 		$data_customer->Set("cus_billaddress","'$billaddress'");
@@ -54,6 +56,7 @@
 	$province 		= $data_customer->Rs("cus_prv_id");
 	$cus_tel = $data_customer->Rs("cus_tel");
 	$cus_email = $data_customer->Rs("cus_email");
+	$cus_shipmethod = $data_customer->Rs("cus_shipmethod");
 	$address = $data_customer->Rs("cus_address");
 	$shipaddress = $data_customer->Rs("cus_shipaddress");
 	$billaddress = $data_customer->Rs("cus_billaddress");

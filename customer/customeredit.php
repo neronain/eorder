@@ -82,6 +82,10 @@
           <td>e-mail address</td>
           <td><input name="cus_email" type="text" id="cus_email" value="<?=$cus_email ?>" style="width:200px" /></td>
         </tr>
+ 		 <tr>
+          <td>Shipping by</td>
+          <td><input name="cus_shipmethod" type="text" id="cus_shipmethod" value="<?=$cus_shipmethod ?>" style="width:200px" /></td>
+        </tr>        
         <tr>
           <td colspan="2"><hr /></td>
         </tr>

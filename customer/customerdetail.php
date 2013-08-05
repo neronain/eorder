@@ -34,6 +34,10 @@
           <td>e-mail address</td>
           <td><?=$data_customer->Rs("cus_email");?></td>
         </tr>
+         <tr>
+          <td>Shipping by</td>
+          <td><?=$data_customer->Rs("cus_shipmethod");?></td>
+        </tr> 
         <tr>
           <td colspan="2"><hr /></td>
         </tr>
