@@ -108,4 +108,20 @@ define("T_NODOCTOR","No Doctor name store in database.");
 define("T_AUTHENFAIL","Authentication failed.");
 define("T_PRICE","Price");
 define("T_N","X");
+
+
+function __($str){
+	if(defined($str)){
+		return constant($str);
+	}
+	switch($str){
+		case 'NONE':	return "NONE";
+	}
+	return $str;
+}
+
+
+
+
+
 ?>

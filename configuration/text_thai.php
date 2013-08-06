@@ -108,4 +108,31 @@ define("T_NODOCTOR","ไม่มีทันตแพทย์ในฐาน�
 define("T_AUTHENFAIL","Authentication failed.");
 define("T_PRICE","ราคา");
 define("T_N","X");
+
+
+
+
+
+function __($str){
+	if(defined($str)){
+		return constant($str);
+	}
+	switch($str){
+		case 'NONE':			return "ไม่ระบุ";
+		case 'EMS':				return "EMS";
+		case 'Green bus':		return "เมล์เขียว";
+		case 'Tour bus':		return "รถทัวร์";
+		case 'Van':				return "รถตู้";
+		case 'Siamfirst bus':	return "สยามเฟิส";
+		case 'Messenger':		return "พนักงานส่งของ";
+		case 'Plane':			return "เครื่องบิน";
+	}
+	return $str;
+}
+
+
+
+
+
+
 ?>

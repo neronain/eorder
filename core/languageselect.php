@@ -9,10 +9,12 @@
 	}else{
 		$language = $_COOKIE['language'];
 		if(!isset($language)){
-			$language = 'english';
+			$language = 'thai';
 		}
 		$_SESSION['language'] = $language;
 	}
 	include_once("../configuration/text_".$language.".php");
     
+	
+	
 ?>

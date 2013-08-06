@@ -59,7 +59,7 @@ include_once("../order/inc_getstring.php");
 	
 	$iquery = "select ord_code as ord_code,
 	eorderid as eorderid,ord_typeofwork, 
-	ord_cus_id,ord_doc_id,ord_patientname,
+	ord_cus_id,ord_doc_id,ord_patientname,ord_shipmethod,
 	
 	DATE_FORMAT(ord_date,'%d/%m') as ord_datel,ord_date as ord_date,
 

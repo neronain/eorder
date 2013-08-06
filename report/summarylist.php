@@ -51,6 +51,7 @@ foreach($data_orderAr as $dt_order){
 <td class="HeaderTable" style="font-size:12px;font-weight:normal">Order code</td>
 <td class="HeaderTable" style="font-size:12px;font-weight:normal">Work</td>
 <td class="HeaderTable" style="font-size:12px;font-weight:normal">ประเทศ</td>
+<td class="HeaderTable" style="font-size:12px;font-weight:normal">ส่งด้วย</td>
 <td class="HeaderTable" style="font-size:12px;font-weight:normal">หมายเหตุ</td>
 </tr>
 <? } ?>
@@ -77,6 +78,7 @@ foreach($data_orderAr as $dt_order){
 				
 				
 				<td nowrap><?= $dt_order["cnt_name"]; ?> </td>
+				<td nowrap><?= __($dt_order["ord_shipmethod"]); ?> </td>
 				<td nowrap><? if($dt_order["eorder_fixid"]>0){?>
 				
 						<?=getAlloyName($dt_order["ordf_alloy"])?>

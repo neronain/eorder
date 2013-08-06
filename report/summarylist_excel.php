@@ -73,6 +73,7 @@ $worksheet->set_row(5, $celldesc_h); */
 	$worksheet->write(0,$col++,utf8_to_tis620("รหัสงาน"), $xlscelldesc_header);
 	$worksheet->write(0,$col++,utf8_to_tis620("รายละเอียด"), $xlscelldesc_header);
 	$worksheet->write(0,$col++,utf8_to_tis620("ประเทศ"), $xlscelldesc_header);
+	$worksheet->write(0,$col++,utf8_to_tis620("ส่งด้วย"), $xlscelldesc_header);
 	$worksheet->write(0,$col++,utf8_to_tis620("หมายเหตุ"), $xlscelldesc_header);
 
 
@@ -89,7 +90,8 @@ foreach($data_orderAr as $dt_order){
 	$worksheet->write($row,$col++,utf8_to_tis620($dt_order["ord_code"]), $xlsCellDesc);
 	$worksheet->write($row,$col++,utf8_to_tis620($dt_order["ord_typeofwork"]), $xlsCellDesc);
 	$worksheet->write($row,$col++,utf8_to_tis620($dt_order["cnt_name"]), $xlsCellDesc);
-
+	$worksheet->write($row,$col++,utf8_to_tis620($dt_order["ord_shipmethod"]), $xlsCellDesc);
+	
  	if($dt_order["eorder_fixid"]>0){
 		$worksheet->write($row,$col++,utf8_to_tis620(getAlloyName($dt_order["ordf_alloy"])), $xlsCellDesc);
 	}else{
