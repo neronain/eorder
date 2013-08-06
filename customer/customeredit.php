@@ -84,7 +84,21 @@
         </tr>
  		 <tr>
           <td>Shipping by</td>
-          <td><input name="cus_shipmethod" type="text" id="cus_shipmethod" value="<?=$cus_shipmethod ?>" style="width:200px" /></td>
+          <td>
+          <select name="cus_shipmethod">
+          <option value="NONE" <?=$cus_shipmethod=='NONE'?' selected="selected"':'' ?>>ไม่ระบุ</option>
+          <option value="EMS" <?=$cus_shipmethod=='EMS'?' selected="selected"':'' ?>>EMS</option>
+          <option value="Green bus" <?=$cus_shipmethod=='Green bus'?' selected="selected"':'' ?>>Green bus (เมล์เขียว)</option>
+          <option value="Tour bus" <?=$cus_shipmethod=='Tour bus'?' selected="selected"':'' ?>>Tour bus (รถทัวร์)</option>
+          <option value="Van" <?=$cus_shipmethod=='Van'?' selected="selected"':'' ?>>Van (รถตู้)</option>
+          <option value="Siamfirst bus" <?=$cus_shipmethod=='Siamfirst bus'?' selected="selected"':'' ?>>Siamfirst bus (สยามเฟิส)</option>
+          <option value="Messenger" <?=$cus_shipmethod=='Messenger'?' selected="selected"':'' ?>>Messenger (พนักงานส่งของ)</option>
+          <option value="Plane" <?=$cus_shipmethod=='"Plane"'?' selected="selected"':'' ?>>Plane (เครื่องบิน)</option>
+          </select>
+          
+         
+          
+          </td>
         </tr>        
         <tr>
           <td colspan="2"><hr /></td>
