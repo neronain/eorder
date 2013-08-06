@@ -5,7 +5,7 @@
 	//$eorder_id = 1000007;
 	$data = new Csql();
 	$data->Connect();
-	$data->Query("select ord_code,ord_cus_id from eorder where eorderid=$eorder_id limit 1");
+	$data->Query("select eorderid,ord_code,ord_cus_id from eorder where eorderid=$eorder_id limit 1");
 	if(!$data->EOF) {
 		$order_code = $data->Rs("ord_code");
 		$customer_id = $data->Rs("ord_cus_id");
@@ -30,10 +30,10 @@
         <td width="320" height="240" align="center" valign="middle" bgcolor="#FFFFFF">    
 		<? if(file_exists("../file/eorderrelease/".$data->Rs("ord_code").".png")){?>
    		<img src="../file/eorderrelease/<?=$data->Rs("ord_code")?>.png" width="320" height="240" />
-		<? }elseif(file_exists("../file/eorderattach/".$data->Rs("ord_code").".png")){?>
-   		<img src="../file/eorderattach/<?=$data->Rs("ord_code")?>.png" width="320" height="240" />
+		<? }elseif(file_exists("../file/eorderattach/".$eorder_id.".jpg")){?>
+   		<img src="../file/eorderattach/<?=$eorder_id?>.jpg" width="320" height="240" />
     	<? }else{ ?>
-        No photo 
+        No photo
         <? } ?>        </td>
       </tr>
     </table>      </td>
