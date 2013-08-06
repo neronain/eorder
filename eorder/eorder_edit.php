@@ -130,6 +130,22 @@ function refreshVisibleData(){
             <? buildTimeSelector('eorder_docdate',$eorder_docdate_hour,$eorder_docdate_minute)?>
         </div></td>
         </tr>
+ 		<tr><td height="25">
+        Send by </td><td height="25">
+         <select name="order_shipmethod">
+          <option value="NONE" <?=$order_shipmethod=='NONE'?' selected="selected"':'' ?>>ไม่ระบุ</option>
+          <option value="EMS" <?=$order_shipmethod=='EMS'?' selected="selected"':'' ?>>EMS</option>
+          <option value="Green bus" <?=$order_shipmethod=='Green bus'?' selected="selected"':'' ?>>Green bus (เมล์เขียว)</option>
+          <option value="Tour bus" <?=$order_shipmethod=='Tour bus'?' selected="selected"':'' ?>>Tour bus (รถทัวร์)</option>
+          <option value="Van" <?=$order_shipmethod=='Van'?' selected="selected"':'' ?>>Van (รถตู้)</option>
+          <option value="Siamfirst bus" <?=$order_shipmethod=='Siamfirst bus'?' selected="selected"':'' ?>>Siamfirst bus (สยามเฟิส)</option>
+          <option value="Messenger" <?=$order_shipmethod=='Messenger'?' selected="selected"':'' ?>>Messenger (พนักงานส่งของ)</option>
+          <option value="Plane" <?=$order_shipmethod=='"Plane"'?' selected="selected"':'' ?>>Plane (เครื่องบิน)</option>
+          </select>
+        </td></tr>            
+        <tr><td> 
+        
+                
       <tr>
         <td height="25" >Attach image(.jpg)</td>
         <td height="25" >
@@ -201,7 +217,12 @@ function refreshVisibleData(){
        <div id="divisdeliverydate" <?='style="display:none"'?>>
             <? buildDateSelector('eorder_deliverydate',$eorder_deliverydate_day,$eorder_deliverydate_month,$eorder_deliverydate_year)?>
             <? buildTimeSelector('eorder_deliverydate',$eorder_deliverydate_hour,$eorder_deliverydate_minute)?></div>
-        </td></tr></table>
+        </td></tr>
+        
+       
+        
+        
+        </table>
          <? include "../cfrontend/tbframe2f.php" ?>
         </td>
       </tr><? } ?>

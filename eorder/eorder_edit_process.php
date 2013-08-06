@@ -43,7 +43,7 @@
 	$eorder_deliverydate_hour = $_POST["eorder_deliverydate_hour"];
 	$eorder_deliverydate_minute = $_POST["eorder_deliverydate_minute"];	
 	
-	if($usertype=='ST'){
+	if($usertype=='ST' || $usertype=='MN' || $usertype=='AD'){
 		$eorder_arrivedate_day = $_POST["eorder_arrivedate_day"];
 		$eorder_arrivedate_month = $_POST["eorder_arrivedate_month"];
 		$eorder_arrivedate_year = $_POST["eorder_arrivedate_year"];
@@ -55,8 +55,11 @@
 		$eorder_releasedate_year = $_POST["eorder_releasedate_year"];
 		$eorder_releasedate_hour = $_POST["eorder_releasedate_hour"];
 		$eorder_releasedate_minute = $_POST["eorder_releasedate_minute"];
+		
+		
 	}		
 	
+	$ord_shipmethod =  $_POST["order_shipmethod"];
 	
 	
 	$eorder_priority = 'C';//$_POST["eorder_priority"];
@@ -216,9 +219,15 @@
 
 	if($action =="add") {
 		// Add data into table eorder
-		$data->Query("select cus_nick,cus_cnt_id from customer where customerid=$customer_id limit 1");
+		$data->Query("select cus_nick,cus_cnt_id,cus_shipmethod  from customer where customerid=$customer_id limit 1");
 		$customer_nick = (!$data->EOF)?$data->Rs("cus_nick"):"C000";
 		$cus_cnt_id = (!$data->EOF)?$data->Rs("cus_cnt_id"):"0";
+		$cus_shipmethod = (!$data->EOF)?$data->Rs("cus_shipmethod"):"NONE";
+		
+		
+		if(($cus_shipmethod=='' || $cus_shipmethod=='NONE') && $ord_shipmethod!='' && $ord_shipmethod!='NONE'){
+			$data->Execute("update customer set cus_shipmethod = '$ord_shipmethod' where customerid=$customer_id limit 1");;
+		}
 
 		$data->Query("select max(right(ord_code,2)) as maxcode
 		from eorder where ord_cus_id = $customer_id and left(ord_code,14)='ET".$customer_nick.$eorder_code."'");
@@ -260,6 +269,8 @@
 		}else{
 			$data->Set("ord_docdate","'0000-00-00 00:00:00'");
 		}
+		$data->Set("ord_shipmethod","'$ord_shipmethod'");
+		
 		$order_type = "";
 		if($order_fix && $order_remove) {
 			$order_type = BuildSummaryTeethText($teeth,"fix",$fix_method)."|$fix_observationt ".BuildSummaryTeethText($teeth,"remove",$remove_method,$remove_mat["upper"],$remove_mat["lower"])."|$remove_observation";
@@ -324,7 +335,8 @@
 				ordt_priority =ord_priority,
 				ordt_detail =ord_detail,
 				ordt_remark =ord_remark,
-				ordt_typeofwork =ord_typeofwork
+				ordt_typeofwork = ord_typeofwork,
+				ordt_shipmethod = ord_shipmethod
 
 				where eorderid = $eorder_id and eordertodayid=$eorder_id and eordertodayid=eorderid ");
 
@@ -481,7 +493,8 @@
 		}else{
 			$data->Set("ord_docdate","'0000-00-00 00:00:00'");
 		}
-
+		$data->Set("ord_shipmethod","'$ord_shipmethod'");
+		
 		if($usertype=='ST' || $usertype=='MN' || $usertype=='AD'){
 			$data->Set("ord_arrivedate","'$eorder_arrivedate_year-$eorder_arrivedate_month-$eorder_arrivedate_day $eorder_arrivedate_hour:$eorder_arrivedate_minute:00'");
 			$data->Set("ord_releasedate","'$eorder_releasedate_year-$eorder_releasedate_month-$eorder_releasedate_day $eorder_releasedate_hour:$eorder_releasedate_minute:00'");
@@ -649,7 +662,8 @@
 			ordt_priority =ord_priority,
 			ordt_detail =ord_detail,
 			ordt_remark =ord_remark,
-			ordt_typeofwork = ord_typeofwork
+			ordt_typeofwork = ord_typeofwork,
+			ordt_shipmethod = ord_shipmethod
 
 			where eorderid = $eorder_id and eordertodayid=$eorder_id and eordertodayid=eorderid ");
 

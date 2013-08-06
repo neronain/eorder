@@ -25,7 +25,7 @@ $eorderid = $query_data->Rs("eorderid");
 
 $sql = "insert into eorder (
 
-ord_code, ord_no,ord_doc_id, ord_patientname, ord_cus_id, ord_date, ord_senddate, ord_arrivedate, ord_processdate, ord_sendbackdate, ord_gotdate, ord_paiddate, ord_archievedate, ord_releasedate, ord_docdate, ord_priority, ord_status, ord_operateday, ord_detail, ord_docnote, ord_remark, ord_typeofwork, ord_totalcost 
+ord_code, ord_no,ord_doc_id, ord_patientname, ord_cus_id, ord_date, ord_senddate, ord_arrivedate, ord_processdate, ord_sendbackdate, ord_gotdate, ord_paiddate, ord_archievedate, ord_releasedate, ord_docdate, ord_priority, ord_status, ord_operateday, ord_detail, ord_docnote, ord_remark, ord_typeofwork, ord_totalcost,ord_shipmethod 
 
 
 )
@@ -36,7 +36,7 @@ select
 
 concat(left(ord_code,14) ,lpad(right(ord_code,2)+1,2,'0'))
 
-, ord_no, ord_doc_id, ord_patientname, ord_cus_id,  now(), ord_senddate, now(), ord_processdate, ord_sendbackdate, ord_gotdate, ord_paiddate, ord_archievedate, ord_releasedate, ord_docdate, ord_priority, 2, ord_operateday, ord_detail, ord_docnote, ord_remark, 'Not edit yet', ord_totalcost 
+, ord_no, ord_doc_id, ord_patientname, ord_cus_id,  now(), ord_senddate, now(), ord_processdate, ord_sendbackdate, ord_gotdate, ord_paiddate, ord_archievedate, ord_releasedate, ord_docdate, ord_priority, 2, ord_operateday, ord_detail, ord_docnote, ord_remark, 'Not edit yet', ord_totalcost ,ord_shipmethod
 
 
 from eorder where eorderid = '$eorderid' limit 0,1";

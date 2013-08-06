@@ -104,9 +104,7 @@
                   <?=$data_eorder->Rs("ord_releasedated");?>
                     <?=passThaiMonth($data_eorder->Rs("ord_releasedatem"));?>
                     <?=passThaiYear($data_eorder->Rs("ord_releasedatey"));?>
-                    <?=$data_eorder->Rs("ord_releasedateh");?>
-                    :
-                    <?=$data_eorder->Rs("ord_releasedatemn");?>
+                    <?=$data_eorder->Rs("ord_releasedateh");?>:<?=$data_eorder->Rs("ord_releasedatemn");?><?=$data_eorder->Rs("ord_shipmethod")!="NONE"?" by".$data_eorder->Rs("ord_shipmethod"):"";?>
 </strong></td>
           </tr>
         </table></td>

@@ -15,7 +15,7 @@
 	$query = "select ord_code,cus_name,cus_cnt_id,doc_name,ord_patientname,agent.agn_name ,ord_detail,ord_priority,
 	
 	
-		ord_cache_cnt_id,ord_cache_type,
+		ord_cache_cnt_id,ord_cache_type,ord_shipmethod,
 	
 		DATE_FORMAT(ord_arrivedate,'%e') as ord_dated,
 		DATE_FORMAT(ord_arrivedate,'%m') as ord_datem,
@@ -72,6 +72,7 @@
 	$ord_cache_cnt_id	= $data_eorder->Rs("ord_cache_cnt_id");
 	$ord_cache_type		= $data_eorder->Rs("ord_cache_type");
 	$cus_cnt_id			= $data_eorder->Rs("cus_cnt_id");
+	$ord_shipmethod		= $data_eorder->Rs("ord_shipmethod");
 	
 	
 	

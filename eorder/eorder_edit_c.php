@@ -34,6 +34,7 @@
 		$agent_id =  $data->Rs("ord_agn_id");
 		$patient_name = $data->Rs("ord_patientname");
 		$eorder_docdate = $data->Rs("ord_docdate");
+		$order_shipmethod = $data->Rs("ord_shipmethod");
 		
 		$eorder_docdate_day = substr($data->Rs("ord_docdate"),8,2);
 		$eorder_docdate_month =substr($data->Rs("ord_docdate"),5,2);
@@ -337,9 +338,14 @@
 			$fix_bridge[$i] = 0;
 		}
 	}
-	$data->Query("select cus_nick,cus_name from customer where customerid=$customer_id limit 0,1");
+	$data->Query("select cus_nick,cus_name,cus_shipmethod from customer where customerid=$customer_id limit 0,1");
 	$customer_nickname = (!$data->EOF) ? $data->Rs("cus_nick") : " ";
 	$customer_name = (!$data->EOF) ? $data->Rs("cus_name") : "คลินิกนิรนาม";
+	$cus_shipmethod = (!$data->EOF) ? $data->Rs("cus_shipmethod") : "NONE";
+	
+	if($order_shipmethod ==NULL){
+		$order_shipmethod = $cus_shipmethod;
+	}
 ?>
 
 <?

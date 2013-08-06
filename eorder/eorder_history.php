@@ -30,6 +30,8 @@
         <td width="320" height="240" align="center" valign="middle" bgcolor="#FFFFFF">    
 		<? if(file_exists("../file/eorderrelease/".$data->Rs("ord_code").".png")){?>
    		<img src="../file/eorderrelease/<?=$data->Rs("ord_code")?>.png" width="320" height="240" />
+		<? }elseif(file_exists("../file/eorderattach/".$data->Rs("ord_code").".png")){?>
+   		<img src="../file/eorderattach/<?=$data->Rs("ord_code")?>.png" width="320" height="240" />
     	<? }else{ ?>
         No photo 
         <? } ?>        </td>

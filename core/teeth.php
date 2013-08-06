@@ -515,8 +515,13 @@
 				$notbridge = ($comma > $dash) ? false : true;
 				$head = substr($str,0,$index);
 				$tail = substr($str,$index+1);
-				$this->fix_tooth[Tooth::ParseTextToIndex($str[$head])]->BuildTooth($head);
-				$j = Tooth::ParseTextToIndex($str[$head]);
+				
+				//var_dump($index);
+				//var_dump($str);
+				//var_dump($head);
+				
+				$this->fix_tooth[Tooth::ParseTextToIndex($head[0])]->BuildTooth($head);
+				$j = Tooth::ParseTextToIndex($head[0]);
 				if($notbridge) {
 					$this->bridge[$j] = 0;
 				} else {
