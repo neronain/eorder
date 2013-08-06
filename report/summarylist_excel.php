@@ -90,7 +90,7 @@ foreach($data_orderAr as $dt_order){
 	$worksheet->write($row,$col++,utf8_to_tis620($dt_order["ord_code"]), $xlsCellDesc);
 	$worksheet->write($row,$col++,utf8_to_tis620($dt_order["ord_typeofwork"]), $xlsCellDesc);
 	$worksheet->write($row,$col++,utf8_to_tis620($dt_order["cnt_name"]), $xlsCellDesc);
-	$worksheet->write($row,$col++,utf8_to_tis620($dt_order["ord_shipmethod"]), $xlsCellDesc);
+	$worksheet->write($row,$col++,utf8_to_tis620(__($dt_order["ord_shipmethod"])), $xlsCellDesc);
 	
  	if($dt_order["eorder_fixid"]>0){
 		$worksheet->write($row,$col++,utf8_to_tis620(getAlloyName($dt_order["ordf_alloy"])), $xlsCellDesc);
