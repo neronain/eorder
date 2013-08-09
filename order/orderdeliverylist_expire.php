@@ -23,6 +23,7 @@
 	$iquery = "select ordt_code as ord_code,ordt_no as ord_no,ordt_patientname as ord_patientname,
 	eordertodayid as eorderid,ordt_isship,ordt_isdone,
 	ordt_cus_id as ord_cus_id,ordt_doc_id as ord_doc_id,ordt_agn_id as ord_agn_id,
+	ordt_shipmethod as ord_shipmethod,
 	
 	DATE_FORMAT(ordt_date,'%d/%m') as ord_datel,ordt_date as ord_date,
 	DATE_FORMAT(ordt_deliverydate,'%e') as ord_deliverydated,

@@ -18,9 +18,9 @@
 
 if($order=="arrive"){
 	$sourcecol = "endate";
-	$nonsourcecol = "deliverydate";
+	$nonsourcecol = "exdate";
 }else{
-	$sourcecol = "deliverydate";
+	$sourcecol = "exdate";
 	$nonsourcecol = "endate";
 }
 

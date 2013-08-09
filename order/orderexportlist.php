@@ -58,6 +58,7 @@ Date :
     <td class="popHeader" style="font-size:12px;font-weight:normal">Staff</td>
     <td class="popHeader" style="font-size:12px;font-weight:normal">IN</td>
     <td class="popHeader" style="font-size:12px;font-weight:normal">OUT</td>
+     <td class="popHeader" style="font-size:12px;font-weight:normal">ส่งด้วย</td>
 </tr>
           <form action="orderexportlist_save.php" method="post">
           <!--form action="test.php" method="post"-->
@@ -83,7 +84,9 @@ Date :
 				}
 			
 				$oldid = $eorderid;
-			
+				//echo "<pre>";
+				//var_dump($dt_order);
+				//echo "</pre>";
 			?>
 
 			  <tr valign="top" bgcolor="<?= $dt_order["ordt_isdone"]?"#FFCCCC":"#FFFFFF" ?>" class="Normal" >
@@ -152,12 +155,13 @@ Date :
 				<td class="tdButtonOnOutS" style="color: #000000"><?= $dt_order['current_status'][0]["logt_datef"]; ?>&nbsp;<?=($diff>0?"[$diff]":"")?></td>
 				<td class="tdButtonOnOutS" style="color: #000000">&nbsp;</td>
                 <? }?>
+                <td nowrap><?=__($dt_order["ord_shipmethod"]); ?> </td>
 		    </tr>
 			<? 	} ?>
 
 			  <tr valign="top" bgcolor="#FFFFFF" class="Normal" >
 			    <td colspan="3" align="left"><input type="submit" value="Save"></td>
-			    <td colspan="12" align="left">
+			    <td colspan="13" align="left">
                 <a href="#" onClick="javescript:markAllRows('exporttb',true);return false;">select all</a>/
                 <a href="#" onClick="javescript:markAllRows('exporttb',false);return false;">unselect all</a>                </td>
 		    </tr> 

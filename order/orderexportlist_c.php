@@ -53,7 +53,7 @@
 	
 	$iquery = "select ordt_code as ord_code,ordt_patientname as ord_patientname,
 	eordertodayid as eorderid,ordt_isdone,ordt_isship,ordt_typeofwork,
-	ordt_cus_id as ord_cus_id,ordt_doc_id as ord_doc_id,
+	ordt_cus_id as ord_cus_id,ordt_doc_id as ord_doc_id,ordt_shipmethod as ord_shipmethod,
 	
 	
 	DATE_FORMAT(ordt_arrivedate,'%d/%m') as ord_datel,ordt_date as ord_date,
@@ -227,7 +227,7 @@
 		
 		//*/
 		
-	
+	//echo $query;
 	/*-------------- optimize -------------------*/
 	$data_tmp = new Csql();
 	$data_tmp->Connect();

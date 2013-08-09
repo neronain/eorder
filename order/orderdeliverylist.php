@@ -49,6 +49,7 @@ Date :
     <td class="popHeader" style="font-size:12px;font-weight:normal">Staff</td>
     <td class="popHeader" style="font-size:12px;font-weight:normal">IN</td>
     <td class="popHeader" style="font-size:12px;font-weight:normal">OUT</td>
+    <td class="popHeader" style="font-size:12px;font-weight:normal">ส่งด้วย</td>
 </tr>
           <form action="orderdeliverylist_save.php" method="post">
           <!--form action="test.php" method="post"-->
@@ -113,11 +114,12 @@ Date :
 				<td class="logout" style="color: #000000"><?= $dt_order['current_status'][0]["logt_datef"]; ?>&nbsp;<?=($diff>0?"[$diff]":"")?></td>
 				<td class="logout" style="color: #000000">&nbsp;</td>
                 <? }?>
+                 <td nowrap><?=__($dt_order["ord_shipmethod"]); ?> </td>
 		    </tr>
 			<?	} ?>
 
 			  <tr valign="top" bgcolor="#FFFFFF" class="Normal" >
-			    <td colspan="3" align="left"><input type="submit" value="Save"></td>
+			    <td colspan="4" align="left"><input type="submit" value="Save"></td>
 			    <td align="left">&nbsp;</td>
 		        <td align="left">&nbsp;</td>
 		        <td align="left">&nbsp;</td>
