@@ -20,6 +20,7 @@ $ortho_work_conf["Sleep Star Eclipse"] = "Sleep Star Eclipse";
 $ortho_work_conf["Model Show"] = "Model Show";
 $ortho_work_conf["Resprepo L"] = "Resprepo L";
 $ortho_work_conf["Resprepo F"] = "Resprepo F";
+$ortho_work_conf["TPA + NANCE"] = "TPA + NANCE";
 
 $ortho_work_conf["Hawley retainer"] = "ไม่ใช้แล้ว -  Hawley retainer";
 $ortho_work_conf["Wraparound retainer"] = "ไม่ใช้แล้ว - Wraparound retainer";
@@ -42,12 +43,15 @@ $ortho_workupper_conf["Band and Loop"] = "Band and Loop";
 $ortho_workupper_conf["Expansion Screw"] = "Expansion Screw";
 $ortho_workupper_conf["Nance"] = "Nance";
 $ortho_workupper_conf["TPA"] = "TPA";
+$ortho_workupper_conf["TPA+NANCE"] = "TPA+NANCE";
 $ortho_workupper_conf["Fashion"] = "Fashion";
 $ortho_workupper_conf["Quad Helix"] = "Quad Helix";
 $ortho_workupper_conf["Occlusal Sprint"] = "Occlusal Sprint";
 $ortho_workupper_conf["Stent"] = "Stent";
 $ortho_workupper_conf["Rapid Hyrax Expansion"] = "Rapid Hyrax Expansion";
 $ortho_workupper_conf["An/Posterior bite"] = "An/Posterior bite";
+$ortho_workupper_conf["Anterior bite"] = "Anterior bite";
+$ortho_workupper_conf["Posterior bite"] = "Posterior bite";
 $ortho_workupper_conf["Transfer Tray"] = "Transfer Tray";
 $ortho_workupper_conf["Mouth guard"] = "Mouth guard";
 $ortho_workupper_conf["Night guard"] = "Night guard";
@@ -59,6 +63,7 @@ $ortho_workupper_conf["LC Retainer"] = "LC Retainer";
 $ortho_workupper_conf["Lingual Holding Arch"] = "Lingual Holding Arch";
 $ortho_workupper_conf["Clear Retainer"] = "Clear Retainer";
 $ortho_workupper_conf["Lingual Indirect Bonding"] = "Lingual Indirect Bonding";
+
 
 
 
@@ -74,12 +79,15 @@ $ortho_worklower_conf["Band and Loop"] = "Band and Loop";
 $ortho_worklower_conf["Expansion Screw"] = "Expansion Screw";
 //$ortho_worklower_conf["Nance"] = "Nance";
 //$ortho_worklower_conf["TPA"] = "TPA";
+//$ortho_worklower_conf["TPA+NANCE"] = "TPA+NANCE";
 $ortho_worklower_conf["Fashion"] = "Fashion";
 //$ortho_worklower_conf["Quad Helix"] = "Quad Helix";
 $ortho_worklower_conf["Occlusal Sprint"] = "Occlusal Sprint";
 $ortho_worklower_conf["Stent"] = "Stent";
 //$ortho_worklower_conf["Rapid Hyrax Expansion"] = "Rapid Hyrax Expansion";
 $ortho_worklower_conf["An/Posterior bite"] = "An/Posterior bite";
+$ortho_worklower_conf["Anterior bite"] = "Anterior bite";
+$ortho_worklower_conf["Posterior bite"] = "Posterior bite";
 $ortho_worklower_conf["Transfer Tray"] = "Transfer Tray";
 $ortho_worklower_conf["Mouth guard"] = "Mouth guard";
 $ortho_worklower_conf["Night guard"] = "Night guard";
@@ -91,5 +99,8 @@ $ortho_worklower_conf["LC Retainer"] = "LC Retainer";
 $ortho_worklower_conf["Lingual Holding Arch"] = "Lingual Holding Arch";
 $ortho_worklower_conf["Clear Retainer"] = "Clear Retainer";
 $ortho_worklower_conf["Lingual Indirect Bonding"] = "Lingual Indirect Bonding";
+
+
+
 
 ?>
