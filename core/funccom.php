@@ -52,14 +52,27 @@
 		if(isset($_GET[$varname]))
 		{
 			$varobj = $_GET[$varname];
+			$varobj  = make_safe($varobj);
 		}
 		else if(isset($_POST[$varname]))
 		{
 			$varobj = $_POST[$varname];
+			$varobj  = make_safe($varobj);
 		}
 		if(!isset($varobj)){
 			$varobj=NULL;
 		}
+	}
+	function make_safe($variable) {
+		if(is_array($variable)){
+			foreach($variable as $key =>$val){
+				$variable[$key] = Inc_Var::make_safe($val);
+			}
+		}else{
+			//$variable = self::mysql_escape_mimic(trim($variable));
+			$variable = self::mysql_escape_mimic($variable);
+		}
+		return $variable;
 	}
 	function GetSession(&$varobj,$varname) // getVar($x,"x");
 	{
