@@ -46,7 +46,7 @@
 	
 	//$DEBUGSQL = true;
 	$data->Query("select * from userdental where usr_username='$username' ".
-	" and usr_password=old_password('$password') ".
+	" and (usr_password=old_password('$password') or usr_password='$password')".
 	"");
 
 	if ($data->RecordCount == 1) {
