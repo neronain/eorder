@@ -46,7 +46,7 @@
 	
 	//$DEBUGSQL = true;
 	$data->Query("select * from userdental where usr_username='$username' ".
-	//"and usr_password=old_password('$password') ".
+	" and usr_password=old_password('$password') ".
 	"");
 
 	if ($data->RecordCount == 1) {
@@ -66,6 +66,7 @@
 			$data->Query("select customerid from customer where cus_usr_id=$userid  ");
 			$customerid = $data->Rs("customerid");
 			setcookie("customerid",$customerid,0,'/');
+			$_SESSION["customerid"] = $customerid;
 			//setcookie("language","thai",0,'/');
 			header('Location:'.$forwardSuccess[$type]."?customerid=$customerid");
 			exit();
