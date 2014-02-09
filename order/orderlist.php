@@ -409,17 +409,18 @@ showHideLayers('div_eorder_tooltip','','hide');
 				$pdata->Connect();
 				$order_id = $dt_order["eorderid"]; 
 				//$DEBUGSQL = true;
-				$pdata->Query("
-				select * from
-				(select max(logt_date) as maxlogt_date from logbooktoday)as main
-				left join (SELECT DATE_FORMAT(logt_date,'%d/%m/%y %h:%i') as logt_dateex,
-				stf_name,stf_code,logt_type,logt_date 
-				FROM logbooktoday,staff 
-				WHERE logt_sec_id = 30 and logt_stf_id = staffid and logt_ord_id = 
-				$order_id order by logt_date)as slave on logt_date = maxlogt_date
 				
-				");
+				$maxlogt_data = $pdata->ExecuteScalar("select max(logt_date) as maxlogt_date from logbooktoday");
 				
+				$qry = "
+				select *,DATE_FORMAT(logt_date,'%d/%m/%y %h:%i') as logt_dateex,
+				logt_type,logt_date,logt_stf_id 
+				FROM logbooktoday 
+				WHERE logt_sec_id = 30 and logt_ord_id = 
+				$order_id order by logt_date desc limit 1 
+				";
+				//echo $qry;
+				$pdata->Query($qry);
 				?>
 
 			  <tr class="tdRowOnOut" onMouseOver="this.className='tdRowOnOver'" onMouseOut="this.className='tdRowOnOut'" valign="top" 
@@ -434,7 +435,15 @@ showHideLayers('div_eorder_tooltip','','hide');
 				 <td align="left"><?= $dt_order["ord_typeofwork"]; ?></td>
                  
  				<? if(!$pdata->EOF){ ?>
-                	<td align="left"><?= $pdata->Rs("stf_name"); ?></td>
+ 					<?
+ 					$logt_stf_id = $pdata->Rs("logt_stf_id");
+ 					
+ 					if($cacheStaff[$logt_stf_id]==NULL){
+ 						$pdata->ExecuteScalar("select stf_name from staff where staffid = $logt_stf_id");
+ 						$cacheStaff[$logt_stf_id]['stf_name'] = $pdata->Rs("stf_name");
+ 					} 
+ 					?>
+                	<td align="left"><?= $cacheStaff[$logt_stf_id]['stf_name']?></td>
 				<? }?>                 
                  
 

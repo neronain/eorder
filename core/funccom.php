@@ -70,7 +70,7 @@
 			}
 		}else{
 			//$variable = self::mysql_escape_mimic(trim($variable));
-			$variable = self::mysql_escape_mimic($variable);
+			$variable = mysql_escape_mimic($variable);
 		}
 		return $variable;
 	}
@@ -187,6 +187,15 @@
 		return DateMysql_GetDate($text)." ".DateMysql_GetTime12($text);
 	}
 	
+	function mysql_escape_mimic($inp) {
+		if(is_array($inp))
+		return array_map(__METHOD__, $inp);
 	
+		if(!empty($inp) && is_string($inp)) {
+			return str_replace(array('\\', "\0", "\n", "\r", "'", '"', "\x1a"), array('\\\\', '\\0', '\\n', '\\r', "\\'", '\\"', '\\Z'), $inp);
+		}
+	
+		return $inp;
+	}
 	
 ?>

@@ -104,12 +104,15 @@
 <form>
           <input type="text" name="code" id="txtcode" style="width:200;" value="">
           <input name="METHOD" type="submit" class="BTsearch" id="METHOD" value="GO!">
+          <select name="mac5_db">
+          <option value="M5CM-RE-01">Mac5 เชียงใหม่</option>
+          </select>
 		   <input name="Stupid_IE_Bug" type="text" style="width:0;visibility:hidden" value="" size="1" >	
 </form>
 <span style="font-size:14px;font-weight:bold">
 <? if(count($data_orderAr)>1){ ?>
 	<? foreach($data_orderAr as $dt_order){ ?>
-    	<a href="mac5invoice.php?eorderid=<?=$dt_order['eorderid']?>">
+    	<a href="mac5invoice.php?eorderid=<?=$dt_order['eorderid']?>&mac5_db=<?=$AppConfodbc_dbname?>">
 		<?=$dt_order['ord_code']?> | 
         <?=$dt_order['cus_name']?> | 
         <?=$dt_order['doc_name']?> | 

@@ -9,7 +9,17 @@
 	
    	//DEN $AppConfodbc_dbname = "[M5CM-PA-01]";
    	//$AppConfodbc_dbname = "[M5CM-AA-11]";
+   	
    	$AppConfodbc_dbname = "[M5CM-RE-01]";
+   	
+   	if($_GET['mac5_db']){
+   		$AppConfodbc_dbname = '['.$_GET['mac5_db'].']';
+   	}
+   	if($_POST['mac5_db']){
+   		$AppConfodbc_dbname = '['.$_POST['mac5_db'].']';
+   	}
+   	
+   	
    	//$AppConfodbc_host = "WIN2006\SQLEXPRESS";
    	$AppConfodbc_host = "192.168.0.125";
    	//$AppConfodbc_driver = "{SQL Server}";
