@@ -79,7 +79,9 @@
 						MIHcus = '{$m5m->Rs('m5m_cum_code')}' ");
 					
 					$data->Execute("update eorder_m5m set m5m_inv_id = $invoiceid , m5m_no = 'IN{$no}' ,
-						m5m_taxno = 'IN{$no}' 
+						m5m_taxno = 'IN{$no}',
+						m5m_cacheno1 = 'I',
+						m5m_cacheno2 = '{$no}' 
 						where eorder_m5mid =  $eorderid");
 						
 				}

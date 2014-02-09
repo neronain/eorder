@@ -59,15 +59,18 @@
 	
 	$m5m = new Csql();
 	if($customer->Rs("cus_nick")=='K002'){
-		$no = 'H-'.($m5m->ExecuteScalar("select max(MID(m5m_no,3,LENGTH(m5m_no)-2)+0) from eorder_m5m where  LEFT(m5m_no,1)='H'")+1);
+		$maxindex = $m5m->ExecuteScalar("select max(MID(m5m_no,3,LENGTH(m5m_no)-2)+0) from eorder_m5m where  LEFT(m5m_no,1)='H'")+1;
+		$no = 'H-'.($maxindex);
 		$taxno = $no;		
 		$doctype ='PS';
 	}else if($customer->Rs("cus_cnt_id")>1){
-		$no = 'IN'.($m5m->ExecuteScalar("select max(MID(m5m_no,3,LENGTH(m5m_no)-2)+0) from eorder_m5m,eorder where eorderid=eorder_m5mid and ord_cus_id =  {$customer->Rs('customerid')}")+1);
+		$maxindex = $m5m->ExecuteScalar("select max(MID(m5m_no,3,LENGTH(m5m_no)-2)+0) from eorder_m5m,eorder where eorderid=eorder_m5mid and ord_cus_id =  {$customer->Rs('customerid')}")+1;
+		$no = 'IN'.($maxindex);
 		$taxno = $no;	
 		$doctype ='IS';
 	}else{
-		$no = 'B-'.($m5m->ExecuteScalar("select max(MID(m5m_no,3,LENGTH(m5m_no)-2)+0) from eorder_m5m where  LEFT(m5m_no,1)='B'")+1);
+		$maxindex = $m5m->ExecuteScalar("select max(MID(m5m_no,3,LENGTH(m5m_no)-2)+0) from eorder_m5m where  LEFT(m5m_no,1)='B'")+1;
+		$no = 'B-'.($maxindex);
 		$taxno = $no;	
 		$doctype ='IS';
 	}
@@ -81,6 +84,8 @@
 		$m5m->Set("eorder_m5mid","'$eorderid'");
 		$m5m->Set("m5m_cum_code","'$cus_mac_code'");
 		$m5m->Set("m5m_no","'$no'");
+		$m5m->Set("m5m_cacheno1","'".substr($no,0,1)."'");
+		$m5m->Set("m5m_cacheno2","'$maxindex'");
 		
 		if($doctype=='IS'){
 			$m5m->Set("m5m_taxno","'$taxno'");

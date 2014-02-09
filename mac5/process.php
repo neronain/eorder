@@ -46,6 +46,8 @@
 		case 'saveno':
 			GetVar($no,"no");
 			$m5m->Set("m5m_no","'{$no}'");
+			$m5m->Set("m5m_cacheno1","'".substr($no,0,1)."'");
+			$m5m->Set("m5m_cacheno2","'".substr($no,2)."'");
 			$m5m->Update();				
 			?><input id="MAC5_No" type="text" style="width:100px" value="<?=$m5m->Rs("m5m_no")?>" onBlur="MAC5_SaveNo(this.value,<?=$eorderid?>)" 
             onfocus="MAC5_CheckKeyDown(this,'MAC5_DCode_1')"><?
