@@ -112,7 +112,7 @@
 <span style="font-size:14px;font-weight:bold">
 <? if(count($data_orderAr)>1){ ?>
 	<? foreach($data_orderAr as $dt_order){ ?>
-    	<a href="mac5invoice.php?eorderid=<?=$dt_order['eorderid']?>&mac5_db=<?=preg_replace("^\[(.+)\]$","$1",$AppConfodbc_dbname)?>">
+    	<a href="mac5invoice.php?eorderid=<?=$dt_order['eorderid']?>&mac5_db=<?=preg_replace("/^\[(.+)\]$/","$1",$AppConfodbc_dbname)?>">
 		<?=$dt_order['ord_code']?> | 
         <?=$dt_order['cus_name']?> | 
         <?=$dt_order['doc_name']?> | 
