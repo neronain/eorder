@@ -7,7 +7,7 @@
 	$data_order = new CSql();
 	$data_order->Connect();	
 	
-
+	GetVar($mac5_db,"mac5_db");
 	GetVar($code,"code");
 	if($code!=""){
 		$data_order->Query("select * from eorder 
@@ -105,7 +105,10 @@
           <input type="text" name="code" id="txtcode" style="width:200;" value="">
           <input name="METHOD" type="submit" class="BTsearch" id="METHOD" value="GO!">
           <select name="mac5_db">
-          <option value="M5CM-RE-01">Mac5 เชียงใหม่</option>
+		  <option value="M5CM-RE-01" <?=$mac5_db=='M5CM-RE-01'?'selected="selected"':''?>>Mac5 เชียงใหม่</option>
+          <option value="M5CM-UQ-01" <?=$mac5_db=='M5CM-UQ-01'?'selected="selected"':''?>>Mac5 พิษณุโลก</option>
+		  <option value="M5CM-SO-01" <?=$mac5_db=='M5CM-SO-01'?'selected="selected"':''?>>Mac5 เชียงราย</option>
+		  <option value="M5CM-AB-02" <?=$mac5_db=='M5CM-AB-02'?'selected="selected"':''?>>Mac5 กรุงเทพฯ</option>
           </select>
 		   <input name="Stupid_IE_Bug" type="text" style="width:0;visibility:hidden" value="" size="1" >	
 </form>
