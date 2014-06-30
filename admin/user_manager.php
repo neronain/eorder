@@ -256,19 +256,19 @@
       </tr>
     </table>
 
-<div id="DivEditUserData" style="position:absolute;left:0px;top:500px;width:718px;height:500px;z-index:1;">
+<div id="DivEditUserData" style="position:absolute;left:0px;top:500px;width:718px;height:400px;z-index:1;">
   <? $tbframeheader = "Edit User Data"?>
   <? $tbframehclose = "CloseDivEditUserData()";?>
   <? include "../cfrontend/tbframeh.php"?>
-  <div id="DivUserData" style="overflow:auto;width:700px;height:450px"></div>
+  <div id="DivUserData" style="overflow:auto;width:700px;height:350px"></div>
   <? include "../cfrontend/tbframef.php"?>
 </div>
 
-<div id="DivShowUserData" style="position:absolute;left:0px;top:500px;width:718px;height:500px;z-index:1;">
+<div id="DivShowUserData" style="position:absolute;left:0px;top:500px;width:718px;height:400px;z-index:1;">
   <? $tbframeheader = "User Information"?>
   <? $tbframehclose = "CloseDivShowUserData()";?>
   <? include "../cfrontend/tbframeh.php"?>
-  <div id="DivUserInfo" style="overflow:auto;width:700px;height:450px"></div>
+  <div id="DivUserInfo" style="overflow:auto;width:700px;height:350px"></div>
   <? include "../cfrontend/tbframef.php"?>
 </div>
 

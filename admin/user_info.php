@@ -69,7 +69,10 @@
     <td width="100"><strong>Section</strong></td>
     <td>&nbsp;<?=$section_name?></td>
     </tr>
-  
+    <tr>
+        <td width="100"><strong>Branch</strong></td>
+        <td>&nbsp;<?=$branch_name?></td>
+    </tr>
   <tr>
     <td width="100"><strong>Status</strong></td>
     <td>&nbsp;<?= ($enable)? "Enable" : "Disable"?></td>

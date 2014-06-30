@@ -245,7 +245,9 @@
 			}else{
 				$tb = $this->TableName;
 				$this->current_cursor = $this->Cursor;
-				$returnval=$this->Execute("Update ".$this->TableName." Set ".$this->EditStr." Where {$tb}ID=".$this->Rs("{$tb}ID")." $addwhere;");
+                $sql = "Update ".$this->TableName." Set ".$this->EditStr." Where {$tb}ID=".$this->Rs("{$tb}ID")." $addwhere;";
+                //echo $sql;
+				$returnval=$this->Execute($sql);
 				$this->EditStr="NULL";
 			}
 			$this->Refresh();

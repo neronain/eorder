@@ -11,6 +11,7 @@
 	GetSession($usertype,"usertype");
 	GetSession($userstfid,"userstfid");
 	GetSession($usersecid,"usersecid");
+    GetSession($userbrnid,"userbrnid");
 	
 	
 	if(!isset($SKIPPERMISSION) && !isset($usertype)){

@@ -59,7 +59,30 @@
 								?>
     </select></td>
     </tr>
-  
+    <tr>
+        <td width="100">Branch</td>
+        <td><select name="branch" id="branch"  style="overflow:hidden;width:250px">
+                <?
+                $data = new CSql();
+                $data->Connect();
+
+                $data->Query("SELECT * FROM branch order by branchid");
+
+                while(!$data->EOF){
+
+                    $bid 		= $data->Rs("branchid");
+                    $branch_name = $data->Rs("branch_name");
+
+                    if($branch_id == $bid)
+                        echo "<option selected=\"selected\" value=\"".$bid."\">".$branch_name."</option>";
+                    else
+                        echo "<option value=\"".$bid."\">".$branch_name."</option>";
+
+                    $data->MoveNext();
+                }
+                ?>
+            </select></td>
+    </tr>
   <tr>
     <td width="100">Enable</td>
     <td><label>

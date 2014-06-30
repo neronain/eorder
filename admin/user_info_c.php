@@ -24,7 +24,7 @@
 		}
 	}
 	if(isset($staff_id) && $staff_id != 0) {
-		$staff_data->Query("select stf_name,stf_code,stf_idcard,stf_enable,stf_prefix,sec_room,sec_type from staff,section where staffid=$staff_id and stf_sec_id=sectionid limit 1");
+		$staff_data->Query("select stf_name,stf_code,stf_idcard,stf_enable,stf_prefix,sec_room,sec_type,branch_name from staff,section,branch where staffid=$staff_id and stf_sec_id=sectionid and stf_brn_id=branchid limit 1");
 		if(!$staff_data->EOF) {
 			$staff_name = $staff_data->Rs("stf_name");
 			$staff_code = $staff_data->Rs("stf_code");
@@ -37,6 +37,7 @@
 				case "O": $sname = "[ Ortho ] "; break;
 			}
 			$section_name .= $staff_data->Rs("sec_room");
+            $branch_name = $staff_data->Rs("branch_name");
 		}
 	} elseif(isset($customer_id) && $customer_id != 0) {
 		$customer_data->Query("select cus_name,cus_nick,cus_address,cus_shipaddress,cus_billaddress,cnt_name,prv_name from customer,province,country where cus_cnt_id = countryid and cus_prv_id = provinceid and customerid=$customer_id limit 1");

@@ -25,6 +25,7 @@ function validateEmail($email)
 	$staff_code = $_GET["code"];
 	$staff_idcard = $_GET["idcard"];
 	$staff_sect = $_GET["section"];
+    $staff_brn = $_GET["branch"];
 	$staff_enable = $_GET["stfenable"];
 	//Customer Information
 	$customer_name = $_GET["labname"];
@@ -83,6 +84,7 @@ function validateEmail($email)
 				$data->Set("stf_prefix","'$staff_prefix'");
 				$data->Set("stf_name","'$staff_name'");
 				$data->Set("stf_sec_id","'$staff_sect'");
+                $data->Set("stf_brn_id","'$staff_brn'");
 				$data->Set("stf_code","'$staff_code'");
 				$data->Set("stf_idcard","'$staff_idcard'");
 				$data->Set("stf_enable","'$staff_enable'");
@@ -146,6 +148,7 @@ function validateEmail($email)
 				$data->Set("stf_prefix","'$staff_prefix'");
 				$data->Set("stf_name","'$staff_name'");
 				$data->Set("stf_sec_id","'$staff_sect'");
+                $data->Set("stf_brn_id","'$staff_brn'");
 				$data->Set("stf_code","'$staff_code'");
 				$data->Set("stf_idcard","'$staff_idcard'");
 				$data->Set("stf_enable","'$staff_enable'");

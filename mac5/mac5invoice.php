@@ -105,10 +105,28 @@
           <input type="text" name="code" id="txtcode" style="width:200;" value="">
           <input name="METHOD" type="submit" class="BTsearch" id="METHOD" value="GO!">
           <select name="mac5_db">
-		  <option value="M5CM-RE-01" <?=$mac5_db=='M5CM-RE-01'?'selected="selected"':''?>>Mac5 เชียงใหม่</option>
-          <option value="M5CM-UQ-01" <?=$mac5_db=='M5CM-UQ-01'?'selected="selected"':''?>>Mac5 พิษณุโลก</option>
-		  <option value="M5CM-SO-01" <?=$mac5_db=='M5CM-SO-01'?'selected="selected"':''?>>Mac5 เชียงราย</option>
-		  <option value="M5CM-AB-02" <?=$mac5_db=='M5CM-AB-02'?'selected="selected"':''?>>Mac5 กรุงเทพฯ</option>
+
+              <?
+              $data = new CSql();
+              $data->Connect();
+
+              $data->Query("SELECT * FROM branch order by branchid");
+
+              while(!$data->EOF){
+                  $branch_id 		= $data->Rs("branchid");
+                  $branch_mac5db 		= $data->Rs("branch_mac5db");
+                  $branch_name = $data->Rs("branch_name");
+
+                  if($mac5_db!=NULL && $mac5_db == $branch_mac5db)
+                      echo "<option selected=\"selected\" value=\"".$branch_mac5db."\">".$branch_name."</option>";
+                 else if($mac5_db==NULL && $branch_id == $userbrnid)
+                      echo "<option selected=\"selected\" value=\"".$branch_mac5db."\">".$branch_name."</option>";
+                  else
+                      echo "<option value=\"".$branch_mac5db."\">".$branch_name."</option>";
+
+                  $data->MoveNext();
+              }
+              ?>
           </select>
 		   <input name="Stupid_IE_Bug" type="text" style="width:0;visibility:hidden" value="" size="1" >	
 </form>

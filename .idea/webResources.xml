@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebResourcesPaths">
+    <contentEntries>
+      <entry url="file://$PROJECT_DIR$">
+        <entryData>
+          <resourceRoots>
+            <path value="file://$PROJECT_DIR$/resource" />
+            <path value="file://$PROJECT_DIR$/SpryAssets" />
+            <path value="file://$PROJECT_DIR$/configuration" />
+            <path value="file://$PROJECT_DIR$/compiler" />
+          </resourceRoots>
+        </entryData>
+      </entry>
+    </contentEntries>
+  </component>
+</project>
+

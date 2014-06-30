@@ -73,21 +73,25 @@
 		}
 		
 		if($type=="ST"){
-			$data->Query("select staffid,stf_name,stf_sec_id from staff where stf_usr_id=$userid  ");
+			$data->Query("select staffid,stf_name,stf_sec_id,stf_brn_id from staff where stf_usr_id=$userid  ");
 			if($data->Count()>0){
 				$staffid = $data->Rs("staffid");
 				$stf_name = $data->Rs("stf_name");
 				$stf_sec_id = $data->Rs("stf_sec_id");
+                $stf_brn_id = $data->Rs("stf_brn_id");
 				
 				$_SESSION["userstfid"] = $staffid;
 				$_SESSION["usersecid"] = $stf_sec_id;
+                $_SESSION["userbrnid"] = $stf_brn_id;
 
 				setcookie("staffid",$staffid,0,'/');
 				setcookie("stf_name",$stf_name,0,'/');
 				setcookie("stf_sec_id",$stf_sec_id,0,'/');
+                setcookie("stf_brn_id",$stf_brn_id,0,'/');
 
 				setcookie("userstfid",$staffid,0,'/');
 				setcookie("usersecid",$stf_sec_id,0,'/');
+                setcookie("userbrnid",$stf_brn_id,0,'/');
 
 			}
 			
