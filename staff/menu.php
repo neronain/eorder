@@ -21,7 +21,7 @@
     <img src="../resource/images/menu/main_menu_report.gif" width="90" height="24" border="0" style="cursor:pointer" /></td>
 	
     <td height="30" align="center" bgcolor="#999999"><a href="../resource/IDAutomationHC39M_Free.ttf">Download barcode</a>
-    ID[<?=$userstfid?>] SEC[<?=$usersecid?>]    </td>
+    ID[<?=$userstfid?>] SEC[<?=$usersecid?>] BRN[<?=$userbrnid?>]    </td>
     <td height="30" bgcolor="#999999">&nbsp;</td>
     <td width="113" height="30" align="center" bgcolor="#999999"><? include("../core/logout.php")?></td>
   </tr>
