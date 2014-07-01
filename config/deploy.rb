@@ -21,7 +21,7 @@ set :repository,  "ssh://hexaceram/home/pppstudio/eorder2.git"
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-set :stages, ['main']
+set :stages, ['main','new']
 set :default_stage, 'main'
 set :branch, 'master'
 
