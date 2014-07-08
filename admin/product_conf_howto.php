@@ -19,7 +19,7 @@ global $fixmaterial_name;
 global $fixmaterial_shortname;
 global $fixmaterial_option_sname;
 
-global $removematerial_shortname;
+
 global $ortho_work_conf;
 $data = new Csql();
 $data->Connect();
@@ -39,7 +39,7 @@ function extractField($table,$column){
     return $retData;
 }
 
-$removematerial_shortname =
+
 
 
 
@@ -230,4 +230,6 @@ foreach($fieldAlter as $column => $tmp){
     <?
     }
 ?></textarea>
+
+
 <? include_once("../admin/footer.php"); ?>

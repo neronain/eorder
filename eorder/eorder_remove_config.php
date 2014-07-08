@@ -98,7 +98,7 @@ if(!$DEFINE_REMOVE_CONFIG){
         global $remove_config_main;
         global $remove_config_option;
 
-        return $remove_config_main[$arr[0]];
+        return $remove_config_main[$arr{0}];
 
         /*$result = "";
 
@@ -122,7 +122,7 @@ if(!$DEFINE_REMOVE_CONFIG){
         global $remove_config_main;
         global $remove_config_option;
 
-        return $remove_config_main[$arr[0]].$remove_config_option[$arr[0]][$arr[1]];
+        return $remove_config_main[$arr{0}].$remove_config_option[$arr{0}][$arr{1}];
 
 		/*$type[0] = array(
 			"0" => "None",
