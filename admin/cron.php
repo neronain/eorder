@@ -56,7 +56,7 @@ $cronSQL->Connect();
 
 $sql = "insert ignore into workperformance(workperf_type,workperf_method,workperf_mat_short,workperf_mat_full,workperf_sec_id)
 select distinct logcount_type,logcount_method,logcount_mat_short,logcount_mat_full,logcount_sec_id from logcount where 
-logcount_date > ".date('Y-m-d',mktime()-60*60*24*3);
+logcount_date > ".date('Y-m-d',mktime()-60*60*24*7);
 
 /*."and 
 logcount_method<> '' and logcount_mat_short <> '' and logcount_mat_full <> ''
@@ -70,7 +70,7 @@ $cronSQL->Execute($sql);
 $sql = "update `eorder`,customer set `ord_cache_cnt_id` = cus_cnt_id where ord_cus_id = customerid and `ord_cache_cnt_id` = 0;";
 $cronSQL->Execute($sql);
 
-$sql = "update `eordertoday`,customer set `ordt_cache_cnt_id` = cus_cnt_id where ordt_cus_id = customerid and `ordt_cache_cnt_id` = 0;"
+$sql = "update `eordertoday`,customer set `ordt_cache_cnt_id` = cus_cnt_id where ordt_cus_id = customerid and `ordt_cache_cnt_id` = 0;";
 $cronSQL->Execute($sql);
 
 

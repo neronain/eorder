@@ -25,6 +25,7 @@
             <a href="exchange_manager_c.php">- Exchange Rate</a><br/>
             <a href="eorder_repairrework_editconftable.php">- Defect code</a><br/>
             <a href="workperf_manager_c.php">- Performance config</a><br/>
+            <a href="product_conf_howto.php">- วิธีแก้ไขสินค้า</a><br/>
             <br/>
 
             <strong>Section manager</strong><br/>

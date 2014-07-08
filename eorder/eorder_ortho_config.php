@@ -101,6 +101,3 @@ $ortho_worklower_conf["Clear Retainer"] = "Clear Retainer";
 $ortho_worklower_conf["Lingual Indirect Bonding"] = "Lingual Indirect Bonding";
 
 
-
-
-?>

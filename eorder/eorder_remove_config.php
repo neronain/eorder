@@ -1,4 +1,50 @@
 <?php
+$remove_config_main = array(
+    "0" => "None",
+    "A" => "RPD",
+    "B" => "TP",
+    "C" => "Acetal",
+    "D" => "Hexa-Flex",
+    "E" => "Order spacial Tray",
+    "F" => "Bite Block",
+    "G" => "Order spacial Tray + Bite Block",
+    "H" => "Removeable bridge",
+);
+
+$remove_config_option = array(
+    "A" => array(
+        "A" => " + Full Plate",
+        "B" => " + Lingual Plate",
+        "C" => " + Lingual Bar",
+        "D" => " + Kennedy Bar",
+        "E" => " + Palatal Stap (minimal coverage)",
+        "F" => " + Skeleton Design",
+        "G" => " + Horseshoe Plate",
+        "H" => " + Ackers METAL",
+        "I" => " + Rebase",
+        "J" => " + Pepair",
+        "K" => " + Adiunction",
+        "L" => " + None"),
+    "B" => array(
+        "A" => " + Block Out & Duplicate Technique",
+        "B" => " + Full Denture",
+        "C" => " + Partial Denture",
+        "D" => " + Rebase",
+        "E" => " + Reline",
+        "F" => " + Addition",
+        "G" => " + Lingualized Occlusion",
+        "H" => " + Repair"),
+     "C" => array(
+         "A" => " + Acetal Tooth",
+         "B" => " + Acetal Clasp",
+         "C" => " + All Acetal Frame Work",
+         "D" => " + All Acetal Removable Bridge",
+         "E" => " + Acetal Swing Lock"),
+    "D" => array(
+        "A" => " + Partial Denture",
+        "B" => " + Removable Bridge",
+        "C" => " + Special Request")
+);
 
 
 if(!$DEFINE_REMOVE_CONFIG){
@@ -49,7 +95,13 @@ if(!$DEFINE_REMOVE_CONFIG){
 	
 	function ExportRemoveMaterialTypeMain($arr) {
 		//var_dump ($arr);
-		$result = "";
+        global $remove_config_main;
+        global $remove_config_option;
+
+        return $remove_config_main[$arr[0]];
+
+        /*$result = "";
+
 		$type[0] = array(
 				"0" => "None",
 				"A" => "RPD",
@@ -62,12 +114,17 @@ if(!$DEFINE_REMOVE_CONFIG){
 				"H" => "Removeable bridge",
 	
 		);
-		return $type[0][$arr{0}];
+		return $type[0][$arr{0}];*/
 	}
 	function ExportRemoveMaterialTypeText($arr) {
 		//var_dump ($arr);
 		$result = "";
-		$type[0] = array(
+        global $remove_config_main;
+        global $remove_config_option;
+
+        return $remove_config_main[$arr[0]].$remove_config_option[$arr[0]][$arr[1]];
+
+		/*$type[0] = array(
 			"0" => "None",
 			"A" => "RPD",
 			"B" => "TP",
@@ -121,7 +178,7 @@ if(!$DEFINE_REMOVE_CONFIG){
 		}
 		
 		return $type[0][$arr{0}].$type[1][$arr{1}];
-		//return $type[0][$arr{0}].$type[1][$arr{1}].$type[2][$arr{2}].$type[3][$arr{3}];
+		//return $type[0][$arr{0}].$type[1][$arr{1}].$type[2][$arr{2}].$type[3][$arr{3}];*/
 	}
 
 }
