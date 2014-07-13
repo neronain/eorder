@@ -107,6 +107,15 @@ function popUpWindow(URLStr, left, top, width, height)
           </select>
       </div></td>
     </tr>
+    <tr>
+        <td align="left" class="Normal"><label>
+                <input name="BranchChkBox" type="checkbox" id="BranchChkBox" value="1" onClick="findObj('divShowBranch').style.display=(this.checked?'inline':'none')">
+                Branch </label></td>
+
+        <td><div id="divShowBranch" style="display:none"><?  buildComboBoxList('branch','branch','branchid',array('branch_name'),$userbrnid,"") ?></div></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
   <tr>
     <td align="left" class="Normal"><label>
       <input name="CountryChkBox" type="checkbox" id="CountryChkBox" value="1" onClick="findObj('divShowCountry').style.display=(this.checked?'inline':'none')">

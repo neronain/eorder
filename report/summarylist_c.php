@@ -117,7 +117,14 @@ include_once("../order/inc_getstring.php");
 	}else{
 		$query = "from eorder where TRUE ";
 	}
-	
+
+
+    $branch = $_GET["branch"];
+    $isbranch 		= $_GET["BranchChkBox"];
+    if($isbranch == 1){
+        $query .=" and ord_brn_id = $branch ";
+    }
+
 	if($searchtype=="date"){
 	
 		if($order=="arrive"){

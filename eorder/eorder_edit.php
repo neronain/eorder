@@ -103,6 +103,11 @@ function refreshVisibleData(){
         <td height="25">Customer name</td>
         <td height="25"><?=$customer_nickname." ".$customer_name?></td>
         </tr>
+        <tr>
+            <td height="25" valign="top" style="padding-top:7px">Branch</td>
+            <td height="25"><div id="DivComboAgent"><?  buildComboBoxList('eorder_brn_id','branch','branchid',array('branch_name'),$brn_id,"") ?></td>
+        </tr>
+        <tr>
       <tr>
         <td height="25" valign="top" style="padding-top:7px">Agent/Code</td>
         <td height="25"><div id="DivComboAgent"><?  buildComboBoxList('eorder_agentid','agent order by agn_name','agentId',array('agn_name'),$agent_id,"") ?>&nbsp;<input type="button" id="add_agent" value="Add Agent" onclick="showHTML('DivComboAgent','../eorder/agent_add.php?cid=<?=$customer_id?>&aid='+getValue('eorder_agentid'));"></div></td>

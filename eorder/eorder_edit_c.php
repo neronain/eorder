@@ -28,6 +28,7 @@
 		}
 		$order_code = $data->Rs("ord_code");
 		$order_no = $data->Rs("ord_no");
+        $brn_id =  $data->Rs("ord_brn_id");
 		$ordpriority = $data->Rs("ord_priority");
 		$customer_id =  $data->Rs("ord_cus_id");
 		$doctor_id =  $data->Rs("ord_doc_id");
@@ -203,6 +204,7 @@
 		$ordpriority = "C";
 
 		$agent_id =  0;
+        $brn_id =  $userbrnid;
 
 		$today = getdate();
 		$month = $today['mon'];

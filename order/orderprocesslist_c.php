@@ -63,6 +63,15 @@ if($iscountry==1)
 	}
 	
 }
+
+$branch = $_GET["branch"];
+$isbranch 		= $_GET["BranchChkBox"];
+if($isbranch == 1){
+    $query .=" and ordt_brn_id = $branch ";
+}
+
+
+
 //echo $countrySQL;
 $iquery .= "  ";
 
@@ -82,6 +91,11 @@ ordt_isship=FALSE $countrySQL and DATE(ordt_arrivedate) =  '$cyear-$cmonth-$cdat
 
 ";
 
+$branch = $_GET["branch"];
+$isbranch 		= $_GET["BranchChkBox"];
+if($isbranch == 1){
+    $query .=" and ordt_brn_id = $branch ";
+}
 
 
 /*

@@ -98,6 +98,15 @@
 	}else{
 		$query = "from eordertoday where TRUE ";
 	}
+
+
+    $branch = $_GET["branch"];
+    $isbranch 		= $_GET["BranchChkBox"];
+    if($isbranch == 1){
+        $query .=" and ordt_brn_id = $branch ";
+    }
+
+
 	if($searchtype=="date"){
 		$query  .= " and DATE(ordt_deliverydate) =  '$cyear-$cmonth-$cdate' ";
 		

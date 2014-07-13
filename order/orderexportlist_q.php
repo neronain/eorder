@@ -77,7 +77,7 @@ function popUpWindow(URLStr, left, top, width, height)
     <td align="right" class="Normal"><label>
       <input type="checkbox" name="selectTypeChkBox" id="selectTypeChkBox" value ="1" onClick="findObj('divSelectType').style.display=(this.checked?'inline':'none')">
     </label></td>
-    <td align="left" class="Normal">Select type      </td>
+    <td align="left" class="Normal"><label for="selectTypeChkBox">Select type</label>      </td>
     <td class="Normal">
     <div id = divSelectType style="display:none">
       <select name="type">
@@ -88,11 +88,22 @@ function popUpWindow(URLStr, left, top, width, height)
       </select></div>    </td>
     <td>&nbsp;</td>
   </tr>
+
+    <tr>
+        <td align="right" class="Normal"><label>
+                <input name="BranchChkBox" type="checkbox" id="BranchChkBox" value="1" onClick="findObj('divShowBranch').style.display=(this.checked?'inline':'none')">
+            </label></td>
+        <td align="left" class="Normal"><label for="BranchChkBox">Branch</label></td>
+        <td><div id="divShowBranch" style="display:none"><?  buildComboBoxList('branch','branch','branchid',array('branch_name'),$userbrnid,"") ?></div></td>
+        <td>&nbsp;</td>
+    </tr>
+
+
   <tr>
     <td align="right" class="Normal"><label>
       <input name="CountryChkBox" type="checkbox" id="CountryChkBox" value="1" onClick="findObj('divShowCountry').style.display=(this.checked?'inline':'none')">
     </label></td>
-    <td align="left" class="Normal">Country</td>
+    <td align="left" class="Normal"><label for="CountryChkBox">Country</label></td>
     <td><div id="divShowCountry" style="display:none"><?  buildComboBoxList('country','country','countryid',array('cnt_name'),$country,"") ?></div></td>
     <td>&nbsp;</td>
   </tr>

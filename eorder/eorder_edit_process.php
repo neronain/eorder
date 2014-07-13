@@ -22,6 +22,7 @@
 	}else{
 		$eorder_code = "[autono]";
 	}
+    $eorder_brn_id = $_POST["eorder_brn_id"];
 	$eorder_custid = $_POST["eorder_custid"];
 	$customer_id = $eorder_custid;
 	$eorder_doctid = $_POST["eorder_doctid"];
@@ -254,6 +255,7 @@
 
 		$data->Query("select * from eorder where eorderid=$eorder_id limit 0,1");
 		$data->TableName = "eorder";
+        $data->Set("ord_brn_id","$eorder_brn_id");
 		$data->Set("ord_doc_id","$eorder_doctid");
 		$data->Set("ord_agn_id","$eorder_agentid");
 		$data->Set("ord_patientname","'$eorder_patname'");
@@ -322,6 +324,7 @@
 				set
 				ordt_code = ord_code,
 				ordt_no = ord_no,
+				ordt_brn_id = ord_brn_id,
 				ordt_doc_id = ord_doc_id,
 				ordt_agn_id = ord_agn_id,
 				ordt_cus_id = ord_cus_id,
@@ -481,6 +484,7 @@
 		$data->Query("select * from eorder where eorderid=$eorder_id limit 0,1");
 		$data->TableName = "eorder";
 		$data->Set("ord_no","'$eorder_no'");
+        $data->Set("ord_brn_id","$eorder_brn_id");
 		$data->Set("ord_doc_id","$eorder_doctid");
 		$data->Set("ord_agn_id","$eorder_agentid");
 		$data->Set("ord_patientname","'$eorder_patname'");
@@ -649,8 +653,9 @@
 			set
 			ordt_code = ord_code,
 			ordt_no = ord_no,
+			ordt_brn_id = ord_brn_id,
 			ordt_doc_id =ord_doc_id,
-			ordt_agn_id =ord_agn_id,
+			ordt_agn_id = ord_agn_id,
 			ordt_cus_id = ord_cus_id,
 			ordt_cache_cnt_id = ord_cache_cnt_id,
 			ordt_cache_type = ord_cache_type,
