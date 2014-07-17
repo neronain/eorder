@@ -74,7 +74,7 @@ for($i=0;$i<count($fixmaterial_shortname);$i++){
 
     foreach($fieldCheckerShort as $field_key => $field_ar){
         //echo "Check $fullname in $field_key";
-        if(!in_array($fullname,$field_ar)){
+        if(!in_array($fullname,$$fieldCheckerShort[$field_key])){
             //echo "Missing $fullname  in $field_key<br/>";
             $fieldCheckerShort[$field_key][] = $fullname;
             $fieldAlter[$field_key] = true;
@@ -86,7 +86,7 @@ for($i=0;$i<count($fixmaterial_shortname);$i++){
         $checkname = $fullname.$option_sname[$j];
 
         foreach($fieldCheckerFull as $field_key => $field_ar){
-            if(!in_array($checkname,$field_ar)){
+            if(!in_array($checkname,$$fieldCheckerFull[$field_key])){
                 //echo "Missing $checkname  in $field_key<br/>";
                 $fieldCheckerFull[$field_key][] = $checkname;
                 $fieldAlter[$field_key] = true;
@@ -106,7 +106,7 @@ foreach($remove_config_main as $key => $fullname){
 
     foreach($fieldCheckerShort as $field_key => $field_ar){
         //echo "Check $fullname in $field_key";
-        if(!in_array($fullname,$field_ar)){
+        if(!in_array($fullname,$$fieldCheckerShort[$field_key])){
             //echo "Missing $fullname  in $field_key<br/>";
             $fieldCheckerShort[$field_key][] = $fullname;
             $fieldAlter[$field_key] = true;
@@ -118,7 +118,7 @@ foreach($remove_config_main as $key => $fullname){
         $checkname = $fullname.$value2;
 
         foreach($fieldCheckerFull as $field_key => $field_ar){
-            if(!in_array($checkname,$field_ar)){
+            if(!in_array($checkname,$$fieldCheckerFull[$field_key])){
                 //echo "Missing $checkname  in $field_key<br/>";
                 $fieldCheckerFull[$field_key][] = $checkname;
                 $fieldAlter[$field_key] = true;
@@ -137,7 +137,7 @@ foreach($ortho_work_conf as $fullname => $tmp){
 
     foreach($fieldCheckerShort as $field_key => $field_ar){
         //echo "Check $fullname in $field_key";
-        if(!in_array($fullname,$field_ar)){
+        if(!in_array($fullname,$$fieldCheckerShort[$field_key])){
             //echo "Missing $fullname  in $field_key<br/>";
             $fieldCheckerShort[$field_key][] = $fullname;
             $fieldAlter[$field_key] = true;
@@ -157,7 +157,7 @@ foreach($ortho_workupper_conf as $fullname => $tmp){
 
     foreach($fieldCheckerShort as $field_key => $field_ar){
         //echo "Check $fullname in $field_key";
-        if(!in_array($fullname,$field_ar)){
+        if(!in_array($fullname,$$fieldCheckerShort[$field_key])){
             //echo "Missing $fullname  in $field_key<br/>";
             $fieldCheckerShort[$field_key][] = $fullname;
             $fieldAlter[$field_key] = true;
@@ -178,7 +178,7 @@ foreach($ortho_worklower_conf as $fullname => $tmp){
 
     foreach($fieldCheckerShort as $field_key => $field_ar){
         //echo "Check $fullname in $field_key";
-        if(!in_array($fullname,$field_ar)){
+        if(!in_array($fullname,$$fieldCheckerShort[$field_key])){
             //echo "Missing $fullname  in $field_key<br/>";
             $fieldCheckerShort[$field_key][] = $fullname;
             $fieldAlter[$field_key] = true;
