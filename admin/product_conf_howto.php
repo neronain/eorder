@@ -66,6 +66,18 @@ $fieldCheckerFull = array(
     'workperf_mat_full' => $workperf_mat_full,
 );
 
+?> 
+<!--
+<? var_dump($fieldCheckerShort) ?>
+ -->
+ 
+<!--
+<? var_dump($fieldCheckerShort) ?>
+ -->
+
+ 
+ <?
+
 
 for($i=0;$i<count($fixmaterial_shortname);$i++){
     $fullname = $fixmaterial_shortname[$i];
