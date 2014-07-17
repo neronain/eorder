@@ -75,7 +75,7 @@ for($i=0;$i<count($fixmaterial_shortname);$i++){
     foreach($fieldCheckerShort as $field_key => $field_ar){
         //echo "Check $fullname in $field_key";
         if(!in_array($fullname,$$fieldCheckerShort[$field_key])){
-            //echo "Missing $fullname  in $field_key<br/>";
+            echo "Missing $fullname  in $field_key<br/>";
             $fieldCheckerShort[$field_key][] = $fullname;
             $fieldAlter[$field_key] = true;
         }
@@ -87,7 +87,7 @@ for($i=0;$i<count($fixmaterial_shortname);$i++){
 
         foreach($fieldCheckerFull as $field_key => $field_ar){
             if(!in_array($checkname,$$fieldCheckerFull[$field_key])){
-                //echo "Missing $checkname  in $field_key<br/>";
+                echo "Missing $checkname  in $field_key<br/>";
                 $fieldCheckerFull[$field_key][] = $checkname;
                 $fieldAlter[$field_key] = true;
             }
@@ -107,7 +107,7 @@ foreach($remove_config_main as $key => $fullname){
     foreach($fieldCheckerShort as $field_key => $field_ar){
         //echo "Check $fullname in $field_key";
         if(!in_array($fullname,$$fieldCheckerShort[$field_key])){
-            //echo "Missing $fullname  in $field_key<br/>";
+            echo "Missing $fullname  in $field_key<br/>";
             $fieldCheckerShort[$field_key][] = $fullname;
             $fieldAlter[$field_key] = true;
         }
@@ -119,7 +119,7 @@ foreach($remove_config_main as $key => $fullname){
 
         foreach($fieldCheckerFull as $field_key => $field_ar){
             if(!in_array($checkname,$$fieldCheckerFull[$field_key])){
-                //echo "Missing $checkname  in $field_key<br/>";
+                echo "Missing $checkname  in $field_key<br/>";
                 $fieldCheckerFull[$field_key][] = $checkname;
                 $fieldAlter[$field_key] = true;
             }
@@ -138,14 +138,14 @@ foreach($ortho_work_conf as $fullname => $tmp){
     foreach($fieldCheckerShort as $field_key => $field_ar){
         //echo "Check $fullname in $field_key";
         if(!in_array($fullname,$$fieldCheckerShort[$field_key])){
-            //echo "Missing $fullname  in $field_key<br/>";
+            echo "Missing $fullname  in $field_key<br/>";
             $fieldCheckerShort[$field_key][] = $fullname;
             $fieldAlter[$field_key] = true;
         }
     }
 
     if(!in_array($fullname,$ordo_work)){
-        //echo "Missing $fullname  in ordo_work<br/>";
+        echo "Missing $fullname  in ordo_work<br/>";
         $ordo_work[] = $fullname;
         $fieldAlter['ordo_work'] = true;
     }
@@ -158,14 +158,14 @@ foreach($ortho_workupper_conf as $fullname => $tmp){
     foreach($fieldCheckerShort as $field_key => $field_ar){
         //echo "Check $fullname in $field_key";
         if(!in_array($fullname,$$fieldCheckerShort[$field_key])){
-            //echo "Missing $fullname  in $field_key<br/>";
+            echo "Missing $fullname  in $field_key<br/>";
             $fieldCheckerShort[$field_key][] = $fullname;
             $fieldAlter[$field_key] = true;
         }
     }
 
     if(!in_array($fullname,$ordo_workupper)){
-        //echo "Missing $fullname  in ordo_workupper<br/>";
+        echo "Missing $fullname  in ordo_workupper<br/>";
         $ordo_workupper[] = $fullname;
         $fieldAlter['ordo_workupper'] = true;
     }
@@ -179,14 +179,14 @@ foreach($ortho_worklower_conf as $fullname => $tmp){
     foreach($fieldCheckerShort as $field_key => $field_ar){
         //echo "Check $fullname in $field_key";
         if(!in_array($fullname,$$fieldCheckerShort[$field_key])){
-            //echo "Missing $fullname  in $field_key<br/>";
+            echo "Missing $fullname  in $field_key<br/>";
             $fieldCheckerShort[$field_key][] = $fullname;
             $fieldAlter[$field_key] = true;
         }
     }
 
     if(!in_array($fullname,$ordo_worklower)){
-        //echo "Missing $fullname  in ordo_worklower<br/>";
+        echo "Missing $fullname  in ordo_worklower<br/>";
         $ordo_worklower[] = $fullname;
         $fieldAlter['ordo_worklower'] = true;
     }
