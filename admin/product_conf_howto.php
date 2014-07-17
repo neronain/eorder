@@ -219,12 +219,24 @@ foreach($fieldAlter as $column => $tmp){
         case 'logcount_mat_short':
         case 'logcount_mat_full':
             $table = "logcount";
-            $enum =  array_merge($fieldCheckerShort[$column],$fieldCheckerFull[$column]);
+			$enum = array();
+			foreach($fieldCheckerShort[$column] as $k){
+				if(!in_array($k,$enum)){$enum[] = $k;}
+			}
+			foreach($fieldCheckerFull[$column] as $k){
+				if(!in_array($k,$enum)){$enum[] = $k;}
+			}
             break;
         case 'workperf_mat_short':
         case 'workperf_mat_full':
             $table = "workperformance";
-            $enum =  array_merge($fieldCheckerShort[$column],$fieldCheckerFull[$column]);
+			$enum = array();
+			foreach($fieldCheckerShort[$column] as $k){
+				if(!in_array($k,$enum)){$enum[] = $k;}
+			}
+			foreach($fieldCheckerFull[$column] as $k){
+				if(!in_array($k,$enum)){$enum[] = $k;}
+			}
             break;
         default:exit('Error '.$column.' not implement');
     }
