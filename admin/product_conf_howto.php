@@ -192,9 +192,15 @@ foreach($ortho_worklower_conf as $fullname => $tmp){
     }
 }
 ?>
+<!--
+<? var_dump($fieldCheckerShort);?>
+-->
+<!--
+<? var_dump($fieldCheckerFull);?>
+-->
 
 
-    <textarea style="width:80%;height:400px;border:dashed #C00 2px;">
+    <!--textarea style="width:80%;height:400px;border:dashed #C00 2px;">
 <?
 foreach($fieldAlter as $column => $tmp){
     switch($column){
@@ -229,7 +235,7 @@ foreach($fieldAlter as $column => $tmp){
 
     <?
     }
-?></textarea>
+?></textarea-->
 
 
 <? include_once("../admin/footer.php"); ?>
