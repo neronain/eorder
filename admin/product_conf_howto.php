@@ -195,7 +195,7 @@ foreach($ortho_worklower_conf as $fullname => $tmp){
 
 
 
-    <!--textarea style="width:80%;height:400px;border:dashed #C00 2px;">
+<textarea style="width:80%;height:400px;border:dashed #C00 2px;">
 <?
 foreach($fieldAlter as $column => $tmp){
     switch($column){
@@ -239,14 +239,9 @@ foreach($fieldAlter as $column => $tmp){
         ALTER TABLE <?=$table?> CHANGE <?=$column?> <?=$column?>
         ENUM('<?=implode("', '",$enum)?>') CHARACTER SET utf8
         COLLATE utf8_general_ci NOT NULL;
-
-		
-		<? var_dump($fieldCheckerShort[$column]); ?>
-		<? var_dump($fieldCheckerFull[$column]); ?>
-		
     <?
     }
-?></textarea-->
+?></textarea>
 
 
 <? include_once("../admin/footer.php"); ?>
