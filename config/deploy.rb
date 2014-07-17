@@ -1,6 +1,13 @@
 =begin
 ssh-keygen -t rsa -C "loopback"
 
+yum install ruby
+yum install rubygems
+gem install capistrano
+gem install capistrano-ext
+gem install capistrano_colors
+gem install railsless-deploy
+
 =end
 
 
