@@ -192,12 +192,7 @@ foreach($ortho_worklower_conf as $fullname => $tmp){
     }
 }
 ?>
-<!--
-<? var_dump($fieldCheckerShort);?>
--->
-<!--
-<? var_dump($fieldCheckerFull);?>
--->
+
 
 
     <!--textarea style="width:80%;height:400px;border:dashed #C00 2px;">
@@ -245,6 +240,10 @@ foreach($fieldAlter as $column => $tmp){
         ENUM('<?=implode("', '",$enum)?>') CHARACTER SET utf8
         COLLATE utf8_general_ci NOT NULL;
 
+		
+		<? var_dump($fieldCheckerShort[$column]); ?>
+		<? var_dump($fieldCheckerFull[$column]); ?>
+		
     <?
     }
 ?></textarea-->
