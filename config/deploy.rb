@@ -2,7 +2,7 @@
 lock '3.2.1'
 
 set :application, 'eorder2'
-set :repo_url, "ssh://hexaceram/home/pppstudio/eorder2.git"
+set :repo_url,  "ssh://hexa@svn.fusionhq.com/home/hexa/eorder2.git"
 
 set :deploy_via, :remote_cache
 

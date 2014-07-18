@@ -19,8 +19,9 @@ role :db,  %w{pppstudio@hexaceram}
 
 set :deploy_to, "/var/www/html/apps/eorder2"
 
-set :repo_url,  "ssh://pppstudio@192.168.0.100/home/pppstudio/eorder2.git"
-server "hexaceram", user: 'pppstudio', roles: %w{web app}
+#set :repo_url,  "ssh://hexa@svn.fusionhq.com/home/hexa/eorder2.git"
+#server "hexaceram", user: 'pppstudio', roles: %w{web app}
+server "hexaceram", user: 'pppstudio'
 set :port,22
 
 # Custom SSH Options
