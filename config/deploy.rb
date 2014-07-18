@@ -1,8 +1,8 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'eorder2'
+set :repo_url, "ssh://hexaceram/home/pppstudio/eorder2.git"
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
@@ -33,6 +33,7 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+set :deploy_to, "/var/www/apps/eorder2"
 
 namespace :deploy do
 
