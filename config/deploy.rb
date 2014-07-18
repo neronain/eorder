@@ -4,7 +4,9 @@ lock '3.2.1'
 set :application, 'eorder2'
 set :repo_url, "ssh://hexaceram/home/pppstudio/eorder2.git"
 set :deploy_via, :remote_cache
-set :shared_children, shared_children + %w{textdb tmp log file}
+
+set :linked_dirs, %w{textdb tmp log file}
+
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
