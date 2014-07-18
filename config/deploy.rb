@@ -4,6 +4,8 @@ lock '3.2.1'
 set :application, 'eorder2'
 set :repo_url, "ssh://hexaceram/home/pppstudio/eorder2.git"
 
+#set :forward_agent, false
+
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
@@ -20,7 +22,7 @@ set :repo_url, "ssh://hexaceram/home/pppstudio/eorder2.git"
 # set :log_level, :debug
 
 # Default value for :pty is false
-# set :pty, true
+set :pty, true
 
 # Default value for :linked_files is []
 # set :linked_files, %w{config/database.yml}

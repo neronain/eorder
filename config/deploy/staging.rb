@@ -4,9 +4,9 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-#role :app, %w{deploy@example.com}
-#role :web, %w{deploy@example.com}
-#role :db,  %w{deploy@example.com}
+role :app, %w{pppstudio@hexaceram}
+role :web, %w{pppstudio@hexaceram}
+role :db,  %w{pppstudio@hexaceram}
 
 
 # Extended Server Syntax
@@ -19,8 +19,8 @@
 
 set :deploy_to, "/var/www/html/apps/eorder2"
 
-set :repository,  "ssh://hexaceram/home/pppstudio/eorder2.git"
-server "hexaceram",:web,:app,:db
+set :repo_url,  "ssh://pppstudio@192.168.0.100/home/pppstudio/eorder2.git"
+server "hexaceram", user: 'pppstudio', roles: %w{web app}
 set :port,22
 
 # Custom SSH Options
