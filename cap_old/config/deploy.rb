@@ -33,7 +33,6 @@ set :default_stage, 'main'
 set :branch, 'master'
 
 
-
 set :use_sudo,false
 set :deploy_via, :remote_cache
 
