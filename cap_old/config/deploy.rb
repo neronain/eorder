@@ -34,6 +34,7 @@ set :branch, 'master'
 
 
 set :use_sudo,false
+#set :deploy_via, :copy
 set :deploy_via, :remote_cache
 
 set :keep_releases, 2
