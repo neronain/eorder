@@ -449,11 +449,9 @@
 			}
 			echo "<input type=\"text\"  id=\"MAC5_DVcol_{$index}\" style=\"width:80px\" value=\"".$vcol."\" 
 					onBlur=\"MAC5_SaveVcol({$index},{$eorderid},'{$mac5_db}')\"  onfocus=\"MAC5_CheckKeyDown(this,'MAC5_DCode_".($index+1)."')\">";
-			
-			break;
-						
-			
-			
+
+            break;
+
 		case 'savediscount':
 			GetVar($disc,"disc");
 			$m5m->Set("m5m_discount","'$disc'");
