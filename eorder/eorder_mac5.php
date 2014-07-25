@@ -264,7 +264,7 @@ MIHexchg
        onfocus="MAC5_CheckKeyDown(this,0)"
       >
         </div></td>
-    <td width="400" align="center" bgcolor="#339900" class="mac5_style" style="color:#FFFFFF"><strong>ใบนำส่งเข้าโปรแกรม MAC5</strong></td>
+    <td width="400" align="center" bgcolor="#339900" class="mac5_style" style="color:#FFFFFF"><strong>ใบนำส่งเข้าโปรแกรม MAC5<?=$AppConfodbc_dbname?></strong></td>
     <td rowspan="3" align="center" valign="top" bgcolor="#FFFFFF" class="mac5_style">
       <table border="0" cellspacing="0" cellpadding="0" class="mac5_style">
         <tr>
