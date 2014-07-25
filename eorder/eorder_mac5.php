@@ -49,6 +49,18 @@
 	$eorder->Query("select * from eorder where eorderid=$eorder_id limit 1");
 	if($eorder->EOF) {exit("Invalid e-orderID $eorderid");}
 	$ord_cus_id = $eorder->Rs("ord_cus_id");
+    $ord_brn_id = $eorder->Rs("ord_brn_id");
+
+
+
+    $branch = new Csql();
+    $branch->Query("select * from branch where branchid=$ord_brn_id limit 1");
+    if($branch->EOF) {exit("Invalid branchid $ord_brn_id");}
+    $branch->TableName = "customer";
+    $branch_mac5db = $customer->Rs("branch_mac5db");
+
+    global $AppConfodbc_dbname;
+    $AppConfodbc_dbname = '['.$branch_mac5db.']';
 
 
 	$customer = new Csql();
