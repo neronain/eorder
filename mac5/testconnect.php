@@ -1,7 +1,7 @@
 <?
 	include_once("../core/default.php");
-	$con = mssql_connect("192.168.0.133","sa","HeXa380");
-	mssql_select_db("[M5CM-EH-01]",$con);
+	$con = mssql_connect($AppConfodbc_host,"sa","HeXa380");
+	mssql_select_db($AppConfodbc_dbname,$con);
 	$rs = mssql_query("select TOP 10 DEBcode from DEB");
 	while (($row=mssql_fetch_array($rs))!=null) {
 		 var_dump($row);
