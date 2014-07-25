@@ -49,14 +49,14 @@
 			$m5m->Set("m5m_cacheno1","'".substr($no,0,1)."'");
 			$m5m->Set("m5m_cacheno2","'".substr($no,2)."'");
 			$m5m->Update();				
-			?><input id="MAC5_No" type="text" style="width:100px" value="<?=$m5m->Rs("m5m_no")?>" onBlur="MAC5_SaveNo(this.value,<?=$eorderid?>)" 
+			?><input id="MAC5_No" type="text" style="width:100px" value="<?=$m5m->Rs("m5m_no")?>" onBlur="MAC5_SaveNo(this.value,<?=$eorderid?>,'<?=$mac5_db?>')"
             onfocus="MAC5_CheckKeyDown(this,'MAC5_DCode_1')"><?
 			break;	
 		case 'savetaxno':
 			GetVar($taxno,"taxno");
 			$m5m->Set("m5m_taxno","'{$taxno}'");
 			$m5m->Update();				
-			?><input id="MAC5_TaxNo"  type="text" style="width:100px" value="<?=$m5m->Rs("m5m_taxno")?>" onBlur="MAC5_SaveTaxNo(this.value,<?=$eorderid?>)"
+			?><input id="MAC5_TaxNo"  type="text" style="width:100px" value="<?=$m5m->Rs("m5m_taxno")?>" onBlur="MAC5_SaveTaxNo(this.value,<?=$eorderid?>,'<?=$mac5_db?>')"
              onfocus="MAC5_CheckKeyDown(this,'MAC5_DCode_1')"
             ><?
 			break;	
@@ -100,7 +100,7 @@
 						
 				}else{
 					echo '<div class="div-selector-main">'; ?>
-					<div class="div-selector-option" onClick="MAC5_CustomerSeletorClick('<?=$cum_code?>',<?=$eorderid?>)">
+					<div class="div-selector-option" onClick="MAC5_CustomerSeletorClick('<?=$cum_code?>',<?=$eorderid?>,'<?=$mac5_db?>')">
 						<?=$cum_code?> <?=tis620_to_utf8($cum_nameT)." ".
 						tis620_to_utf8($cum_add1AT)." ".
 						tis620_to_utf8($cum_add2AT)." ".
@@ -159,7 +159,7 @@
 			
 			$m5m_pdcname = $pdcname;
 					?>
-					<select onChange="MAC5_ChangeProductName(this.value,<?=$eorderid?>)">
+					<select onChange="MAC5_ChangeProductName(this.value,<?=$eorderid?>,'<?=$mac5_db?>')">
 					  <option value="T1" <?=$m5m_pdcname=='T1'?'selected':''?>>Thai</option>
 					  <option value="E1" <?=$m5m_pdcname=='E1'?'selected':''?>>Eng1</option>
 					  <option value="E2" <?=$m5m_pdcname=='E2'?'selected':''?>>Eng2</option>
@@ -286,10 +286,10 @@
 				
 					$name = $STKdesc;
 					echo "<input type=\"text\"  id=\"MAC5_DName_{$index}\" style=\"width:400px\" value=\"".$name."\" 
-							onBlur=\"MAC5_SaveName({$index},{$eorderid})\"  onfocus=\"MAC5_CheckKeyDown(this,'MAC5_DQty_{$index}')\">";
+							onBlur=\"MAC5_SaveName({$index},{$eorderid},'{$mac5_db}')\"  onfocus=\"MAC5_CheckKeyDown(this,'MAC5_DQty_{$index}')\">";
 				}else{
 					echo '<div class="div-selector-main">'; ?>
-					<div class="div-selector-option" onClick="MAC5_ItemSeletorClick('<?=$STKcode?>',<?=$index?>,<?=$eorderid?>)">
+					<div class="div-selector-option" onClick="MAC5_ItemSeletorClick('<?=$STKcode?>',<?=$index?>,<?=$eorderid?>,'<?=$mac5_db?>')">
 						<?=$STKcode?> <?=tis620_to_utf8($STKdesc)?><br />
 						<font color=#ff0000> กรุณาคลิ๊กเพื่อบันทึก</font>
 					</div>
@@ -314,7 +314,7 @@
 					
 					
 					?>
-					<div class="div-selector-option" onClick="MAC5_ItemSeletorClick('<?=$STKcode?>',<?=$index?>,<?=$eorderid?>)">
+					<div class="div-selector-option" onClick="MAC5_ItemSeletorClick('<?=$STKcode?>',<?=$index?>,<?=$eorderid?>,'<?=$mac5_db?>')">
 						<?=$STKcode?> <?=tis620_to_utf8($STKdesc)?>
 					</div>
                     <?
@@ -375,7 +375,7 @@
 		case 'processitemprice':
 			if($code==''){
 				echo "<input type=\"text\"  id=\"MAC5_DPrice_{$index}\" class=\"numberfiled\" style=\"width:80px\" value=\"\" 
-				onBlur=\"MAC5_RefreshSumTotal({$index},{$eorderid})\"  onfocus=\"MAC5_CheckKeyDown(this,'MAC5_DCode_".($index+1)."')\">";
+				onBlur=\"MAC5_RefreshSumTotal({$index},{$eorderid},'{$mac5_db}')\"  onfocus=\"MAC5_CheckKeyDown(this,'MAC5_DCode_".($index+1)."')\">";
 				exit();
 			}
 			/*$price = null;
@@ -402,10 +402,10 @@
 			if(!$m5d->EOF) {
 				$price  = $m5d->Rs("m5d_price");
 				echo "<input type=\"text\"  id=\"MAC5_DPrice_{$index}\" class=\"numberfiled\" style=\"width:80px\" value=\"".number_format($price,2)."\" 
-					onBlur=\"MAC5_RefreshSumTotal({$index},{$eorderid})\"  onfocus=\"MAC5_CheckKeyDown(this,'MAC5_DCode_".($index+1)."')\">";
+					onBlur=\"MAC5_RefreshSumTotal({$index},{$eorderid},'{$mac5_db}')\"  onfocus=\"MAC5_CheckKeyDown(this,'MAC5_DCode_".($index+1)."')\">";
 			}else{
 				echo "<input type=\"text\"  id=\"MAC5_DPrice_{$index}\" class=\"numberfiled\" style=\"width:80px\" value=\"\" 
-					onBlur=\"MAC5_RefreshSumTotal({$index},{$eorderid})\"  onfocus=\"MAC5_CheckKeyDown(this,'MAC5_DCode_".($index+1)."')\">";
+					onBlur=\"MAC5_RefreshSumTotal({$index},{$eorderid},'{$mac5_db}')\"  onfocus=\"MAC5_CheckKeyDown(this,'MAC5_DCode_".($index+1)."')\">";
 			}
 			
 
@@ -434,7 +434,7 @@
 				$m5d->Update("and m5d_index=$index");					
 			}
 			echo "<input type=\"text\"  id=\"MAC5_DName_{$index}\" style=\"width:400px\" value=\"".$name."\" 
-					onBlur=\"MAC5_SaveName({$index},{$eorderid})\"  onfocus=\"MAC5_CheckKeyDown(this,'MAC5_DQty_".($index+1)."')\">";
+					onBlur=\"MAC5_SaveName({$index},{$eorderid},'{$mac5_db}')\"  onfocus=\"MAC5_CheckKeyDown(this,'MAC5_DQty_".($index+1)."')\">";
 			
 			break;
 		case 'savevcol':
@@ -448,7 +448,7 @@
 				$m5d->Update("and m5d_index=$index");					
 			}
 			echo "<input type=\"text\"  id=\"MAC5_DVcol_{$index}\" style=\"width:80px\" value=\"".$vcol."\" 
-					onBlur=\"MAC5_SaveVcol({$index},{$eorderid})\"  onfocus=\"MAC5_CheckKeyDown(this,'MAC5_DCode_".($index+1)."')\">";
+					onBlur=\"MAC5_SaveVcol({$index},{$eorderid},'{$mac5_db}')\"  onfocus=\"MAC5_CheckKeyDown(this,'MAC5_DCode_".($index+1)."')\">";
 			
 			break;
 						
@@ -460,7 +460,7 @@
 			$m5m->Update();		
 			?>
 			<input type="text"  id="MAC5_Disc" class="numberfiled" style="width:80px" value="<?=number_format($m5m->Rs('m5m_discount')+0,2)?>" 
-		        onBlur="MAC5_SaveDisCount(<?=$eorderid?>)" onfocus="MAC5_CheckKeyDown(this,'MAC5_DCode_1')"><?
+		        onBlur="MAC5_SaveDisCount(<?=$eorderid?>,'<?=$mac5_db?>')" onfocus="MAC5_CheckKeyDown(this,'MAC5_DCode_1')"><?
 			break;
 			
 			
@@ -482,7 +482,7 @@
 			$m5m->Update();		
 			?>
 			<input type="text"  id="MAC5_Exchg" class="numberfiled" style="width:80px" value="<?=number_format($m5m->Rs('m5m_exchg')+0,2)?>" 
-		        onBlur="MAC5_SaveExchg(<?=$eorderid?>)"  onfocus="MAC5_CheckKeyDown(this,'MAC5_DCode_1')"><?
+		        onBlur="MAC5_SaveExchg(<?=$eorderid?>,'<?=$mac5_db?>')"  onfocus="MAC5_CheckKeyDown(this,'MAC5_DCode_1')"><?
 			break;
 		case 'getexchange':
 			GetVar($pricegroup,"pricegroup");
@@ -498,7 +498,7 @@
 			
 			?>
 			<input type="text"  id="MAC5_Exchg" class="numberfiled" style="width:80px" value="<?=number_format($exchangerate['EX'.substr($pricegroup,0,3)]+0,2)?>" 
-		        onBlur="MAC5_SaveExchg(<?=$eorderid?>)"  onfocus="MAC5_CheckKeyDown(this,'MAC5_DCode_1')"><?
+		        onBlur="MAC5_SaveExchg(<?=$eorderid?>,'<?=$mac5_db?>')"  onfocus="MAC5_CheckKeyDown(this,'MAC5_DCode_1')"><?
 			break;			
 		case 'savenote':
 			GetVar($note,"note");
@@ -506,7 +506,7 @@
 			$m5m->Update();		
 			?>
 			<input type="text"  id="MAC5_Exchg" class="numberfiled" style="width:80px" value="<?=number_format($m5m->Rs('m5m_exchg')+0,2)?>" 
-		        onBlur="MAC5_SaveExchg(<?=$eorderid?>)" ><?
+		        onBlur="MAC5_SaveExchg(<?=$eorderid?>,'<?=$mac5_db?>')" ><?
 			break;
 		case 'calsum':
 			GetVar($qty,"qty");

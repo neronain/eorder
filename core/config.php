@@ -11,12 +11,14 @@
    	//$AppConfodbc_dbname = "[M5CM-AA-11]";
    	
    	$AppConfodbc_dbname = "[M5CM-RE-01]";
-   	
+   	$mac5_db = 'M5CM-RE-01';
    	if($_GET['mac5_db']){
    		$AppConfodbc_dbname = '['.$_GET['mac5_db'].']';
+        $mac5_db  = $_GET['mac5_db'];
    	}
    	if($_POST['mac5_db']){
    		$AppConfodbc_dbname = '['.$_POST['mac5_db'].']';
+        $mac5_db  = $_POST['mac5_db'];
    	}
    	
    	

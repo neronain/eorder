@@ -56,7 +56,7 @@
     $branch = new Csql();
     $branch->Query("select * from branch where branchid=$ord_brn_id limit 1");
     if($branch->EOF) {exit("Invalid branchid $ord_brn_id");}
-    $branch->TableName = "customer";
+    $branch->TableName = "branch";
     $branch_mac5db = $branch->Rs("branch_mac5db");
 
     global $AppConfodbc_dbname;
@@ -260,7 +260,7 @@ MIHexchg
   <tr>
     <td width="120" height="26" align="right" class="mac5_style">เลขที่</td>
     <td width="120" class="mac5_style"><div id="MAC5_DivNo">
-      <input id="MAC5_No"  type="text" style="width:100px" value="<?=$m5m->Rs("m5m_no")?>" onBlur="MAC5_SaveNo(this.value,<?=$eorder_id?>)"
+      <input id="MAC5_No"  type="text" style="width:100px" value="<?=$m5m->Rs("m5m_no")?>" onBlur="MAC5_SaveNo(this.value,<?=$eorder_id?>,'<?=$mac5_db?>')"
        onfocus="MAC5_CheckKeyDown(this,0)"
       >
         </div></td>
@@ -269,7 +269,7 @@ MIHexchg
       <table border="0" cellspacing="0" cellpadding="0" class="mac5_style">
         <tr>
           <td class="mac5_style">Product Name</td>
-      <td><div id="MAC5_DivProductName" class="mac5_style"><select onChange="MAC5_ChangeProductName(this.value,<?=$eorder_id?>)">
+      <td><div id="MAC5_DivProductName" class="mac5_style"><select onChange="MAC5_ChangeProductName(this.value,<?=$eorder_id?>,'<?=$mac5_db?>')">
         <option value="T1" <?=$m5m_pdcname=='T1'?'selected':''?>>Thai</option>
         <option value="E1" <?=$m5m_pdcname=='E1'?'selected':''?>>Eng1</option>
         <option value="E2" <?=$m5m_pdcname=='E2'?'selected':''?>>Eng2</option>
@@ -280,7 +280,7 @@ MIHexchg
           <td class="mac5_style">Curency</td>
       <td>
         <div id="MAC5_DivPriceGroup" class="mac5_style">
-          <select onChange="MAC5_ChangePriceGroup(this.value,<?=$eorder_id?>)">
+          <select onChange="MAC5_ChangePriceGroup(this.value,<?=$eorder_id?>,'<?=$mac5_db?>')">
             <option value="THB1" <?=$m5m_pricegroup=='THB1'?'selected':''?>>บาท</option>
             <option value="USD1" <?=$m5m_pricegroup=='USD1'?'selected':''?>>USD1</option>
             <option value="EUR1" <?=$m5m_pricegroup=='EUR1'?'selected':''?>>EUR</option>
@@ -294,7 +294,7 @@ MIHexchg
           <td class="mac5_style">อัตราแลกเปลียน</td>
           <td><div id="MAC5_DivExchg" class="mac5_style">
           <input type="text"  id="MAC5_Exchg" class="numberfiled" style="width:80px" value="<?=$m5m->Rs("m5m_exchg")?>" 
-        onBlur="MAC5_SaveExchg(<?=$eorder_id?>)" onfocus="MAC5_CheckKeyDown(this,0)"></div></td>
+        onBlur="MAC5_SaveExchg(<?=$eorder_id?>,'<?=$mac5_db?>')" onfocus="MAC5_CheckKeyDown(this,0)"></div></td>
         </tr>
       </table></td>
   </tr>
@@ -302,17 +302,17 @@ MIHexchg
     <td height="26" align="right" class="mac5_style">วันที่</td>
     <td class="mac5_style">      
     <input type="text"  id="MAC5_DataD" style="width:20px" value="<?=date('d',DateMysqlToPHP($m5m->Rs("m5m_date")))?>" 
-    onBlur="MAC5_SaveDateD(<?=$eorder_id?>)" onfocus="MAC5_CheckKeyDown(this,0)"/>
+    onBlur="MAC5_SaveDateD(<?=$eorder_id?>,'<?=$mac5_db?>')" onfocus="MAC5_CheckKeyDown(this,0)"/>
     <input type="text"  id="MAC5_DataM" style="width:20px" value="<?=date('m',DateMysqlToPHP($m5m->Rs("m5m_date")))?>" 
-    onBlur="MAC5_SaveDateM(<?=$eorder_id?>)" onfocus="MAC5_CheckKeyDown(this,0)"/>
+    onBlur="MAC5_SaveDateM(<?=$eorder_id?>,'<?=$mac5_db?>')" onfocus="MAC5_CheckKeyDown(this,0)"/>
     <input type="text"  id="MAC5_DataY" style="width:40px" value="<?=date('Y',DateMysqlToPHP($m5m->Rs("m5m_date")))?>" 
-    onBlur="MAC5_SaveDateY(<?=$eorder_id?>)" onfocus="MAC5_CheckKeyDown(this,0)"/>
+    onBlur="MAC5_SaveDateY(<?=$eorder_id?>,'<?=$mac5_db?>')" onfocus="MAC5_CheckKeyDown(this,0)"/>
     <span id="MAC5_DivDate"></span>
     </td>
     <td rowspan="2" valign="top" bgcolor="#FFFFFF" class="mac5_style">
       <label>
       Customer Code
-      <input type="text" id="MAC5_CustomerCode" style="width:100px" value="<?=$cum_code?>"  onBlur="MAC5_CheckCustomerCode(<?=$eorder_id?>)" 
+      <input type="text" id="MAC5_CustomerCode" style="width:100px" value="<?=$cum_code?>"  onBlur="MAC5_CheckCustomerCode(<?=$eorder_id?>,'<?=$mac5_db?>')"
       onfocus="MAC5_CheckKeyDown(this,0)">      </label>    
       <br>
         
@@ -321,7 +321,7 @@ MIHexchg
   <tr>
     <td align="right" valign="top" class="mac5_style">เลขใบกำกับภาษี</td>
     <td valign="top" class="mac5_style"><div id="MAC5_DivTaxNo">
-      <input id="MAC5_TaxNo" type="text" style="width:100px" value="<?=$m5m->Rs("m5m_taxno")?>" onBlur="MAC5_SaveTaxNo(this.value,<?=$eorder_id?>)"
+      <input id="MAC5_TaxNo" type="text" style="width:100px" value="<?=$m5m->Rs("m5m_taxno")?>" onBlur="MAC5_SaveTaxNo(this.value,<?=$eorder_id?>,'<?=$mac5_db?>')"
        onfocus="MAC5_CheckKeyDown(this,0)">
         </div> </td>
   </tr>
@@ -352,22 +352,22 @@ for($i=1;$i<9;$i++){
     <td align="right" valign="top" bgcolor="#FFFFFF" class="mac5_style"><?=$i?></td>
     <td valign="top" bgcolor="#FFFFFF" class="mac5_style">
     <input type="text"  id="MAC5_DCode_<?=$i?>" style="width:100px" value="<?=$m5data[$i]['m5d_pdc_code']?>"  
-        onBlur="MAC5_CheckItemCode(<?=$i?>,<?=$eorder_id?>)" onfocus="MAC5_CheckKeyDown(this,'MAC5_DQty_<?=$i?>')"></td>
+        onBlur="MAC5_CheckItemCode(<?=$i?>,<?=$eorder_id?>,'<?=$mac5_db?>')" onfocus="MAC5_CheckKeyDown(this,'MAC5_DQty_<?=$i?>')"></td>
     <td valign="top" bgcolor="#FFFFFF" class="mac5_style">
    	  <div id="MAC5_DivName_<?=$i?>">
         <input type="text"  id="MAC5_DName_<?=$i?>" style="width:400px" value="<?=$m5data[$i]['m5d_pdc_name']?>"  
-        onBlur="MAC5_SaveName(<?=$i?>,<?=$eorder_id?>)" onfocus="MAC5_CheckKeyDown(this,'MAC5_DQty_<?=$i?>')">
+        onBlur="MAC5_SaveName(<?=$i?>,<?=$eorder_id?>,'<?=$mac5_db?>')" onfocus="MAC5_CheckKeyDown(this,'MAC5_DQty_<?=$i?>')">
     </div></td>
 
     <td valign="top" bgcolor="#FFFFFF" class="mac5_style">
     	<div id="MAC5_DivDQty_<?=$i?>">
    	<input type="text"  id="MAC5_DQty_<?=$i?>" class="numberfiled" style="width:40px" value="<?=$m5data[$i]['m5d_qty']>0?$m5data[$i]['m5d_qty']+0:''?>" 
-        onBlur="MAC5_RefreshSumTotal(<?=$i?>,<?=$eorder_id?>)"  onfocus="MAC5_CheckKeyDown(this,'MAC5_DVcol_<?=$i?>')"></div></td>   
+        onBlur="MAC5_RefreshSumTotal(<?=$i?>,<?=$eorder_id?>,'<?=$mac5_db?>')"  onfocus="MAC5_CheckKeyDown(this,'MAC5_DVcol_<?=$i?>')"></div></td>
          <td valign="top" bgcolor="#FFFFFF" class="mac5_style">
     
     <div id="MAC5_DivVcol_<?=$i?>">
         <input type="text"  id="MAC5_DVcol_<?=$i?>" style="width:80px" value="<?=$m5data[$i]['m5d_vcol']?>"  
-        onBlur="MAC5_SaveVcol(<?=$i?>,<?=$eorder_id?>)" onfocus="MAC5_CheckKeyDown(this,'MAC5_DCode_<?=$i+1?>')">
+        onBlur="MAC5_SaveVcol(<?=$i?>,<?=$eorder_id?>,'<?=$mac5_db?>')" onfocus="MAC5_CheckKeyDown(this,'MAC5_DCode_<?=$i+1?>')">
       </div>
     </td>
     <td align="right" valign="top" bgcolor="#FFFFFF" class="mac5_style" style="padding-right:5px">
@@ -375,7 +375,7 @@ for($i=1;$i<9;$i++){
     <td align="right" valign="top" bgcolor="#FFFFFF" class="mac5_style">
       <div id="MAC5_DivDPrice_<?=$i?>">
       <input type="text"  id="MAC5_DPrice_<?=$i?>" class="numberfiled" style="width:80px" value="<?=$m5data[$i]['m5d_price']?>" 
-            onBlur="MAC5_RefreshSumTotal(<?=$i?>,<?=$eorder_id?>)" onfocus="MAC5_CheckKeyDown(this,'MAC5_DCode_<?=$i+1?>')"></div>
+            onBlur="MAC5_RefreshSumTotal(<?=$i?>,<?=$eorder_id?>,'<?=$mac5_db?>')" onfocus="MAC5_CheckKeyDown(this,'MAC5_DCode_<?=$i+1?>')"></div>
     	</td>
     <td align="right" valign="top" bgcolor="#FFFFFF" class="mac5_style">
     <div id="MAC5_DCog_<?=$i?>" style="padding-right:5px"><?=$cog>0?number_format($cog,2):''?></div>
@@ -383,7 +383,7 @@ for($i=1;$i<9;$i++){
     <td align="right" valign="top" bgcolor="#FFFFFF" class="mac5_style">
     	<div id="MAC5_DivDDisc_<?=$i?>">
 	<input type="text"  id="MAC5_DDisc_<?=$i?>" class="numberfiled" style="width:80px" value="<?=$m5data[$i]['m5d_discount']?>" 
-        onBlur="MAC5_RefreshSumTotal(<?=$i?>,<?=$eorder_id?>)"  onfocus="MAC5_CheckKeyDown(this,'MAC5_DCode_<?=$i+1?>')"></div></td>
+        onBlur="MAC5_RefreshSumTotal(<?=$i?>,<?=$eorder_id?>,'<?=$mac5_db?>')"  onfocus="MAC5_CheckKeyDown(this,'MAC5_DCode_<?=$i+1?>')"></div></td>
     <td align="right" valign="top" bgcolor="#FFFFFF" class="mac5_style"><div id="MAC5_DSum_<?=$i?>"  style="padding-right:5px"><?=$total>0?number_format($total,2):''?></div></td>
   </tr>
 <? } ?>
@@ -410,7 +410,7 @@ for($i=1;$i<9;$i++){
   </tr>
 </table>
 <div align="center" id="MAC5_DivOutput">
-<input type="button" value="Send to MAC5" onclick="showHTML('MAC5_DivOutput','../mac5/mac5process.php?act=send&eorderid=<?=$eorder_id?>&note='+encodeTH(getValue('MAC5_Note')),MAC5_OnSend);return false;" />
+<input type="button" value="Send to MAC5" onclick="showHTML('MAC5_DivOutput','../mac5/mac5process.php?act=send&eorderid=<?=$eorder_id?>&mac5_db=<?=$branch_mac5db?>&note='+encodeTH(getValue('MAC5_Note')),MAC5_OnSend);return false;" />
 
 <? if(!$mih->EOF){ ?>
 <link href="../resource/css/default.css" rel="stylesheet" type="text/css">
