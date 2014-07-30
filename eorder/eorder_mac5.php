@@ -61,18 +61,21 @@
         $mac5_db = '';
     }
 
-
+    $prefix = 'B';
     $branch = new Csql();
     $branch->Query("select * from branch where branchid=$ord_brn_id limit 1");
     if($branch->EOF) {exit("Invalid branchid $ord_brn_id");}
     $branch->TableName = "branch";
     $branch_mac5db = $branch->Rs("branch_mac5db");
+    $prefix = $branch->Rs("branch_prefix");
 
     if($mac5_db!='' && $mac5_db!=$branch_mac5db){
         $branch->Query("select * from branch where branch_mac5db='$mac5_db' limit 1");
         if(!$branch->EOF) {
             $ord_brn_id = $branch->Rs("branchid");
             $branch_mac5db = $branch->Rs("branch_mac5db");
+            $prefix = $branch->Rs("branch_prefix");
+
         }
     }
 
@@ -89,19 +92,18 @@
 	$m5m = new Csql();
 	if($customer->Rs("cus_nick")=='K002'){
 		$maxindex = $m5m->ExecuteScalar("select max(MID(m5m_no,3,LENGTH(m5m_no)-2)+0) from eorder_m5m where m5m_brn_id = $ord_brn_id and  LEFT(m5m_no,1)='H'")+1;
-		$no = 'H-'.($maxindex);
+		$no = 'H-'.str_pad($maxindex,5,'0',STR_PAD_LEFT);
 		$taxno = $no;		
 		$doctype ='PS';
 	}else if($customer->Rs("cus_cnt_id")>1){
 		$maxindex = $m5m->ExecuteScalar("select max(MID(m5m_no,3,LENGTH(m5m_no)-2)+0) from eorder_m5m,eorder where m5m_brn_id = $ord_brn_id and eorderid=eorder_m5mid and ord_cus_id =  {$customer->Rs('customerid')}")+1;
-		$no = 'IN'.($maxindex);
+		$no = 'IN'.str_pad($maxindex,5,'0',STR_PAD_LEFT);
 		$taxno = $no;	
 		$doctype ='IS';
 	}else{
-        $query = "select max(MID(m5m_no,3,LENGTH(m5m_no)-2)+0) from eorder_m5m where m5m_brn_id = $ord_brn_id and LEFT(m5m_no,1)='B'";
-        echo "<!-- $query -->";
+        $query = "select max(MID(m5m_no,3,LENGTH(m5m_no)-2)+0) from eorder_m5m where m5m_brn_id = $ord_brn_id and LEFT(m5m_no,1)='$prefix'";
 		$maxindex = $m5m->ExecuteScalar($query)+1;
-		$no = 'B-'.($maxindex);
+		$no = $prefix.'-'.str_pad($maxindex,5,'0',STR_PAD_LEFT);
 		$taxno = $no;	
 		$doctype ='IS';
 	}
