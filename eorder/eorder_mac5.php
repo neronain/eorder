@@ -52,7 +52,15 @@
     $ord_brn_id = $eorder->Rs("ord_brn_id");
 
 
-    GetVar($mac5_db,"mac5_db");
+    if($_GET['mac5_db'] || $_POST['mac5_db']){
+        if($_GET['mac5_db'])
+            $mac5_db = $_GET['mac5_db'];
+        if($_POST['mac5_db'])
+            $mac5_db = $_POST['mac5_db'];
+    }else{
+        $mac5_db = '';
+    }
+
 
     $branch = new Csql();
     $branch->Query("select * from branch where branchid=$ord_brn_id limit 1");
@@ -90,7 +98,9 @@
 		$taxno = $no;	
 		$doctype ='IS';
 	}else{
-		$maxindex = $m5m->ExecuteScalar("select max(MID(m5m_no,3,LENGTH(m5m_no)-2)+0) from eorder_m5m where m5m_brn_id = $ord_brn_id and LEFT(m5m_no,1)='B'")+1;
+        $query = "select max(MID(m5m_no,3,LENGTH(m5m_no)-2)+0) from eorder_m5m where m5m_brn_id = $ord_brn_id and LEFT(m5m_no,1)='B'";
+        echo "<!-- $query -->";
+		$maxindex = $m5m->ExecuteScalar($query)+1;
 		$no = 'B-'.($maxindex);
 		$taxno = $no;	
 		$doctype ='IS';
