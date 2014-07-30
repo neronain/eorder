@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2b9e24a-5b97-4f60-8b53-88dcd320d348" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mac5/process.php" afterPath="$PROJECT_DIR$/mac5/process.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eorder/eorder_mac5.php" afterPath="$PROJECT_DIR$/eorder/eorder_mac5.php" />
     </list>
     <ignored path="eorder2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,17 +25,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="mac5invoice.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="mac5invoice.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mac5/mac5invoice.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="37" selection-start="546" selection-end="546" vertical-scroll-proportion="0.85858583" vertical-offset="102" max-vertical-offset="3298">
+            <state line="6" column="29" selection-start="128" selection-end="128" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="3298">
               <folding>
                 <marker date="1404149976398" expanded="true" signature="247:328" placeholder="select * fro..eorder..." />
                 <marker date="1404149976398" expanded="true" signature="494:543" placeholder="select * fro..eorder..." />
                 <marker date="1404149976398" expanded="true" signature="884:949" placeholder="select cus_n..customer..." />
                 <marker date="1404149976398" expanded="true" signature="1166:1227" placeholder="select doc_n..doctor..." />
                 <marker date="1404149976398" expanded="true" signature="1439:1498" placeholder="select agn_n..agent..." />
+                <marker date="1404149976398" expanded="true" signature="2521:5442" placeholder="..." />
+                <marker date="1404149976398" expanded="false" signature="2888:2912" placeholder="..." />
+                <marker date="1404149976398" expanded="true" signature="2913:5434" placeholder="..." />
+                <marker date="1404149976398" expanded="true" signature="2920:4176" placeholder="..." />
+                <marker date="1404149976398" expanded="false" signature="2983:2993" placeholder="..." />
+                <marker date="1404149976398" expanded="true" signature="3124:4068" placeholder="..." />
                 <marker date="1404149976398" expanded="true" signature="3239:3277" placeholder="SELECT * FRO..branch..." />
+                <marker date="1404149976398" expanded="false" signature="4122:4147" placeholder="..." />
+                <marker date="1404149976398" expanded="false" signature="4191:4222" placeholder="..." />
+                <marker date="1404149976398" expanded="true" signature="4223:4675" placeholder="..." />
+                <marker date="1404149976398" expanded="true" signature="4436:4643" placeholder="..." />
+                <marker date="1404149976398" expanded="false" signature="4746:4777" placeholder="..." />
+                <marker date="1404149976398" expanded="true" signature="4778:4982" placeholder="..." />
+                <marker date="1404149976398" expanded="true" signature="5040:5065" placeholder="..." />
+                <marker date="1404149976398" expanded="true" signature="5098:5213" placeholder="..." />
+                <marker date="1404149976398" expanded="true" signature="5224:5426" placeholder="..." />
+                <marker date="1404149976398" expanded="true" signature="5248:5314" placeholder="{...}" />
+                <marker date="1404149976398" expanded="true" signature="5351:5417" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -44,7 +61,7 @@
       <file leaf-file-name="msql.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/msql.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="38" selection-start="849" selection-end="849" vertical-scroll-proportion="-24.846153" vertical-offset="0" max-vertical-offset="5440">
+            <state line="38" column="38" selection-start="849" selection-end="849" vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="5440">
               <folding />
             </state>
           </provider>
@@ -53,7 +70,7 @@
       <file leaf-file-name="mac5process.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mac5/mac5process.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="34" selection-start="413" selection-end="413" vertical-scroll-proportion="-2.4605262" vertical-offset="102" max-vertical-offset="11033">
+            <state line="17" column="34" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="11033">
               <folding>
                 <marker date="1371745398237" expanded="true" signature="268:321" placeholder="select * fro..eorder..." />
                 <marker date="1371745398237" expanded="true" signature="568:621" placeholder="select * fro..agent..." />
@@ -75,14 +92,8 @@
       <file leaf-file-name="process.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mac5/process.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="449" column="108" selection-start="14479" selection-end="14479" vertical-scroll-proportion="-8.346154" vertical-offset="7416" max-vertical-offset="9248">
+            <state line="449" column="108" selection-start="14479" selection-end="14479" vertical-scroll-proportion="0.0" vertical-offset="7416" max-vertical-offset="9248">
               <folding>
-                <element signature="e#1406#1425#0" expanded="true" />
-                <element signature="e#1748#1767#0" expanded="true" />
-                <element signature="e#14807#14825#0" expanded="true" />
-                <element signature="e#15454#15472#0" expanded="true" />
-                <element signature="e#16061#16079#0" expanded="true" />
-                <element signature="e#16455#16473#0" expanded="true" />
                 <marker date="1406264561279" expanded="true" signature="348:401" placeholder="select * fro..eorder..." />
                 <marker date="1406264561279" expanded="true" signature="550:609" placeholder="select * fro..customer..." />
                 <marker date="1406264561279" expanded="true" signature="749:810" placeholder="select * fro..eorder_m5m..." />
@@ -107,7 +118,7 @@
       <file leaf-file-name="testconnect.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mac5/testconnect.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="31" selection-start="31" selection-end="31" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1411">
+            <state line="1" column="31" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1411">
               <folding>
                 <marker date="1406261727202" expanded="true" signature="162:192" placeholder="select TOP 1..." />
               </folding>
@@ -115,44 +126,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eorder_mac5.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="eorder_mac5.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eorder/eorder_mac5.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="379" column="39" selection-start="14984" selection-end="14984" vertical-scroll-proportion="-35.153847" vertical-offset="5529" max-vertical-offset="9248">
+            <state line="67" column="9" selection-start="2025" selection-end="2025" vertical-scroll-proportion="0.6743516" vertical-offset="905" max-vertical-offset="9401">
               <folding>
-                <element signature="n#style#0;n#input#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#td#1;n#tr#2;n#table#0;n#td#3;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#2;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#label#0;n#td#2;n#tr#1;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#td#1;n#tr#2;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#td#2;n#tr#1;n#table#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#td#3;n#tr#1;n#table#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#td#4;n#tr#1;n#table#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#5;n#tr#1;n#table#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#td#6;n#tr#1;n#table#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#7;n#tr#1;n#table#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#td#8;n#tr#1;n#table#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#9;n#tr#1;n#table#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#0;n#td#1;n#tr#0;n#table#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#3;n#tr#0;n#table#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#5;n#tr#0;n#table#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#5;n#tr#1;n#table#1;n#div#0;n#!!top" expanded="true" />
-                <marker date="1406264196129" expanded="true" signature="995:1038" placeholder="SELECT * FRO..conf..." />
-                <marker date="1406264196129" expanded="true" signature="1251:1305" placeholder="select * fro..eorder..." />
-                <marker date="1406264196129" expanded="true" signature="1502:1557" placeholder="select * fro..branch..." />
-                <marker date="1406264196129" expanded="true" signature="1837:1896" placeholder="select * fro..customer..." />
-                <marker date="1406264196129" expanded="true" signature="2143:2229" placeholder="select max(M..eorder_m5m..." />
-                <marker date="1406264196129" expanded="true" signature="2374:2517" placeholder="select max(M..eorder_m5m..." />
-                <marker date="1406264196129" expanded="true" signature="2627:2713" placeholder="select max(M..eorder_m5m..." />
-                <marker date="1406264196129" expanded="true" signature="2801:2862" placeholder="select * fro..eorder_m5m..." />
-                <marker date="1406264196129" expanded="true" signature="3742:3951" placeholder="select DEBco..DEB..." />
-                <marker date="1406264196129" expanded="true" signature="4568:4621" placeholder="select * fro..eorder_m5d..." />
-                <marker date="1406264196129" expanded="true" signature="5382:6083" placeholder="select MIHda..MIH..." />
-                <marker date="1406264196129" expanded="true" signature="6145:6571" placeholder="select MILli..MIL..." />
+                <marker date="1406681824391" expanded="true" signature="995:1038" placeholder="SELECT * FRO..conf..." />
+                <marker date="1406681824391" expanded="true" signature="1251:1305" placeholder="select * fro..eorder..." />
+                <marker date="1406681824391" expanded="true" signature="1534:1589" placeholder="select * fro..branch..." />
+                <marker date="1406681824391" expanded="true" signature="1815:1874" placeholder="select * fro..branch..." />
+                <marker date="1406681824391" expanded="true" signature="2161:2220" placeholder="select * fro..customer..." />
+                <marker date="1406681824391" expanded="true" signature="2467:2582" placeholder="select max(M..eorder_m5m..." />
+                <marker date="1406681824391" expanded="true" signature="2727:2899" placeholder="select max(M..eorder_m5m..." />
+                <marker date="1406681824391" expanded="true" signature="3009:3123" placeholder="select max(M..eorder_m5m..." />
+                <marker date="1406681824391" expanded="true" signature="3211:3272" placeholder="select * fro..eorder_m5m..." />
+                <marker date="1406681824391" expanded="true" signature="4152:4361" placeholder="select DEBco..DEB..." />
+                <marker date="1406681824391" expanded="true" signature="4978:5031" placeholder="select * fro..eorder_m5d..." />
+                <marker date="1406681824391" expanded="true" signature="5792:6493" placeholder="select MIHda..MIH..." />
+                <marker date="1406681824391" expanded="true" signature="6555:6981" placeholder="select MILli..MIL..." />
               </folding>
             </state>
           </provider>
@@ -170,7 +161,7 @@
       <file leaf-file-name="ordersummary.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cfrontend/ordersummary.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="172" column="0" selection-start="6706" selection-end="6706" vertical-scroll-proportion="-15.0" vertical-offset="2534" max-vertical-offset="3094">
+            <state line="98" column="54" selection-start="4595" selection-end="4595" vertical-scroll-proportion="-4.423077" vertical-offset="1551" max-vertical-offset="3094">
               <folding />
             </state>
           </provider>
@@ -179,7 +170,7 @@
       <file leaf-file-name="default.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/default.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="30" selection-start="611" selection-end="611" vertical-scroll-proportion="-5.576923" vertical-offset="331" max-vertical-offset="884">
+            <state line="28" column="30" selection-start="611" selection-end="611" vertical-scroll-proportion="0.0" vertical-offset="331" max-vertical-offset="884">
               <folding />
             </state>
           </provider>
@@ -188,7 +179,7 @@
       <file leaf-file-name="config.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="16" selection-start="631" selection-end="639" vertical-scroll-proportion="-9.884615" vertical-offset="83" max-vertical-offset="731">
+            <state line="20" column="16" selection-start="631" selection-end="639" vertical-scroll-proportion="0.0" vertical-offset="83" max-vertical-offset="731">
               <folding />
             </state>
           </provider>
@@ -244,8 +235,8 @@
         <option value="$PROJECT_DIR$/mac5/testconnect.php" />
         <option value="$PROJECT_DIR$/resource/javascript/mac5.js" />
         <option value="$PROJECT_DIR$/core/config.php" />
-        <option value="$PROJECT_DIR$/eorder/eorder_mac5.php" />
         <option value="$PROJECT_DIR$/mac5/process.php" />
+        <option value="$PROJECT_DIR$/eorder/eorder_mac5.php" />
       </list>
     </option>
   </component>
@@ -282,7 +273,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -345,6 +335,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -404,8 +395,8 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -582,163 +573,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/eorder/eorder_edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="52" selection-start="3324" selection-end="3417" vertical-scroll-proportion="0.0" vertical-offset="1819" max-vertical-offset="8109">
-          <folding />
-        </state>
+        <state line="107" column="52" selection-start="3324" selection-end="3417" vertical-scroll-proportion="0.0" vertical-offset="1819" max-vertical-offset="8109" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/order/orderdeliverylist_q.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="2" selection-start="2765" selection-end="3299" vertical-scroll-proportion="0.0" vertical-offset="1421" max-vertical-offset="2958">
-          <folding>
-            <marker date="1405241698845" expanded="true" signature="-1:-1" placeholder="select DATE(..." />
-          </folding>
-        </state>
+        <state line="90" column="2" selection-start="2765" selection-end="3299" vertical-scroll-proportion="0.0" vertical-offset="1421" max-vertical-offset="2958" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/report/summarylist_q.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="47" selection-start="3101" selection-end="3101" vertical-scroll-proportion="0.0" vertical-offset="1768" max-vertical-offset="3145">
-          <folding />
-        </state>
+        <state line="104" column="47" selection-start="3101" selection-end="3101" vertical-scroll-proportion="0.0" vertical-offset="1768" max-vertical-offset="3145" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/order/orderprocesslist_q.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="8" selection-start="3937" selection-end="3937" vertical-scroll-proportion="0.0" vertical-offset="1608" max-vertical-offset="4709">
-          <folding>
-            <marker date="1405241847109" expanded="true" signature="-1:-1" placeholder="select DATE(..." />
-            <marker date="1405241847109" expanded="true" signature="-1:-1" placeholder="select DATE(..." />
-          </folding>
-        </state>
+        <state line="112" column="8" selection-start="3937" selection-end="3937" vertical-scroll-proportion="0.0" vertical-offset="1608" max-vertical-offset="4709" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/report/summarylist_c.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="9" selection-start="3305" selection-end="3305" vertical-scroll-proportion="0.0" vertical-offset="1836" max-vertical-offset="5763">
-          <folding>
-            <marker date="1405242063670" expanded="true" signature="-1:-1" placeholder="select eorde..eorder_fix..." />
-            <marker date="1405242063670" expanded="true" signature="-1:-1" placeholder="select custo..customer..." />
-            <marker date="1405242063670" expanded="true" signature="-1:-1" placeholder="select doc_n..doctor..." />
-            <marker date="1405242063670" expanded="true" signature="-1:-1" placeholder="select prv_n..province..." />
-            <marker date="1405242063670" expanded="true" signature="-1:-1" placeholder="select cnt_n..country..." />
-          </folding>
-        </state>
+        <state line="115" column="9" selection-start="3305" selection-end="3305" vertical-scroll-proportion="0.0" vertical-offset="1836" max-vertical-offset="5763" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/order/orderprocesslist_c.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="0" selection-start="1776" selection-end="1906" vertical-scroll-proportion="0.0" vertical-offset="1564" max-vertical-offset="3706">
-          <folding>
-            <marker date="1405241798931" expanded="true" signature="-1:-1" placeholder="select eorde..eorder_fix..." />
-            <marker date="1405241798931" expanded="true" signature="-1:-1" placeholder="select logt_..logbooktoday..." />
-            <marker date="1405241798931" expanded="true" signature="-1:-1" placeholder="select staff..staff..." />
-            <marker date="1405241798931" expanded="true" signature="-1:-1" placeholder="select sec_r..section..." />
-          </folding>
-        </state>
+        <state line="92" column="0" selection-start="1776" selection-end="1906" vertical-scroll-proportion="0.0" vertical-offset="1564" max-vertical-offset="3706" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/order/orderexportlist_c.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="27" selection-start="3139" selection-end="3139" vertical-scroll-proportion="0.0" vertical-offset="1591" max-vertical-offset="6188">
-          <folding>
-            <marker date="1405241760893" expanded="true" signature="-1:-1" placeholder="select eorde..eorder_fix..." />
-            <marker date="1405241760893" expanded="true" signature="-1:-1" placeholder="select custo..customer..." />
-            <marker date="1405241760893" expanded="true" signature="-1:-1" placeholder="select doc_n..doctor..." />
-            <marker date="1405241760893" expanded="true" signature="-1:-1" placeholder="select prv_n..province..." />
-            <marker date="1405241760893" expanded="true" signature="-1:-1" placeholder="select cnt_n..country..." />
-            <marker date="1405241760893" expanded="true" signature="-1:-1" placeholder="select logt_..logbooktoday..." />
-            <marker date="1405241760893" expanded="true" signature="-1:-1" placeholder="select staff..staff..." />
-            <marker date="1405241760893" expanded="true" signature="-1:-1" placeholder="select sec_r..section..." />
-          </folding>
-        </state>
+        <state line="106" column="27" selection-start="3139" selection-end="3139" vertical-scroll-proportion="0.0" vertical-offset="1591" max-vertical-offset="6188" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/order/orderdeliverylist_c.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="0" selection-start="3157" selection-end="3157" vertical-scroll-proportion="0.0" vertical-offset="1608" max-vertical-offset="6069">
-          <folding>
-            <marker date="1405241760907" expanded="true" signature="-1:-1" placeholder="select eorde..eorder_fix..." />
-            <marker date="1405241760907" expanded="true" signature="-1:-1" placeholder="select custo..customer..." />
-            <marker date="1405241760907" expanded="true" signature="-1:-1" placeholder="select doc_n..doctor..." />
-            <marker date="1405241760907" expanded="true" signature="-1:-1" placeholder="select agn_n..agent..." />
-            <marker date="1405241760907" expanded="true" signature="-1:-1" placeholder="select prv_n..province..." />
-            <marker date="1405241760907" expanded="true" signature="-1:-1" placeholder="select cnt_n..country..." />
-            <marker date="1405241760907" expanded="true" signature="-1:-1" placeholder="select logt_..logbooktoday..." />
-            <marker date="1405241760907" expanded="true" signature="-1:-1" placeholder="select staff..staff..." />
-            <marker date="1405241760907" expanded="true" signature="-1:-1" placeholder="select sec_r..section..." />
-          </folding>
-        </state>
+        <state line="107" column="0" selection-start="3157" selection-end="3157" vertical-scroll-proportion="0.0" vertical-offset="1608" max-vertical-offset="6069" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/queryuserlist.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241">
-          <folding>
-            <marker date="1371839659911" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1371839659911" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1371839659911" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1371839659911" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1371839659911" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1371839659911" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1371839659911" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1371839659911" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1371839659911" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1371839659911" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1371839659911" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1371839659911" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1371839659911" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1371839659911" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1371839659911" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/product_conf_howto.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="3" selection-start="2092" selection-end="2092" vertical-scroll-proportion="-7.8846154" vertical-offset="951" max-vertical-offset="4488">
-          <folding>
-            <marker date="1406260252181" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1406260252181" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1406260252181" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1406260252181" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="68" column="3" selection-start="2092" selection-end="2092" vertical-scroll-proportion="-7.8846154" vertical-offset="951" max-vertical-offset="4488" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/msql.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="38" selection-start="849" selection-end="849" vertical-scroll-proportion="-24.846153" vertical-offset="0" max-vertical-offset="5440">
+        <state line="38" column="38" selection-start="849" selection-end="849" vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="5440">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/default.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="30" selection-start="611" selection-end="611" vertical-scroll-proportion="-5.576923" vertical-offset="331" max-vertical-offset="884">
+        <state line="28" column="30" selection-start="611" selection-end="611" vertical-scroll-proportion="0.0" vertical-offset="331" max-vertical-offset="884">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mac5/testconnect.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="31" selection-start="31" selection-end="31" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="1411">
+        <state line="1" column="31" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="1411">
           <folding>
             <marker date="1406261727202" expanded="true" signature="162:192" placeholder="select TOP 1..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfrontend/ordersummary.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="172" column="0" selection-start="6706" selection-end="6706" vertical-scroll-proportion="-15.0" vertical-offset="2534" max-vertical-offset="3094">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="16" selection-start="631" selection-end="639" vertical-scroll-proportion="-9.884615" vertical-offset="83" max-vertical-offset="731">
+        <state line="20" column="16" selection-start="631" selection-end="639" vertical-scroll-proportion="0.0" vertical-offset="83" max-vertical-offset="731">
           <folding />
         </state>
       </provider>
@@ -750,57 +658,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eorder/eorder_mac5.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="379" column="39" selection-start="14984" selection-end="14984" vertical-scroll-proportion="-35.153847" vertical-offset="5529" max-vertical-offset="9248">
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#td#1;n#tr#2;n#table#0;n#td#3;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#2;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#0;n#td#2;n#tr#1;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#td#1;n#tr#2;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#td#2;n#tr#1;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#td#3;n#tr#1;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#td#4;n#tr#1;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#tr#1;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#td#6;n#tr#1;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#7;n#tr#1;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#td#8;n#tr#1;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#9;n#tr#1;n#table#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#td#1;n#tr#0;n#table#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#3;n#tr#0;n#table#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#5;n#tr#0;n#table#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#tr#1;n#table#1;n#div#0;n#!!top" expanded="true" />
-            <marker date="1406264196129" expanded="true" signature="995:1038" placeholder="SELECT * FRO..conf..." />
-            <marker date="1406264196129" expanded="true" signature="1251:1305" placeholder="select * fro..eorder..." />
-            <marker date="1406264196129" expanded="true" signature="1502:1557" placeholder="select * fro..branch..." />
-            <marker date="1406264196129" expanded="true" signature="1837:1896" placeholder="select * fro..customer..." />
-            <marker date="1406264196129" expanded="true" signature="2143:2229" placeholder="select max(M..eorder_m5m..." />
-            <marker date="1406264196129" expanded="true" signature="2374:2517" placeholder="select max(M..eorder_m5m..." />
-            <marker date="1406264196129" expanded="true" signature="2627:2713" placeholder="select max(M..eorder_m5m..." />
-            <marker date="1406264196129" expanded="true" signature="2801:2862" placeholder="select * fro..eorder_m5m..." />
-            <marker date="1406264196129" expanded="true" signature="3742:3951" placeholder="select DEBco..DEB..." />
-            <marker date="1406264196129" expanded="true" signature="4568:4621" placeholder="select * fro..eorder_m5d..." />
-            <marker date="1406264196129" expanded="true" signature="5382:6083" placeholder="select MIHda..MIH..." />
-            <marker date="1406264196129" expanded="true" signature="6145:6571" placeholder="select MILli..MIL..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mac5/process.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="449" column="108" selection-start="14479" selection-end="14479" vertical-scroll-proportion="-8.346154" vertical-offset="7416" max-vertical-offset="9248">
+        <state line="449" column="108" selection-start="14479" selection-end="14479" vertical-scroll-proportion="0.0" vertical-offset="7416" max-vertical-offset="9248">
           <folding>
-            <element signature="e#1406#1425#0" expanded="true" />
-            <element signature="e#1748#1767#0" expanded="true" />
-            <element signature="e#14807#14825#0" expanded="true" />
-            <element signature="e#15454#15472#0" expanded="true" />
-            <element signature="e#16061#16079#0" expanded="true" />
-            <element signature="e#16455#16473#0" expanded="true" />
             <marker date="1406264561279" expanded="true" signature="348:401" placeholder="select * fro..eorder..." />
             <marker date="1406264561279" expanded="true" signature="550:609" placeholder="select * fro..customer..." />
             <marker date="1406264561279" expanded="true" signature="749:810" placeholder="select * fro..eorder_m5m..." />
@@ -823,7 +684,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mac5/mac5process.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="34" selection-start="413" selection-end="413" vertical-scroll-proportion="-2.4605262" vertical-offset="102" max-vertical-offset="11033">
+        <state line="17" column="34" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="11033">
           <folding>
             <marker date="1371745398237" expanded="true" signature="268:321" placeholder="select * fro..eorder..." />
             <marker date="1371745398237" expanded="true" signature="568:621" placeholder="select * fro..agent..." />
@@ -841,16 +702,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cfrontend/ordersummary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="54" selection-start="4595" selection-end="4595" vertical-scroll-proportion="-4.423077" vertical-offset="1551" max-vertical-offset="3094">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mac5/mac5invoice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="37" selection-start="546" selection-end="546" vertical-scroll-proportion="0.85858583" vertical-offset="102" max-vertical-offset="3298">
+        <state line="6" column="29" selection-start="128" selection-end="128" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="3298">
           <folding>
             <marker date="1404149976398" expanded="true" signature="247:328" placeholder="select * fro..eorder..." />
             <marker date="1404149976398" expanded="true" signature="494:543" placeholder="select * fro..eorder..." />
             <marker date="1404149976398" expanded="true" signature="884:949" placeholder="select cus_n..customer..." />
             <marker date="1404149976398" expanded="true" signature="1166:1227" placeholder="select doc_n..doctor..." />
             <marker date="1404149976398" expanded="true" signature="1439:1498" placeholder="select agn_n..agent..." />
+            <marker date="1404149976398" expanded="true" signature="2521:5442" placeholder="..." />
+            <marker date="1404149976398" expanded="false" signature="2888:2912" placeholder="..." />
+            <marker date="1404149976398" expanded="true" signature="2913:5434" placeholder="..." />
+            <marker date="1404149976398" expanded="true" signature="2920:4176" placeholder="..." />
+            <marker date="1404149976398" expanded="false" signature="2983:2993" placeholder="..." />
+            <marker date="1404149976398" expanded="true" signature="3124:4068" placeholder="..." />
             <marker date="1404149976398" expanded="true" signature="3239:3277" placeholder="SELECT * FRO..branch..." />
+            <marker date="1404149976398" expanded="false" signature="4122:4147" placeholder="..." />
+            <marker date="1404149976398" expanded="false" signature="4191:4222" placeholder="..." />
+            <marker date="1404149976398" expanded="true" signature="4223:4675" placeholder="..." />
+            <marker date="1404149976398" expanded="true" signature="4436:4643" placeholder="..." />
+            <marker date="1404149976398" expanded="false" signature="4746:4777" placeholder="..." />
+            <marker date="1404149976398" expanded="true" signature="4778:4982" placeholder="..." />
+            <marker date="1404149976398" expanded="true" signature="5040:5065" placeholder="..." />
+            <marker date="1404149976398" expanded="true" signature="5098:5213" placeholder="..." />
+            <marker date="1404149976398" expanded="true" signature="5224:5426" placeholder="..." />
+            <marker date="1404149976398" expanded="true" signature="5248:5314" placeholder="{...}" />
+            <marker date="1404149976398" expanded="true" signature="5351:5417" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eorder/eorder_mac5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="9" selection-start="2025" selection-end="2025" vertical-scroll-proportion="0.6743516" vertical-offset="905" max-vertical-offset="9401">
+          <folding>
+            <marker date="1406681824391" expanded="true" signature="995:1038" placeholder="SELECT * FRO..conf..." />
+            <marker date="1406681824391" expanded="true" signature="1251:1305" placeholder="select * fro..eorder..." />
+            <marker date="1406681824391" expanded="true" signature="1534:1589" placeholder="select * fro..branch..." />
+            <marker date="1406681824391" expanded="true" signature="1815:1874" placeholder="select * fro..branch..." />
+            <marker date="1406681824391" expanded="true" signature="2161:2220" placeholder="select * fro..customer..." />
+            <marker date="1406681824391" expanded="true" signature="2467:2582" placeholder="select max(M..eorder_m5m..." />
+            <marker date="1406681824391" expanded="true" signature="2727:2899" placeholder="select max(M..eorder_m5m..." />
+            <marker date="1406681824391" expanded="true" signature="3009:3123" placeholder="select max(M..eorder_m5m..." />
+            <marker date="1406681824391" expanded="true" signature="3211:3272" placeholder="select * fro..eorder_m5m..." />
+            <marker date="1406681824391" expanded="true" signature="4152:4361" placeholder="select DEBco..DEB..." />
+            <marker date="1406681824391" expanded="true" signature="4978:5031" placeholder="select * fro..eorder_m5d..." />
+            <marker date="1406681824391" expanded="true" signature="5792:6493" placeholder="select MIHda..MIH..." />
+            <marker date="1406681824391" expanded="true" signature="6555:6981" placeholder="select MILli..MIL..." />
           </folding>
         </state>
       </provider>
