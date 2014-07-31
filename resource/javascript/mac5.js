@@ -306,12 +306,11 @@ function frmRequest_KeyDown( e )
          case 'text' :
 
             // if this is a return - change to tab
-            if ( numCharCode == 13 )
-               {
+            if ( numCharCode == 13 ){
                if (e.keyCode) e.keyCode = 9;
                else if (e.which) e.which = 9;
-               }
 				setFocus(elTarget.nextelement);
+            }
             break;
             
          }

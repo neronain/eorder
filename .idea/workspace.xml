@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2b9e24a-5b97-4f60-8b53-88dcd320d348" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eorder/eorder_mac5.php" afterPath="$PROJECT_DIR$/eorder/eorder_mac5.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resource/javascript/mac5.js" afterPath="$PROJECT_DIR$/resource/javascript/mac5.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="eorder2.iws" />
@@ -103,19 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="eorder_mac5.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="eorder_mac5.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eorder/eorder_mac5.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="4" selection-start="3623" selection-end="3623" vertical-scroll-proportion="1.4875" vertical-offset="1020" max-vertical-offset="9605">
+            <state line="325" column="87" selection-start="11127" selection-end="11144" vertical-scroll-proportion="-4.576923" vertical-offset="5406" max-vertical-offset="9605">
               <folding>
-                <element signature="n#style#0;n#input#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#td#1;n#tr#2;n#table#0;n#td#3;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#2;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#label#0;n#td#2;n#tr#1;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#td#1;n#tr#2;n#table#0;n#!!top" expanded="true" />
                 <marker date="1406732854168" expanded="true" signature="995:1038" placeholder="SELECT * FRO..conf..." />
                 <marker date="1406732854168" expanded="true" signature="1251:1305" placeholder="select * fro..eorder..." />
                 <marker date="1406732854168" expanded="true" signature="1750:1805" placeholder="select * fro..branch..." />
@@ -134,10 +126,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mac5.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="mac5.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resource/javascript/mac5.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="237" column="9" selection-start="7808" selection-end="7808" vertical-scroll-proportion="0.0" vertical-offset="3905" max-vertical-offset="6851">
+            <state line="311" column="47" selection-start="9671" selection-end="9671" vertical-scroll-proportion="0.7542662" vertical-offset="4845" max-vertical-offset="6834">
               <folding />
             </state>
           </provider>
@@ -218,10 +210,10 @@
         <option value="$PROJECT_DIR$/report/summarylist_c.php" />
         <option value="$PROJECT_DIR$/admin/product_conf_howto.php" />
         <option value="$PROJECT_DIR$/mac5/testconnect.php" />
-        <option value="$PROJECT_DIR$/resource/javascript/mac5.js" />
         <option value="$PROJECT_DIR$/core/config.php" />
         <option value="$PROJECT_DIR$/mac5/process.php" />
         <option value="$PROJECT_DIR$/eorder/eorder_mac5.php" />
+        <option value="$PROJECT_DIR$/resource/javascript/mac5.js" />
       </list>
     </option>
   </component>
@@ -304,6 +296,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eorder2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eorder2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eorder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -363,11 +369,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32972136" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -615,13 +621,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resource/javascript/mac5.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="237" column="9" selection-start="7808" selection-end="7808" vertical-scroll-proportion="0.0" vertical-offset="3905" max-vertical-offset="6851">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mac5/process.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="449" column="108" selection-start="14479" selection-end="14479" vertical-scroll-proportion="0.0" vertical-offset="7416" max-vertical-offset="9248">
@@ -689,16 +688,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/eorder/eorder_mac5.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="4" selection-start="3623" selection-end="3623" vertical-scroll-proportion="1.4875" vertical-offset="1020" max-vertical-offset="9605">
+        <state line="325" column="87" selection-start="11127" selection-end="11144" vertical-scroll-proportion="-4.576923" vertical-offset="5406" max-vertical-offset="9605">
           <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#td#1;n#tr#2;n#table#0;n#td#3;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#2;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#0;n#td#2;n#tr#1;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#td#1;n#tr#2;n#table#0;n#!!top" expanded="true" />
             <marker date="1406732854168" expanded="true" signature="995:1038" placeholder="SELECT * FRO..conf..." />
             <marker date="1406732854168" expanded="true" signature="1251:1305" placeholder="select * fro..eorder..." />
             <marker date="1406732854168" expanded="true" signature="1750:1805" placeholder="select * fro..branch..." />
@@ -713,6 +704,13 @@
             <marker date="1406732854168" expanded="true" signature="6221:6922" placeholder="select MIHda..MIH..." />
             <marker date="1406732854168" expanded="true" signature="6984:7410" placeholder="select MILli..MIL..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resource/javascript/mac5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="311" column="47" selection-start="9671" selection-end="9671" vertical-scroll-proportion="0.7542662" vertical-offset="4845" max-vertical-offset="6834">
+          <folding />
         </state>
       </provider>
     </entry>
