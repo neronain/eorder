@@ -1,11 +1,11 @@
 // JavaScript Document
 
 function MAC5_SaveNo(no,orderid,mac5_db){
-	showHTML('MAC5_DivNo','../mac5/process.php?act=saveno&mac5_db='+mac5db+'&no='+no+"&eorderid="+orderid);
+	showHTML('MAC5_DivNo','../mac5/process.php?act=saveno&mac5_db='+mac5_db+'&no='+no+"&eorderid="+orderid);
 	setFocus('MAC5_DateD');
 }
 function MAC5_SaveTaxNo(taxno,orderid,mac5_db){
-	showHTML('MAC5_DivTaxNo','../mac5/process.php?act=savetaxno&mac5_db='+mac5db+'&taxno='+taxno+"&eorderid="+orderid);
+	showHTML('MAC5_DivTaxNo','../mac5/process.php?act=savetaxno&mac5_db='+mac5_db+'&taxno='+taxno+"&eorderid="+orderid);
 	setFocus('MAC5_CustomerCode');
 }
 function MAC5_Init(){
@@ -42,18 +42,18 @@ function MAC5_CheckItemCode(index,orderid,mac5_db){
 
 
 
-		showHTML('MAC5_DivName_'+index,		'../mac5/process.php?act=processitemname&mac5_db='+mac5db+'&code='+itemcode+"&eorderid="+orderid+"&index="+index,
+		showHTML('MAC5_DivName_'+index,		'../mac5/process.php?act=processitemname&mac5_db='+mac5_db+'&code='+itemcode+"&eorderid="+orderid+"&index="+index,
 				 function(){
 					//showHTML('MAC5_DName_'+index,		'../mac5/process.php?act=processitemname&code='+itemcode+"&eorderid="+orderid+"&index="+index);
-					showHTML('MAC5_DUnit_'+index,		'../mac5/process.php?act=processitemunit&mac5_db='+mac5db+'&code='+itemcode+"&eorderid="+orderid+"&index="+index);
-					showHTML('MAC5_DCog_'+index,		'../mac5/process.php?act=processitemcog&mac5_db='+mac5db+'&code='+itemcode+"&eorderid="+orderid+"&index="+index);
+					showHTML('MAC5_DUnit_'+index,		'../mac5/process.php?act=processitemunit&mac5_db='+mac5_db+'&code='+itemcode+"&eorderid="+orderid+"&index="+index);
+					showHTML('MAC5_DCog_'+index,		'../mac5/process.php?act=processitemcog&mac5_db='+mac5_db+'&code='+itemcode+"&eorderid="+orderid+"&index="+index);
 					 if(itemcode.length==0){
 						 setValue('MAC5_DPrice_'+index,"");
 						 writeit('MAC5_DSum_'+index,"");
 						setTimeout("MAC5_RefreshSumOverall()",100);
 						 
 					 }//else if(price.length==0){
-						showHTML('MAC5_DivDPrice_'+index,	'../mac5/process.php?act=processitemprice&mac5_db='+mac5db+'&code='+itemcode+"&eorderid="+orderid+"&index="+index,function(){
+						showHTML('MAC5_DivDPrice_'+index,	'../mac5/process.php?act=processitemprice&mac5_db='+mac5_db+'&code='+itemcode+"&eorderid="+orderid+"&index="+index,function(){
 									setTimeout("MAC5_RefreshSumTotal("+index+","+orderid+",'"+mac5_db+"')",100);
 									//MAC5_RefreshSumTotal(index,orderid));
 																																									});
@@ -65,7 +65,7 @@ function MAC5_CheckItemCode(index,orderid,mac5_db){
 function MAC5_SaveExchg(orderid,mac5_db){
 	exchg = getValue('MAC5_Exchg');
 	exchg = exchg.replace(',',"");
-	showHTML('MAC5_DivExchg','../mac5/process.php?act=saveexchg&mac5_db='+mac5db+'&exchg='+exchg+"&eorderid="+orderid);
+	showHTML('MAC5_DivExchg','../mac5/process.php?act=saveexchg&mac5_db='+mac5_db+'&exchg='+exchg+"&eorderid="+orderid);
 	setFocus('MAC5_DCode_1');
 	
 }
@@ -73,13 +73,13 @@ function MAC5_SaveExchg(orderid,mac5_db){
 function MAC5_SaveDisCount(orderid,mac5_db){
 	disc = getValue('MAC5_Disc');
 	disc = disc.replace(',',"");
-	showHTML('MAC5_DivDisc','../mac5/process.php?act=savediscount&mac5_db='+mac5db+'&disc='+disc+"&eorderid="+orderid,function(){
+	showHTML('MAC5_DivDisc','../mac5/process.php?act=savediscount&mac5_db='+mac5_db+'&disc='+disc+"&eorderid="+orderid,function(){
 			setTimeout("MAC5_RefreshSumOverall()",100);
 																											});
 }
 function MAC5_SaveName(index,orderid,mac5_db){
 	name =  encodeTH(getValue('MAC5_DName_'+index));
-	showHTML('MAC5_DivName_'+index,		'../mac5/process.php?act=savename&mac5_db='+mac5db+'&name='+name+"&eorderid="+orderid+"&index="+index);
+	showHTML('MAC5_DivName_'+index,		'../mac5/process.php?act=savename&mac5_db='+mac5_db+'&name='+name+"&eorderid="+orderid+"&index="+index);
 	setFocus('MAC5_DVcol_'+index);
 }
 
@@ -91,7 +91,7 @@ function MAC5_SaveVcol(index,orderid,mac5_db){
 	
 	
 	vcol = encodeTH(getValue('MAC5_DVcol_'+index));
-	showHTML('MAC5_DivVcol_'+index,		'../mac5/process.php?act=savevcol&mac5_db='+mac5db+'&vcol='+vcol+"&eorderid="+orderid+"&index="+index);
+	showHTML('MAC5_DivVcol_'+index,		'../mac5/process.php?act=savevcol&mac5_db='+mac5_db+'&vcol='+vcol+"&eorderid="+orderid+"&index="+index);
 	setFocus('MAC5_DQty_'+index);
 }
 
@@ -105,7 +105,7 @@ function MAC5_RefreshSumTotal(index,orderid,mac5_db){
 	disc = disc.replace(',',"");
 	
 	
-	showHTML('MAC5_DSum_'+index,	'../mac5/process.php?act=calsum&mac5_db='+mac5db+'&qty='+qty+"&price="+price+"&discount="+disc+"&eorderid="+orderid+"&index="+index,MAC5_RefreshSumOverall);
+	showHTML('MAC5_DSum_'+index,	'../mac5/process.php?act=calsum&mac5_db='+mac5_db+'&qty='+qty+"&price="+price+"&discount="+disc+"&eorderid="+orderid+"&index="+index,MAC5_RefreshSumOverall);
 	
 	writeit('MAC5_DCog_'+index,format_number(qty*price,2));
 	
@@ -177,18 +177,18 @@ function MAC5_RefreshSumOverall(){
 
 
 function MAC5_ChangeProductName(val,orderid,mac5_db){
-	showHTML('MAC5_DivProductName',	'../mac5/process.php?act=changeproductname&mac5_db='+mac5db+'&pdcname='+val+"&eorderid="+orderid+"");
+	showHTML('MAC5_DivProductName',	'../mac5/process.php?act=changeproductname&mac5_db='+mac5_db+'&pdcname='+val+"&eorderid="+orderid+"");
 	
 }
 function MAC5_ChangePriceGroup(val,orderid,mac5_db){
-	showHTML('MAC5_DivPriceGroup',	'../mac5/process.php?act=changepricegroup&mac5_db='+mac5db+'&pricegroup='+val+"&eorderid="+orderid+"",
+	showHTML('MAC5_DivPriceGroup',	'../mac5/process.php?act=changepricegroup&mac5_db='+mac5_db+'&pricegroup='+val+"&eorderid="+orderid+"",
 			 function(){
 				/*for(index=1;index<9;index++){
 					itemcode = getValue('MAC5_DCode_'+index);
 					showHTML('MAC5_DivDPrice_'+index,	'../mac5/process.php?act=processitemprice&code='+itemcode+"&eorderid="+orderid+"&index="+index);
 					writeit('MAC5_DSum_'+index,'');
 				}*/
-				showHTML('MAC5_DivExchg',	'../mac5/process.php?act=getexchange&mac5_db='+mac5db+'&pricegroup='+val+"&eorderid="+orderid+"");
+				showHTML('MAC5_DivExchg',	'../mac5/process.php?act=getexchange&mac5_db='+mac5_db+'&pricegroup='+val+"&eorderid="+orderid+"");
 				
 
 
@@ -211,7 +211,7 @@ function MAC5_SaveDate(orderid,mac5_db){
 	d = getValue('MAC5_DataD');
 	m = getValue('MAC5_DataM');
 	y = getValue('MAC5_DataY');
-	showHTML('MAC5_DivDate','../mac5/process.php?act=savedate&mac5_db='+mac5db+'&d='+d+'&m='+m+'&y='+y+'&eorderid='+orderid+"");
+	showHTML('MAC5_DivDate','../mac5/process.php?act=savedate&mac5_db='+mac5_db+'&d='+d+'&m='+m+'&y='+y+'&eorderid='+orderid+"");
 }
 
 
