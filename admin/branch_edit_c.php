@@ -15,11 +15,15 @@ if (isset($branch_id) && $branch_id > 0) {
     $branch_data->Query("select * from branch where branchid = $branch_id limit 1");
     if ($action!='save' && !$branch_data->EOF) {
         $branch_name = $branch_data->Rs("branch_name");
+        $branch_mac5db = $branch_data->Rs("branch_mac5db");
+        $branch_prefix = $branch_data->Rs("branch_prefix");
     }
 }
 
 if($action=='save'){
     $branch_name = $_POST["branch_name"];
+    $branch_mac5db = $_POST["branch_mac5db"];
+    $branch_prefix = $_POST["branch_prefix"];
 
     if($branch_id==-1){
         $branch_data->AddNew();
@@ -28,6 +32,8 @@ if($action=='save'){
     }
     $branch_data->TableName = "branch";
     $branch_data->Set("branch_name","'{$branch_name}'");
+    $branch_data->Set("branch_mac5db","'{$branch_mac5db}'");
+    $branch_data->Set("branch_prefix","'{$branch_prefix}'");
     $branch_data->Update();
     Redirect('branch_manager_c.php',0);
     exit();
@@ -59,6 +65,16 @@ if($action=='del'){
                         <td >Name</td>
                         <td align="right">
                             <input name="branch_name" type="text" style="width:300px" value="<?=$branch_name?>">    </td>
+                    </tr>
+                    <tr>
+                        <td >Mac5 DB</td>
+                        <td align="right">
+                            <input name="branch_mac5db" type="text" style="width:300px" value="<?=$branch_mac5db?>">    </td>
+                    </tr>
+                    <tr>
+                        <td >Mac5 Prefix</td>
+                        <td align="right">
+                            <input name="branch_prefix" type="text" style="width:300px" value="<?=$branch_prefix?>">    </td>
                     </tr>
                 </table>
                 <? include "../cfrontend/tbframe2f.php"?>

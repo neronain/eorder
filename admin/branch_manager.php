@@ -107,7 +107,7 @@ include_once "../resource/divbackground.php" ?>
         <? $tbframeheader = "Edit Branch Data" ?>
         <? $tbframehclose = "CloseDivEditBranchData()"; ?>
         <? include "../cfrontend/tbframeh.php" ?>
-        <div id="DivBranchData" style="overflow:auto;width:500px;height:150px"></div>
+        <div id="DivBranchData" style="overflow:auto;width:500px;height:200px"></div>
         <? include "../cfrontend/tbframef.php" ?>
     </div>
 

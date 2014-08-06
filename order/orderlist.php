@@ -23,7 +23,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="../resource/javascript/ajax.js"></script>
 <script src="../resource/javascript/default.js"></script>
-<script src="../resource/javascript/mac5.js"></script>
+<script src="<?=Inc_Htmlutil::auto_version('../resource/javascript/mac5.js')?>"></script>
 <body style="background-color:#FFFFFF">
 <!--div id="backgroundLayer" style="position:absolute;left:0;top:0;width:100%;height:2000;visibility:hidden;background-image:url(../resource/images/eorder/bglayer.gif);z-index:0;"></div-->
 <!--div id="DivShowOrder" style="position:absolute;white-space:nowrap;left:0;top:0;width:580px;height:250px;border:1px solid black;background-color:white;visibility:hidden;"

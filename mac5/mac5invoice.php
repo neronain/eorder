@@ -99,7 +99,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="../resource/javascript/ajax.js"></script>
 <script src="../resource/javascript/default.js"></script>
-<script src="../resource/javascript/mac5.js"></script>
+<script src="<?=Inc_Htmlutil::auto_version('../resource/javascript/mac5.js')?>"></script>
 <body style="background-color:#FFFFFF">
 <form>
           <input type="text" name="code" id="txtcode" style="width:200;" value="">

@@ -426,7 +426,7 @@ class Inc_Htmlutil{
 	
 	public static function auto_version($file)
 	{
-		$pfile  = "../../".$file;
+		$pfile  = $file;
 		if(!file_exists($pfile))
 		return $file;
 	

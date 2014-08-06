@@ -33,7 +33,8 @@
  	include_once("../core/funchtml.php");
 	include_once("../core/funccalc.php");
 	include_once("../core/functooth.php");
-	include_once("../core/teeth.php");		
+	include_once("../core/teeth.php");
+    include_once("../framework/include/htmlutil.inc.php");
 //	$data = new CSql();
 // 	$err =	$data->Connect();
 //echo"yyy3";
