@@ -1,5 +1,5 @@
-Options -SymLinksIfOwnerMatch
-RewriteEngine On
+#Options -SymLinksIfOwnerMatch
+#RewriteEngine On
 
-RewriteRule ^(resource/.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
-RewriteRule ^(resources/.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
+#RewriteRule ^(resource/.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
+#RewriteRule ^(resources/.*)\.[\d]{10}\.(css|js)$ $1.$2 [L]
