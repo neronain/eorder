@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2b9e24a-5b97-4f60-8b53-88dcd320d348" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\xampp\htdocs\eorder2\resource\javascript\mac5.js" afterPath="$PROJECT_DIR$/resource/javascript/mac5.1406813651.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mac5/mac5invoice.php" afterPath="$PROJECT_DIR$/mac5/mac5invoice.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/order/orderlist.php" afterPath="$PROJECT_DIR$/order/orderlist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="a2b9e24a-5b97-4f60-8b53-88dcd320d348" name="Default" comment="" />
     <ignored path="eorder2.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
