@@ -178,10 +178,10 @@ if($eorderid>0){
 
 <script>
 function MAC5_OnSend(){
-	location = "../mac5/mac5invoice.php?eorderid=<?=$eorderid?>";
+	location = "../mac5/mac5invoice.php?eorderid=<?=$eorderid?>&mac5_db=<?=mac5_db?>";
 }
 function OrderSummaryChangeTab(name){
-	location = "../mac5/mac5invoice.php?eorderid=<?=$eorderid?>";
+	location = "../mac5/mac5invoice.php?eorderid=<?=$eorderid?>&mac5_db=<?=mac5_db?>";
 }
 </script>
 </body>

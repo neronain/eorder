@@ -230,7 +230,7 @@ function MAC5_CheckCustomerCode(orderid,mac5_db){
 	cuscode = getValue('MAC5_CustomerCode');
 	if(cuscode.length>0){
 	
-		showHTML('MAC5_DivCutomerName','../mac5/process.php?act=processcustomercode&code='+encodeTH(cuscode)+"&eorderid="+orderid+"");
+		showHTML('MAC5_DivCutomerName','../mac5/process.php?act=processcustomercode&mac5_db='+mac5_db+'&code='+encodeTH(cuscode)+"&eorderid="+orderid+"");
 	}
 	
 }
