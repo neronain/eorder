@@ -1,0 +1,42 @@
+cd
+clear
+mkdir myrepo.git
+cd myrepo.git
+git init
+	Initialized empty Git
+cd .git/
+cat config
+
+cd .. (to master)
+git init --bare
+
+---- After Set server ----
+cd .. (Master)
+vi README (Edit file)
+git add .
+git commit -m "Added README"
+git remote add origin git@host:myrepo.git
+git push origin master
+
+
+------ Server -----
+apt-get install git git-core
+mkdir myrepo.git
+cd myrepo.git
+git init --bare
+
+-------------------------
+git status (Check Ststus git)
+git log (Check log)
+git checkout .... (recovery file)
+
+====================================================
+
+https://www.youtube.com/watch?v=r93gUZbjWEo
+https://www.youtube.com/watch?v=FXgsdEg_ne4
+
+
+http://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
+
+------------------ for Hexa -------------------
+clone git http://github.com/neronain/eorder2.git
