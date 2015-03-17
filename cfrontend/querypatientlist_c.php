@@ -13,8 +13,6 @@ if($limit > 0){
 }else{
 	$sql_limit = "";
 }
-	
-//$customer_id = 585;
 
 $patient_data = new CSql();
 $patient_data->Connect();

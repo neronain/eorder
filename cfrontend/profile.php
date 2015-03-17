@@ -39,7 +39,7 @@
 		$addresst 		= $customer_data->Rs("cus_address");
 		$cntt      		= $customer_data->Rs("cus_cnt_id");
 		$prvt 			= $customer_data->Rs("cus_prv_id");	
-		$userid 			= $customer_data->Rs("cus_usr_id");
+		$userid 		= $customer_data->Rs("cus_usr_id");
 		$shipaddress 	= $customer_data->Rs("cus_shipaddress");	
 		$billaddress 	= $customer_data->Rs("cus_billaddress");	
 	}

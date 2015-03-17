@@ -93,7 +93,10 @@ if(!$forward){
 <? if($fix_margin["MGPN"]!=""){?><tr><td> Margin </td><td>Por. Margin + No metal : <?=$fix_margin["MGPN"]?></td></tr><? } ?>
 <? if($fix_margin["MGPM"]!=""){?><tr><td> Margin </td><td>Por. Margin around : <?=$fix_margin["MGPM"]?></td></tr><? } ?>
 <? if($fix_margin["MGM1"]!=""){?><tr><td> Margin </td><td>Lingual Metal margin 1 mm : <?=$fix_margin["MGM1"]?></td></tr><? } ?>
-<? if($fix_margin["MGM5"]!=""){?><tr><td> Margin </td> <td>Lingual Metal margin 0.5 mm : <?=$fix_margin["MGM5"]?></td></tr><? } ?>
+<? if($fix_margin["MGM5"]!=""){?><tr><td> Margin </td><td>Lingual Metal margin 0.5 mm : <?=$fix_margin["MGM5"]?></td></tr><? } ?>
+<? if($fix_margin["MGDM"]!=""){?><tr><td> Margin </td><td>Lingual Mistal & Distal margin : <?=$fix_margin["MGDM"]?></td></tr><? } ?>
+<? if($fix_margin["MGPD"]!=""){?><tr><td> Margin </td><td>Pindex : <?=$fix_margin["MGPD"]?></td></tr><? } ?>
+<? if($fix_margin["MGDH"]!=""){?><tr><td> Margin </td><td>เจาะรู / Drilling Hold : <?=$fix_margin["MGDH"]?></td></tr><? } ?>
  
             <tr>
               <td valign="top">Option</td>

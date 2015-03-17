@@ -31,7 +31,7 @@
 	include("../order/inc_shade.php");
 	include("../eorder/eorder_fix_config.php");
 	include("../eorder/eorder_remove_config.php");
-	$alloy = array(1 => "None","Non precious","Non nickel","Precious - Palladium","Precious - Semi-precious","Precious - White - Gold","Precious - Yellow - Gold","Other");
+	$alloy = array(1 => "None","Non precious","Non nickel","Precious - Palladium","Precious - Semi-precious","Precious - White - Gold","Precious - Yellow - Gold","Precious - High Yellow - Gold","Other");
 	
 	$isfix = false; $isremove = false;
 	$teeth = new Teeth();
@@ -104,6 +104,9 @@
 				$fix_margin["MGPM"] = getParameter($fix_prefix_observ,"MGPM");	
 				$fix_margin["MGM1"] = getParameter($fix_prefix_observ,"MGM1");	
 				$fix_margin["MGM5"] = getParameter($fix_prefix_observ,"MGM5");	
+				$fix_margin["MGDM"] = getParameter($fix_prefix_observ,"MGDM");	
+				$fix_margin["MGPD"] = getParameter($fix_prefix_observ,"MGPD");	
+				$fix_margin["MGDH"] = getParameter($fix_prefix_observ,"MGDH");	
 			}			
 			
 			

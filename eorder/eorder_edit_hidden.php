@@ -231,7 +231,7 @@
     <input type="hidden" name="fix_option[NoMetalMargin]" id="fix_option[NoMetalMargin]" value="<?=isset($fix_option["NoMetalMargin"])? $fix_option["NoMetalMargin"] : 0?>" />
     <input type="hidden" name="fix_option[Metal margin 1 mm Lingual]" id="fix_option[Metal margin 1 mm Lingual]" value="<?=isset($fix_option["Metal margin 1 mm Lingual"])? $fix_option["Metal margin 1 mm Lingual"] : 0?>" />
     <input type="hidden" name="fix_option[Metal margin 0.5 mm Lingual]" id="fix_option[Metal margin 0.5 mm Lingual]" value="<?=isset($fix_option["Metal margin 0.5 mm Lingual"])? $fix_option["Metal margin 0.5 mm Lingual"] : 0?>" />
-<input type="hidden" name="fix_option[SmallMetalMarginAround]" id="fix_option[SmallMetalMarginAround]" value="<?=isset($fix_option["SmallMetalMarginAround"])? $fix_option["SmallMetalMarginAround"] : 0?>" />
+	<input type="hidden" name="fix_option[SmallMetalMarginAround]" id="fix_option[SmallMetalMarginAround]" value="<?=isset($fix_option["SmallMetalMarginAround"])? $fix_option["SmallMetalMarginAround"] : 0?>" />
     <input type="hidden" name="fix_option[Hair line metal margin Lingual]" id="fix_option[Hair line metal margin Lingual]" value="<?=isset($fix_option["Hair line metal margin Lingual"])? $fix_option["Hair line metal margin Lingual"] : 0?>" />
     <input type="hidden" name="fix_option[HairLineMetalMarginAround]" id="fix_option[HairLineMetalMarginAround]" value="<?=isset($fix_option["HairLineMetalMarginAround"])? $fix_option["HairLineMetalMarginAround"] : 0?>" />
     <input type="hidden" name="fix_option[No approximal contact]" id="fix_option[No approximal contact]" value="<?=isset($fix_option["No approximal contact"])? $fix_option["No approximal contact"] : 0?>" />
@@ -246,7 +246,9 @@
     <input type="hidden" name="fix_option[Crown endosed for shade/anatomy]" id="fix_option[Crown endosed for shade/anatomy]" value="<?=isset($fix_option["Crown endosed for shade/anatomy"])? $fix_option["Crown endosed for shade/anatomy"] : 0?>" />
     <input type="hidden" name="fix_option[Bridge enclosed for shade/anatomy]" id="fix_option[Bridge enclosed for shade/anatomy]" value="<?=isset($fix_option["Bridge enclosed for shade/anatomy"])? $fix_option["Bridge enclosed for shade/anatomy"] : 0?>" />
     <input type="hidden" name="fix_option[New Dentist]" id="fix_option[New Dentist]" value="<?=isset($fix_option["New Dentist"])? $fix_option["New Dentist"] : 0?>" />
-    <input type="hidden" name="fix_remake[ChangeShade]" id="fix_remake[ChangeShade]" value="<?=isset($fix_remake["ChangeShade"])? $fix_remake["ChangeShade"] : 0?>" />
+    
+    
+	<input type="hidden" name="fix_remake[ChangeShade]" id="fix_remake[ChangeShade]" value="<?=isset($fix_remake["ChangeShade"])? $fix_remake["ChangeShade"] : 0?>" />
     <input type="hidden" name="fix_remake[ShortMargin]" id="fix_remake[ShortMargin]" value="<?=isset($fix_remake["ShortMargin"])? $fix_remake["ShortMargin"] : 0?>" />
     <input type="hidden" name="fix_remake[AddContactPoint]" id="fix_remake[AddContactPoint]" value="<?=isset($fix_remake["AddContactPoint"])? $fix_remake["AddContactPoint"] : 0?>" />
     <input type="hidden" name="fix_remake[RepairCeramic]" id="fix_remake[RepairCeramic]" value="<?=isset($fix_remake["RepairCeramic"])? $fix_remake["RepairCeramic"] : 0?>" />
@@ -254,6 +256,7 @@
     <input type="hidden" name="fix_remake[CanNotInsert]" id="fix_remake[CanNotInsert]" value="<?=isset($fix_remake["CanNotInsert"])? $fix_remake["CanNotInsert"] : 0?>" />
     <input type="hidden" name="fix_remake[ChangeDesign]" id="fix_remake[ChangeDesign]" value="<?=isset($fix_remake["ChangeDesign"])? $fix_remake["ChangeDesign"] : 0?>" />
     <input type="hidden" name="fix_remake[WrongBite]" id="fix_remake[WrongBite]" value="<?=isset($fix_remake["WrongBite"])? $fix_remake["WrongBite"] : 0?>" />
+    
     
     <input type="hidden" name="fix_enclosed[upper_tray]" id="fix_enclosed[upper_tray]" value="<?=isset($fix_enclosed["upper_tray"])? $fix_enclosed["upper_tray"] : 0?>" />
     <input type="hidden" name="fix_enclosed[lower_tray]" id="fix_enclosed[lower_tray]" value="<?=isset($fix_enclosed["lower_tray"])? $fix_enclosed["lower_tray"] : 0?>" />

@@ -45,6 +45,18 @@
         <td>Lingual Metal margin 0.5 mm.</td>
         <td><input name="margin_mgm5" type="text" id="textfield10" value="<?=$fix_margin["MGM5"]?>"  style="width:50px"/></td>
       </tr>
+	        <tr>
+      <td>Lingual Mistal & Distal margin</td>
+        <td><input name="margin_mgdm" type="text" id="textfield11" value="<?=$fix_margin["MGDM"]?>"  style="width:50px"/></td>
+      </tr>
+	        <tr>
+      <td>Pindex</td>
+        <td><input name="margin_mgpd" type="text" id="textfield12" value="<?=$fix_margin["MGPD"]?>"  style="width:50px"/></td>
+      </tr>
+	        <tr>
+      <td>เจาะรู / Drilling Hold</td>
+        <td><input name="margin_mgdh" type="text" id="textfield13" value="<?=$fix_margin["MGDH"]?>"  style="width:50px"/></td>
+      </tr>
     </table></td>
   </tr>
 </table>

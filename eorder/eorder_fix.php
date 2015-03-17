@@ -26,7 +26,7 @@ function setValue(objID,val);
 <? $tbframehclose = "fix_materialclose()";?>
 <? include "../cfrontend/tbframeh.php"?><br />
 
-    <div style="width:640px;height:440px;overflow:auto">
+    <div style="width:auto;height:auto;overflow:auto">
       <table border="0" cellpadding="2" cellspacing="1" bgcolor="#999999">
       <? for($i=0;$i<count($fixmaterial_name);$i+=3){ ?>
         <tr>
@@ -127,6 +127,7 @@ function FixOptionMaterial_Popup(){
 	switch(fix_materialpopup_material){
 	<? for($i=0;$i<count($fixmaterial_name);$i++){?>
 		case '<?=$fixmaterial_idvalue[$i]?>':
+<?php//----------------------------------------------Option Fix-------------------------------------------------?>
 			question = '<?=$fixmaterial_option_question[$i]?>'
 			
 			option0 = '<?=$fixmaterial_option_fname[$i][0]?>';
@@ -137,6 +138,8 @@ function FixOptionMaterial_Popup(){
 			option5 = '<?=$fixmaterial_option_fname[$i][5]?>';
 			option6 = '<?=$fixmaterial_option_fname[$i][6]?>';
 			option7 = '<?=$fixmaterial_option_fname[$i][7]?>';
+			option8 = '<?=$fixmaterial_option_fname[$i][8]?>';
+			option9 = '<?=$fixmaterial_option_fname[$i][9]?>';
 			
 			optionV0 = '<?=$fixmaterial_option_value[$i][0]?>';
 			optionV1 = '<?=$fixmaterial_option_value[$i][1]?>';
@@ -146,8 +149,8 @@ function FixOptionMaterial_Popup(){
 			optionV5 = '<?=$fixmaterial_option_value[$i][5]?>';
 			optionV6 = '<?=$fixmaterial_option_value[$i][6]?>';
 			optionV7 = '<?=$fixmaterial_option_value[$i][7]?>';
-
-
+			optionV8 = '<?=$fixmaterial_option_value[$i][8]?>';
+			optionV9 = '<?=$fixmaterial_option_value[$i][9]?>';
 
 			break;
 	<? }?> 
@@ -162,6 +165,7 @@ function FixOptionMaterial_Popup(){
 	findObj('DivFixOptionMaterial_TR6').style.display = option6.length==0?'none':'inline';
 	findObj('DivFixOptionMaterial_TR7').style.display = option7.length==0?'none':'inline';
 
+
 	writeit('DivFixOptionMaterial_Opt0',option0);
 	writeit('DivFixOptionMaterial_Opt1',option1);
 	writeit('DivFixOptionMaterial_Opt2',option2);
@@ -170,6 +174,8 @@ function FixOptionMaterial_Popup(){
 	writeit('DivFixOptionMaterial_Opt5',option5);
 	writeit('DivFixOptionMaterial_Opt6',option6);
 	writeit('DivFixOptionMaterial_Opt7',option7);
+
+
 	
 	findObj('DivFixOptionMaterial_Opt0').value = optionV0;
 	findObj('DivFixOptionMaterial_Opt1').value = optionV1;
@@ -179,6 +185,8 @@ function FixOptionMaterial_Popup(){
 	findObj('DivFixOptionMaterial_Opt5').value = optionV5;
 	findObj('DivFixOptionMaterial_Opt6').value = optionV6;
 	findObj('DivFixOptionMaterial_Opt7').value = optionV7;
+
+
 	
 	
 	
@@ -213,8 +221,7 @@ function fix_material_setoptionvalue(number,value)
 			optsname[<?=$fixmaterial_option_value[$i][6]?>] = '<?=$fixmaterial_option_sname[$i][6]?>';<? } ?>
 			<? if($fixmaterial_option_value[$i][7]>0) { ?>
 			optsname[<?=$fixmaterial_option_value[$i][7]?>] = '<?=$fixmaterial_option_sname[$i][7]?>';<? } ?>
-			
-			
+						
 			writeit('DivFixMaterialSname'+number,sname+optsname[value]);
 			
 			break;
@@ -1053,6 +1060,7 @@ mm</div></td>
   <td align="center" valign="top"><div style="width:290px"><? include "../cfrontend/tbframe2h.php" ?>
 <table width="100%" border="0" cellspacing="0" cellpadding="2">
   <tr>
+  <!-- After Add Product Goto Add Line 1251-->
     <td align="left" ><span class="style1"><strong>Alloy</strong></span></td>
     </tr>
   <tr>
@@ -1099,6 +1107,12 @@ mm</div></td>
                      onmouseover="checkOnOver2('tdAlloyPreciousYellowGold','fix_alloy',7)"
                      onmouseout="checkOnOut2('tdAlloyPreciousYellowGold','fix_alloy',7)">Yellow - Gold</td>
           </tr>
+		  <tr>
+            <td width="170" height="25" align="left" id="tdAlloyPreciousHighYellowGold" style="padding-left:10px;"
+                     onclick="setTdMethodValue('fix_alloy',8);"
+                     onmouseover="checkOnOver2('tdAlloyPreciousHighYellowGold','fix_alloy',8)"
+                     onmouseout="checkOnOut2('tdAlloyPreciousHighYellowGold','fix_alloy',8)">High Yellow - Gold</td>
+          </tr>
         </table></td>
     </tr>
 </table><? include "../cfrontend/tbframe2f.php" ?>
@@ -1132,16 +1146,18 @@ function fix_materialpopup(teethnumber)
 		return;
 	}
 	activeBG();
-	
+	// Mask for Use Alloy
 
-	findObj("FixMaterialSelector_ID4").style.textDecoration  = alloy>1?"":"line-through";
+	/*findObj("FixMaterialSelector_ID2").style.textDecoration  = alloy>1?"":"line-through";
 	findObj("FixMaterialSelector_ID5").style.textDecoration = alloy>1?"":"line-through";
-	findObj("FixMaterialSelector_ID6").style.textDecoration = alloy>1?"":"line-through";
-	findObj("FixMaterialSelector_ID7").style.textDecoration = alloy>1?"":"line-through";
-	findObj("FixMaterialSelector_ID9").style.textDecoration = alloy>1?"":"line-through";
-	findObj("FixMaterialSelector_ID18").style.textDecoration = alloy>1?"":"line-through";
-	findObj("FixMaterialSelector_ID28").style.textDecoration = alloy>1?"":"line-through";//*/
-	
+	findObj("FixMaterialSelector_ID8").style.textDecoration = alloy>1?"":"line-through";
+	findObj("FixMaterialSelector_ID11").style.textDecoration = alloy>1?"":"line-through";
+	findObj("FixMaterialSelector_ID14").style.textDecoration = alloy>1?"":"line-through";
+	findObj("FixMaterialSelector_ID17").style.textDecoration = alloy>1?"":"line-through";
+	findObj("FixMaterialSelector_ID23").style.textDecoration = alloy>1?"":"line-through";
+	findObj("FixMaterialSelector_ID20").style.textDecoration = alloy>1?"":"line-through";//*/
+	//
+
 	makeCenterScreen('FixMaterialSelector');
 	showHideLayers('FixMaterialSelector','','show');
 }
@@ -1244,12 +1260,12 @@ function setTdMethodValue(valueid,value){
 		findObj('tdRemoveRepair').className=(value=='Repair'?'tdMethodOnSelect':'');
 	}else if(valueid == "fix_alloy"){
 		findObj('tdAlloyNone').className=(value=='1'?'tdAlloyOnSelect':'');
-		findObj('tdAlloyNonPrecious').className=(value=='2'?'tdAlloyOnSelect':'');
-		findObj('tdAlloyNoneNickel').className=(value=='3'?'tdAlloyOnSelect':'');
-		findObj('tdAlloyPreciousPalladium').className=(value=='4'?'tdAlloyOnSelect':'');
-		findObj('tdAlloyPreciousSemiPrecious').className=(value=='5'?'tdAlloyOnSelect':'');
-		findObj('tdAlloyPreciousWhiteGold').className=(value=='6'?'tdAlloyOnSelect':'');
-		findObj('tdAlloyPreciousYellowGold').className=(value=='7'?'tdAlloyOnSelect':'');
+		findObj('tdAlloyNoneNickel').className=(value=='2'?'tdAlloyOnSelect':'');
+		findObj('tdAlloyPreciousPalladium').className=(value=='3'?'tdAlloyOnSelect':'');
+		findObj('tdAlloyPreciousSemiPrecious').className=(value=='4'?'tdAlloyOnSelect':'');
+		findObj('tdAlloyPreciousWhiteGold').className=(value=='5'?'tdAlloyOnSelect':'');
+		findObj('tdAlloyPreciousYellowGold').className=(value=='6'?'tdAlloyOnSelect':'');
+    findObj('tdAlloyPreciousHighYellowGold').className=(value=='7'?'tdAlloyOnSelect':'');
 
 	}else if(valueid == "fix_embrasure"){
 		findObj('tdEmbNone').className=(value=='None'?'tdMethodOnSelect':'');

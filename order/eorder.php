@@ -1,907 +1,1188 @@
-<?php
-	
-	//include("session.php");
-	//$sessionid = session_id();
-	//check_permission("CN",$sessionid);
-	//$session_data = load_session_data($sessionid);
-	//$member = getMember();
-	//$doctor = load_doctor_name($session_data["doctorId"]);
-	//$clinic = load_clinic_data($session_data["loginid"]);
+<?
+	$patientname = $_POST["patientname"];
+
+
 ?>
 
-<HTML>
-<HEAD>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Hexaceram - eOrder</title>
+<link href="../resource/css/eorder.css" rel="stylesheet" type="text/css" />
+<script src="../resource/javascript/eorder/func_main.js" type="text/javascript"></script>
 
-<TITLE>Hexa Ceram Dental Laboratory</TITLE>
-<style>
-#innermenu a{
-text-decoration:none;
-}
+<link href="../SpryAssets/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
+<script src="../resource/javascript/jquery-1.9.1.min.js"></script>
+</head>
 
-#innermenu a:hover{
-background-color:#FFFF95;
+<body leftmargin="8" topmargin="8" marginwidth="8" marginheight="8">
 
-}
-.orderNormal {font-size: 14px; font-family: Arial, Helvetica, sans-serif;}
-</style>
-<script src="../resource/javascript/default.js"></script>
-<script src="../resource/javascript/eordermain.js"></script>
-<script src="../resource/javascript/eorderselectcolor.js"></script>
-<script src="../resource/javascript/eorderselectfixmaterial.js"></script>
-<script src="../resource/javascript/eorderselectremovematerial.js"></script>
-<script src="../resource/javascript/eorderselectfixoption.js"></script>
-<script src="../resource/javascript/eorderselectteeth.js"></script>
-
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
-<link href="../resource/css/eorder.css" rel="stylesheet" type="text/css">
+<div id="backgroundLayer" style="position:absolute;left:0;top:0;width:100;height:100;visibility:hidden;background-color:#FFFFFF;z-index:0;filter: alpha(opacity=80, style=0); "></div>
+<script>activeBG();</script>
+<script src="../resource/javascript/eorder/func_fix.js" type="text/javascript"></script>
+<script src="../resource/javascript/eorder/func_remove.js" type="text/javascript"></script>
+<script src="../resource/javascript/eorder/html_teeth_image.js" type="text/javascript"></script>
+<script src="../resource/javascript/eorder/variable_fix.js" type="text/javascript"></script>
+<script src="../resource/javascript/eorder/variable_remove.js" type="text/javascript"></script>
+<script src="../SpryAssets/SpryTabbedPanels.js" type="text/javascript"></script>
 
 
-</HEAD>
-<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 MARGINWIDTH=0 topmargin="2" onmousemove="getMouseLoc(event)">
-<div id="backgroundLayer" style="position:absolute;left:0;top:0;width:100%;height:2000;visibility:hidden;background-image:url(../resource/images/eorder/bglayer.gif);z-index:0;"></div>
- <div id="PopUPSelectColor"  style="position:absolute;white-space:nowrap;left:0;top:0;width:580px;height:250px;border:1px solid black;background-color:white;visibility:hidden;"></div>
- <div id="PopUPSelectFixMaterial" style="position:absolute;white-space:nowrap;left:0;top:0;width:702px;height:380px;border:1px solid black;background-color:white;visibility:hidden;z-index:100;"></div>
- <div id="PopUPSelectFixOption" style="position:absolute;white-space:nowrap;left:0;top:0;width:500px;height:180px;border:1px solid black;background-color:white;visibility:hidden;"></div>
- <div id="PopUPSelectRemoveMaterial" style="position:absolute;white-space:nowrap;left:0;top:0;width:300px;height:380px;border:1px solid black;background-color:white;visibility:hidden;"></div>
- <div id="PopUPSelectRemoveMaterialEach" style="position:absolute;white-space:nowrap;left:0;top:0;width:400px;height:450px;border:1px solid black;background-color:white;visibility:hidden;"></div>
- <div id="PopUPTooltip" style="position:absolute;left:0;top:0;width:200px;height:100px;background-color:white;visibility:hidden;z-index:100;"><table border="0" cellspacing="1" cellpadding="3" bgcolor="#003300" width="100%" height="100%">
-   <tr><td bgcolor="#99FF99" class="TableHeadingNormal" height="20" id="PopUPTooltipHead" >[Tip]</td>
- </tr><tr><td valign="top" bgcolor="#FFFFFF" class="orderSmall" id="PopUPTooltipText"></td>
- </tr></table></div>
+<? /*Select Material Layer*/ include "eorder_fixmaterial.php";	?>
+<? /*Select Material Layer*/ include "eorder_removetype.php";	?>
+<? /*Select Material Layer*/ include "eorder_removematerial.php";	?>
+<? /*Select Shade Layer*/ 	include "eorder_shade.php";			?>
 
-<TABLE WIDTH=100% height="100%" BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
- <form action="m_sum_fixed.php" target="" method="post" name="order" id="order" onKeyPress="return noenter();">
-	<TR>
-	  <TD height="23">
-		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-			<tr>
-
-			<td height="23" align="center" background="../resource/images/eorder/menuco.gif" class="TableHeading">
-				Create New Order :: Fixed &amp; Remove </td>
-
-			</tr>
-		</table>	  </TD>
-    </TR> 	
-	<TR>
-	  <TD valign="top" height=800>
-	  
-											<table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-											  <tr>
-												<td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" bgcolor="#F5F5F5">
-												  <tr>
-													<td width="100" class="orderBold">Doctor Name </td>
-													<td><span class="orderNormal"><? echo $doctor["name"]; ?></span></td>
-													<td width="100"><span class="orderBold">Patient Name </span></td>
-													<td><span class="orderNormal"><? echo $session_data["patientName"]; ?></span></td>
-												  </tr>
-												  <tr>
-													<td class="orderBold">Lab/Clinic</td>
-													<td><span class="orderNormal"><? echo $member["name"]; ?></span></td>
-													<td><span class="orderBold">Address</span></td>
-													<td>&nbsp;</td>
-												  </tr>
-												  <tr>
-												    <td class="orderBold">Date</td>
-												    <td>&nbsp;</td>
-												    <td class="orderBold">Date of </td>
-												    <td>&nbsp;</td>
-											      </tr>
-												  
-												</table>
-
-                                                 
-                                                  <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                                                    <tr>
-                                                      <td align="center" bgcolor="#99CCCC" class="TableHeadingNormal">
-                                                        <input type="checkbox" name="checkbox322" value="checkbox" />
-                                                      <font color="#FFFFFF">Fixed teeth</font> </td>
-                                                    </tr>
-                                                    <tr>
-                                                      <td align="center"><table border="0" cellpadding="2" cellspacing="0" bgcolor="#FFCC66">
-                                                        <tr>
-                                                          <td colspan="4" align="center" bgcolor="#FFFF99"><span class="TableHeadingNormal">Method</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td width="120" height="32" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                            <tr>
-                                                              <td width="32" align="right"><input name="method" type="radio" value="1"></td>
-                                                              <td width="32"><img src="../resource/images/eorder/fix/ty_tryin.gif" width="32" height="32"></td>
-                                                              <td class="TableHeadingNormal">Try-in</td>
-                                                            </tr>
-                                                          </table></td>
-                                                          <td width="120" height="32" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                            <tr>
-                                                              <td width="32" align="right"><input name="method" type="radio" value="2"></td>
-                                                              <td width="32"><img src="../resource/images/eorder/fix/ty_contour.gif" width="32" height="32"></td>
-                                                              <td class="TableHeadingNormal">Contour</td>
-                                                            </tr>
-                                                          </table></td>
-                                                          <td width="120" height="32" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                            <tr>
-                                                              <td width="32" align="right"><input name="method" type="radio" value="3"></td>
-                                                              <td width="32"><img src="../resource/images/eorder/fix/ty_finish.gif" width="32" height="32"></td>
-                                                              <td class="TableHeadingNormal">Finish</td>
-                                                            </tr>
-                                                          </table></td>
-                                                          <td width="120" height="32" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                            <tr>
-                                                              <td width="32" align="right"><input name="method" type="radio" value="5"></td>
-                                                              <td width="32"><img src="../resource/images/eorder/fix/ty_repair.gif" width="32" height="32"></td>
-                                                              <td class="TableHeadingNormal">Repair</td>
-                                                            </tr>
-                                                          </table></td>
-                                                        </tr>
-                                                      </table>
-                                                          <table width="100%" border="0" cellspacing="10" cellpadding="0">
-                                                            <tr>
-                                                              <td></td>
-                                                            </tr>
-                                                        </table>
-                                                        <table border="0" cellpadding="2" cellspacing="0" bgcolor="#FFCC66">
-                                                        <tr>
-                                                          <td width="490" align="center" valign="top" bgcolor="#FFFF99"><span class="TableHeadingNormal">Alloy</span></td>
-                                                          </tr>
-                                                        <tr>
-                                                          <td align="center" bgcolor="#FFFFFF"><select name="select" class="TableHeadingNormal" id="stupid_ie_select1">
-                                                            <option>&nbsp;&nbsp;&nbsp; None &nbsp;&nbsp;&nbsp;</option>
-                                                            <option>&nbsp;&nbsp;&nbsp; Non precious &nbsp;&nbsp;&nbsp;</option>
-                                                            <option>&nbsp;&nbsp;&nbsp; Non nickel &nbsp;&nbsp;&nbsp;</option>
-                                                            <option>&nbsp;&nbsp;&nbsp; Precious Palladium &nbsp;&nbsp;&nbsp;</option>
-                                                            <option>&nbsp;&nbsp;&nbsp; Precious Semi-precious &nbsp;&nbsp;&nbsp;</option>
-                                                            <option>&nbsp;&nbsp;&nbsp; Precious White - Gold &nbsp;&nbsp;&nbsp;</option>
-                                                            <option>&nbsp;&nbsp;&nbsp; Precious Yellow - Gold &nbsp;&nbsp;&nbsp;</option>
-                                                          </select>													      </td>
-                                                          </tr>
-                                                      </table>
-                                                        <table width="100%" border="0" cellspacing="20" cellpadding="0">
-                                                          <tr>
-                                                            <td></td>
-                                                          </tr>
-                                                        </table>
-                                                        <table border="0" align="center" cellpadding="0" cellspacing="0">
-                                                          <tr>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg0"></div><script>onMouseOutBridge(0);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg1"></div><script>onMouseOutBridge(1);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg2"></div><script>onMouseOutBridge(2);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg3"></div><script>onMouseOutBridge(3);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg4"></div><script>onMouseOutBridge(4);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg5"></div><script>onMouseOutBridge(5);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg6"></div><script>onMouseOutBridge(6);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg7"></div><script>onMouseOutBridge(7);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg8"></div><script>onMouseOutBridge(8);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg9"></div><script>onMouseOutBridge(9);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg10"></div><script>onMouseOutBridge(10);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg11"></div><script>onMouseOutBridge(11);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg12"></div><script>onMouseOutBridge(12);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg13"></div><script>onMouseOutBridge(13);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg14"></div><script>onMouseOutBridge(14);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                          </tr>
-                                                        </table>
-                                                        <table width="760" border="0" cellpadding="0" cellspacing="1">
-                                                            <tr>
-                                                              <td align="right"><table border="0" cellpadding="0" cellspacing="0" class="orderSmall">
-                                                                   <tr>
-                                                                    <td align="center">18</td>
-                                                                    <td align="center">17</td>
-                                                                    <td align="center">16</td>
-                                                                    <td align="center">15</td>
-                                                                    <td align="center">14</td>
-                                                                    <td align="center">13</td>
-                                                                    <td align="center">12</td>
-                                                                    <td align="center">11</td>
-                                                                  </tr>
-																  <tr>
-                                                                    <td width="47" height="47" align="center"><div id="teethImg0"></div><script>onMouseOutTeeth(0);</script></td>
-                                                                    <td width="47" height="47" align="center"><div id="teethImg1"></div><script>onMouseOutTeeth(1);</script></td>
-                                                                    <td width="47" height="47" align="center"><div id="teethImg2"></div><script>onMouseOutTeeth(2);</script></td>
-                                                                    <td width="47" height="47" align="center"><div id="teethImg3"></div><script>onMouseOutTeeth(3);</script></td>
-                                                                    <td width="47" height="47" align="center"><div id="teethImg4"></div><script>onMouseOutTeeth(4);</script></td>
-                                                                    <td width="47" height="47" align="center"><div id="teethImg5"></div><script>onMouseOutTeeth(5);</script></td>
-                                                                    <td width="47" height="47" align="center"><div id="teethImg6"></div><script>onMouseOutTeeth(6);</script></td>
-                                                                    <td width="47" height="47" align="center"><div id="teethImg7"></div><script>onMouseOutTeeth(7);</script></td>
-                                                                  </tr>
-
-                                                                </table></td>
-                                                              <td width="1" bgcolor="#003399"></td>
-                                                              <td><table border="0" cellpadding="0" cellspacing="0" class="orderSmall">
-                                                                <tr>
-                                                                  <td align="center">21</td>
-                                                                  <td align="center">22</td>
-                                                                  <td align="center">23</td>
-                                                                  <td align="center">24</td>
-                                                                  <td align="center">25</td>
-                                                                  <td align="center">26</td>
-                                                                  <td align="center">27</td>
-                                                                  <td align="center">28</td>
-                                                                </tr>
-                                                                <tr>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg8"></div><script>onMouseOutTeeth(8);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg9"></div><script>onMouseOutTeeth(9);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg10"></div><script>onMouseOutTeeth(10);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg11"></div><script>onMouseOutTeeth(11);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg12"></div><script>onMouseOutTeeth(12);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg13"></div><script>onMouseOutTeeth(13);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg14"></div><script>onMouseOutTeeth(14);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg15"></div><script>onMouseOutTeeth(15);</script></td>
-                                                                </tr>
-
-                                                              </table></td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td height="1" colspan="3" bgcolor="#003399"></td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td align="right"><table border="0" cellpadding="0" cellspacing="0" class="orderSmall">
-
-                                                                <tr>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg16"></div><script>onMouseOutTeeth(16);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg17"></div><script>onMouseOutTeeth(17);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg18"></div><script>onMouseOutTeeth(18);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg19"></div><script>onMouseOutTeeth(19);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg20"></div><script>onMouseOutTeeth(20);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg21"></div><script>onMouseOutTeeth(21);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg22"></div><script>onMouseOutTeeth(22);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg23"></div><script>onMouseOutTeeth(23);</script></td>
-                                                                </tr>
-                                                                <tr>
-                                                                  <td align="center">38</td>
-                                                                  <td align="center">37</td>
-                                                                  <td align="center">36</td>
-                                                                  <td align="center">35</td>
-                                                                  <td align="center">34</td>
-                                                                  <td align="center">33</td>
-                                                                  <td align="center">32</td>
-                                                                  <td align="center">31</td>
-                                                                </tr>																
-                                                              </table>                                                                </td>
-                                                              <td width="1" bgcolor="#003399"></td>
-                                                              <td><table border="0" cellpadding="0" cellspacing="0" class="orderSmall">
-
-                                                                <tr>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg24"></div><script>onMouseOutTeeth(24);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg25"></div><script>onMouseOutTeeth(25);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg26"></div><script>onMouseOutTeeth(26);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg27"></div><script>onMouseOutTeeth(27);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg28"></div><script>onMouseOutTeeth(28);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg29"></div><script>onMouseOutTeeth(29);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg30"></div><script>onMouseOutTeeth(30);</script></td>
-                                                                  <td width="47" height="47" align="center"><div id="teethImg31"></div><script>onMouseOutTeeth(31);</script></td>
-                                                                </tr>
-                                                                <tr>
-                                                                  <td align="center">41</td>
-                                                                  <td align="center">42</td>
-                                                                  <td align="center">43</td>
-                                                                  <td align="center">44</td>
-                                                                  <td align="center">45</td>
-                                                                  <td align="center">46</td>
-                                                                  <td align="center">47</td>
-                                                                  <td align="center">48</td>
-                                                                </tr>																
-                                                              </table>                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                        <table border="0" align="center" cellpadding="0" cellspacing="0">
-                                                          <tr>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg15"></div><script>onMouseOutBridge(15);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg16"></div><script>onMouseOutBridge(16);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg17"></div><script>onMouseOutBridge(17);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg18"></div><script>onMouseOutBridge(18);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg19"></div><script>onMouseOutBridge(19);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg20"></div><script>onMouseOutBridge(20);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg21"></div><script>onMouseOutBridge(21);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg22"></div><script>onMouseOutBridge(22);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg23"></div><script>onMouseOutBridge(23);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg24"></div><script>onMouseOutBridge(24);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg25"></div><script>onMouseOutBridge(25);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg26"></div><script>onMouseOutBridge(26);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg27"></div><script>onMouseOutBridge(27);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg28"></div><script>onMouseOutBridge(28);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                            <td width="41" height="12"><div id="bridgeImg29"></div><script>onMouseOutBridge(29);</script></td>
-                                                            <td width="6" height="12"><img src="../resource/images/eorder/fix/dot.gif" width="6" height="6"></td>
-                                                          </tr>
-                                                        </table>
-                                                        <br>
-                                                        <br>
-                                                        <br>
-                                                      <table width="95%" border="0" cellspacing="0" cellpadding="2">
-                                                        <tr>
-                                                          <td valign="top">
-														  <table width="160" border="0" cellpadding="2" cellspacing="1" bgcolor="#FFCC66">
-                                                            <tr>
-                                                              <td height="32" align="center" bgcolor="#FFFF99" class="TableHeadingNormal">Embrasure</td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td height="32" bgcolor="#FFFFFF"><table width="120" border="0" cellspacing="0" cellpadding="0">
-                                                                <tr>
-                                                                  <td width="32" align="right"><input name="embrasure" type="radio" value="2"></td>
-                                                                  <td width="32"><img src="../resource/images/eorder/fix/em_open.gif" width="32" height="32"></td>
-                                                                  <td align="center" class="TableHeadingNormal">Open</td>
-                                                                </tr>
-                                                              </table></td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td height="32" bgcolor="#FFFFFF"><table width="120" border="0" cellspacing="0" cellpadding="0">
-                                                                <tr>
-                                                                  <td width="32" align="right"><input name="embrasure" type="radio" value="3"></td>
-                                                                  <td width="32"><img src="../resource/images/eorder/fix/em_close.gif" width="32" height="32"></td>
-                                                                  <td align="center" class="TableHeadingNormal">Close</td>
-                                                                </tr>
-                                                              </table></td>
-                                                            </tr>
-                                                          </table></td>
-                                                          <td align="center" valign="top"><table width="300" border="0" cellpadding="0" cellspacing="1" bgcolor="#FFCC33">
-                                                            <tr>
-                                                              <td height="20" bgcolor="#FFFF99"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                  <tr>
-                                                                    <td class="TableHeadingNormal">&nbsp;&nbsp;Shade</td>
-                                                                    <td align="right"><input name="button" type="button"  id="btnSelectColor" style="width:40;height:18;font-size:9px" onClick="popup_selectcolor(0);" value="Select"></td>
-                                                                  </tr>
-                                                              </table></td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td bgcolor="#FFFFFF" class="orderSmall" style="font-size:10px" height=20><div class="TableHeadingNormal" id="selectedcolor">&nbsp;No shade select</div></td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td height="100" align="center" bgcolor="#FFFFFF"><table border="0" cellspacing="5" cellpadding="0">
-                                                                  <tr>
-                                                                    <td id="fixcolorpreview" bgcolor="#CCCCCC"><a href="javascript:popup_selectcolor(0);"><img src="../resource/images/eorder/teeth/preview2.gif" width="91" height="56" border="0"></a></td>
-                                                                  </tr>
-                                                              </table></td>
-                                                            </tr>
-                                                          </table></td>
-                                                          <td rowspan="2" align="right" valign="top"><table width="220" border="0" cellpadding="2" cellspacing="1" bgcolor="#FFCC33">
-                                                            <tr>
-                                                              <td height="20" bgcolor="#FFFF99" class="TableHeadingNormal">&nbsp;&nbsp;Option</td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td bgcolor="#FFFFFF" class="orderSmall"><table width="100%" border="0" cellspacing="0" cellpadding="2">
-                                                                  <tr>
-                                                                    <td width="20"><input type="checkbox" name="checkbox32" value="checkbox" /></td>
-                                                                    <td><img src="../resource/images/eorder/fix/op_mcl.gif" width="32" height="32" /></td>
-                                                                    <td colspan="2" class="orderSmall">Metel Collar Lingual</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td width="20" bgcolor="#FFFFCC"><input type="checkbox" name="checkbox33" value="checkbox" /></td>
-                                                                    <td width="32" bgcolor="#FFFFCC"><img src="../resource/images/eorder/fix/op_mc360.gif" width="32" height="32" /></td>
-                                                                    <td colspan="2" bgcolor="#FFFFCC" class="orderSmall">Metel Collar 360&deg; </td>
-                                                                  </tr>
-
-                                                                  <tr>
-                                                                    <td width="20">&nbsp;</td>
-                                                                    <td><img src="../resource/images/eorder/fix/op_pm.gif" width="32" height="32" /></td>
-                                                                    <td colspan="2" class="orderSmall">Porcelain Margin </td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td>&nbsp;</td>
-                                                                    <td colspan="3">
-																	<table><tr><td><div id="optiontable1"></div></td><td><input  type="button" style="width:40;height:18;font-size:9px" onClick="popup_selectfixoption(1);" value="Select"></td></tr></table>
-                                                                    <script>writeit('optiontable1',build_html_teethtable_option(1));</script>                                                                    </td>
-                                                                  </tr>
-
-                                                                  <tr>
-                                                                    <td width="20" bgcolor="#FFFFCC">&nbsp;</td>
-                                                                    <td bgcolor="#FFFFCC"><img src="../resource/images/eorder/fix/op_sb.gif" width="32" height="32" /></td>
-                                                                    <td colspan="2" bgcolor="#FFFFCC" class="orderSmall">Step bar / Milling </td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td bgcolor="#FFFFCC">&nbsp;</td>
-                                                                    <td colspan="3" bgcolor="#FFFFCC">
-																	<table><tr><td><div id="optiontable2"></div></td><td><input  type="button"  style="width:40;height:18;font-size:9px" onClick="popup_selectfixoption(2);" value="Select"></td></tr></table>
-																	<script>writeit('optiontable2',build_html_teethtable_option(2));</script>																	</td>
-                                                                  </tr>
-
-                                                                  <tr>
-                                                                    <td width="20">&nbsp;</td>
-                                                                    <td><img src="../resource/images/eorder/fix/op_att.gif" width="32" height="32" /></td>
-                                                                    <td colspan="2" class="orderSmall">Attachment</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td>&nbsp;</td>
-                                                                    <td colspan="3">
-																	<table><tr><td><div id="optiontable3"></div></td><td><input type="button" style="width:40;height:18;font-size:9px" onClick="popup_selectfixoption(3);" value="Select"></td></tr></table>
-																	<script>writeit('optiontable3',build_html_teethtable_option(3));</script>																	</td>
-                                                                  </tr>
-                                                              </table></td>
-                                                            </tr>
-                                                          </table></td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td valign="top"><table width="160" border="0" cellpadding="2" cellspacing="1" bgcolor="#FFCC66">
-                                                            <tr>
-                                                              <td height="32" colspan="2" align="center" bgcolor="#FFFF99" class="TableHeadingNormal">Type of
-pontic</td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                <tr>
-                                                                  <td width="32" align="right"><input name="pontic" type="radio" value="2"></td>
-                                                                  <td width="32"><img src="../resource/images/eorder/fix/fix_pontic1.gif" width="32" height="32"></td>
-                                                                </tr>
-                                                              </table></td>
-                                                              <td height="32" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                <tr>
-                                                                  <td width="32" align="right"><input name="pontic" type="radio" value="3"></td>
-                                                                  <td width="32"><img src="../resource/images/eorder/fix/fix_pontic3.gif" width="32" height="32"></td>
-                                                                </tr>
-                                                              </table></td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                <tr>
-                                                                  <td width="32" align="right"><input name="pontic" type="radio" value="4"></td>
-                                                                  <td width="32"><img src="../resource/images/eorder/fix/fix_pontic2.gif" width="32" height="32"></td>
-                                                                </tr>
-                                                              </table></td>
-                                                              <td height="32" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                  <tr>
-                                                                    <td width="32" align="right"><input name="pontic" type="radio" value="5"></td>
-                                                                    <td width="32"><img src="../resource/images/eorder/fix/fix_pontic4.gif" width="32" height="32"></td>
-                                                                  </tr>
-                                                              </table></td>
-                                                            </tr>
-                                                          </table></td>
-                                                          <td align="center" valign="top">&nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td valign="top">&nbsp;</td>
-                                                          <td align="center" valign="top">&nbsp;</td>
-                                                          <td align="right" valign="top">&nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td colspan="3" align="center" valign="top"><table border="0" cellpadding="2" cellspacing="1" bgcolor="#FFCC66">
-                                                            <tr>
-                                                              <td align="left" bgcolor="#FFFF99" class="TableHeadingNormal">&nbsp;&nbsp;&nbsp;&nbsp;Observations</td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td height="32" align="center" bgcolor="#FFFFFF" class="TableHeadingNormal"><textarea name="textfield" cols="80" rows="5"></textarea></td>
-                                                            </tr>
-                                                                                                                    </table></td>
-                                                        </tr>
-                                                      </table>
-                                                      <br></td>
-                                                    </tr>
-                                                    <tr>
-                                                      <td align="center" bgcolor="#99CCCC" class="TableHeadingNormal">
-                                                        <input type="checkbox" name="checkbox323" value="checkbox" />
-                                                      <font color="#FFFFFF">Remove teeth</font> </td>
-                                                    </tr>
-													
-                                                    <tr>
-                                                      <td align="center" bgcolor="#FFFFFF"><table width="600" border="0" cellpadding="0" cellspacing="0" class="orderSmall">
-                                                          <tr>
-                                                            <td width="32"><img src="../resource/images/eorder/remove/d_pei.gif" width="32" height="32"></td>
-                                                            <td>&nbsp; PEI
-                                                              <input type="checkbox" name="checkbox" value="checkbox">
-upper 
-<input type="checkbox" name="checkbox2" value="checkbox">
-lower </td>
-                                                            <td width="32"><img src="../resource/images/eorder/remove/d_cire.gif" width="32" height="32"></td>
-                                                            <td width="200">&nbsp; CIRE
-                                                              <input type="checkbox" name="checkbox3" value="checkbox">
-upper
-<input type="checkbox" name="checkbox22" value="checkbox">
-lower </td>
-                                                          </tr>
-                                                        </table>
-													    <br>
-													    <table width="760" border="0" cellpadding="0" cellspacing="0">
-                                                        <tr>
-                                                          <td><table width="48" height="48" border="0" cellspacing="0" cellpadding="0">
-                                                            <tr>
-                                                              <td><div id="teethImgR32"></div>
-                                                                    <script>onMouseOutTeethR(32);</script></td>
-                                                            </tr>
-                                                          </table></td>
-                                                          <td>&nbsp;</td>
-                                                          <td height="32">&nbsp;</td>
-                                                        </tr>
-                                                      </table>
-                                                       
-                                                      <table width="760" border="0" cellpadding="0" cellspacing="1">
-                                                        <tr>
-                                                          <td align="right"><table border="0" cellpadding="0" cellspacing="0" class="orderSmall">
-														    <tr>
-                                                                <td align="center">18</td>
-                                                                <td align="center">17</td>
-                                                                <td align="center">16</td>
-                                                                <td align="center">15</td>
-                                                                <td align="center">14</td>
-                                                                <td align="center">13</td>
-                                                                <td align="center">12</td>
-                                                                <td align="center">11</td>
-                                                            </tr>
-                                                              <tr>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR0"></div>
-                                                                    <script>onMouseOutTeethR(0);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR1"></div>
-                                                                    <script>onMouseOutTeethR(1);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR2"></div>
-                                                                    <script>onMouseOutTeethR(2);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR3"></div>
-                                                                    <script>onMouseOutTeethR(3);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR4"></div>
-                                                                    <script>onMouseOutTeethR(4);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR5"></div>
-                                                                    <script>onMouseOutTeethR(5);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR6"></div>
-                                                                    <script>onMouseOutTeethR(6);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR7"></div>
-                                                                    <script>onMouseOutTeethR(7);</script></td>
-                                                              </tr>
-
-                                                          </table></td>
-                                                          
-                                                          <td><table border="0" cellpadding="0" cellspacing="0" class="orderSmall">
-                                                              <tr>
-                                                                <td align="center">21</td>
-                                                                <td align="center">22</td>
-                                                                <td align="center">23</td>
-                                                                <td align="center">24</td>
-                                                                <td align="center">25</td>
-                                                                <td align="center">26</td>
-                                                                <td align="center">27</td>
-                                                                <td align="center">28</td>
-                                                              </tr>                                                              <tr>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR8"></div>
-                                                                    <script>onMouseOutTeethR(8);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR9"></div>
-                                                                    <script>onMouseOutTeethR(9);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR10"></div>
-                                                                    <script>onMouseOutTeethR(10);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR11"></div>
-                                                                    <script>onMouseOutTeethR(11);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR12"></div>
-                                                                    <script>onMouseOutTeethR(12);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR13"></div>
-                                                                    <script>onMouseOutTeethR(13);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR14"></div>
-                                                                    <script>onMouseOutTeethR(14);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR15"></div>
-                                                                    <script>onMouseOutTeethR(15);</script></td>
-                                                              </tr>
-
-                                                          </table></td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td height="1" colspan="2" bgcolor="#003399"></td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td align="right"><table border="0" cellpadding="0" cellspacing="0" class="orderSmall">
-
-                                                              <tr>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR16"></div>
-                                                                    <script>onMouseOutTeethR(16);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR17"></div>
-                                                                    <script>onMouseOutTeethR(17);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR18"></div>
-                                                                    <script>onMouseOutTeethR(18);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR19"></div>
-                                                                    <script>onMouseOutTeethR(19);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR20"></div>
-                                                                    <script>onMouseOutTeethR(20);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR21"></div>
-                                                                    <script>onMouseOutTeethR(21);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR22"></div>
-                                                                    <script>onMouseOutTeethR(22);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR23"></div>
-                                                                    <script>onMouseOutTeethR(23);</script></td>
-                                                              </tr>
-                                                               <tr>
-                                                                <td align="center">38</td>
-                                                                <td align="center">37</td>
-                                                                <td align="center">36</td>
-                                                                <td align="center">35</td>
-                                                                <td align="center">34</td>
-                                                                <td align="center">33</td>
-                                                                <td align="center">32</td>
-                                                                <td align="center">31</td>
-                                                              </tr>                                                         </table></td>
-                                                          
-                                                          <td><table border="0" cellpadding="0" cellspacing="0" class="orderSmall">
-
-                                                              <tr>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR24"></div>
-                                                                    <script>onMouseOutTeethR(24);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR25"></div>
-                                                                    <script>onMouseOutTeethR(25);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR26"></div>
-                                                                    <script>onMouseOutTeethR(26);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR27"></div>
-                                                                    <script>onMouseOutTeethR(27);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR28"></div>
-                                                                    <script>onMouseOutTeethR(28);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR29"></div>
-                                                                    <script>onMouseOutTeethR(29);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR30"></div>
-                                                                    <script>onMouseOutTeethR(30);</script></td>
-                                                                <td width="47" height="47" align="center"><div id="teethImgR31"></div>
-                                                                    <script>onMouseOutTeethR(31);</script></td>
-                                                              </tr>
-                                                               <tr>
-                                                                <td align="center">41</td>
-                                                                <td align="center">42</td>
-                                                                <td align="center">43</td>
-                                                                <td align="center">44</td>
-                                                                <td align="center">45</td>
-                                                                <td align="center">46</td>
-                                                                <td align="center">47</td>
-                                                                <td align="center">48</td>
-                                                              </tr>                                                         </table></td>
-                                                        </tr>
-                                                      </table>
-													  <table width="760" border="0" cellpadding="0" cellspacing="0">
-                                                        <tr>
-                                                          <td><table width="48" height="48" border="0" cellspacing="0" cellpadding="0">
-                                                            <tr>
-                                                              <td><div id="teethImgR33"></div>
-                                                                    <script>onMouseOutTeethR(33);</script></td>
-                                                            </tr>
-                                                          </table></td>
-                                                          <td>&nbsp;</td>
-                                                          <td height="32">&nbsp;</td>
-                                                        </tr>
-                                                      </table>
-                                                      <br><br>
-                                                      <table width="95%" border="0" cellspacing="0" cellpadding="2">
-                                                        <tr>
-                                                          <td width="260" valign="top"><table width="100%" border="0" cellpadding="2" cellspacing="1" bgcolor="#FFCC33">
-                                                            <tr>
-                                                              <td height="20" bgcolor="#FFFF99" class="TableHeadingNormal">&nbsp;&nbsp;TP</td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td bgcolor="#FFFFFF" class="orderSmall">
-															  <div >
-															  
-															  <table width="100%" border="0" cellspacing="0" cellpadding="2">
-                                                                  <tr>
-                                                                    <td width="20"><input type="checkbox" name="checkbox325" value="checkbox" /></td>
-                                                                    <td><img src="../resource/images/eorder/remove/d_tp_tryin.gif" width="32" height="32" /></td>
-                                                                    <td class="orderSmall">Essayage</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td width="20" bgcolor="#FFFFCC"><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td width="32" bgcolor="#FFFFCC"><img src="../resource/images/eorder/remove/d_tp.gif" width="32" height="32" /></td>
-                                                                    <td bgcolor="#FFFFCC" class="orderSmall">Finition direct</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td width="20"><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td width="32"><img src="../resource/images/eorder/remove/d_tp.gif" width="32" height="32" /></td>
-                                                                    <td class="orderSmall">Finition (retour d'essayage)</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td width="20" bgcolor="#FFFFCC"><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td width="32" bgcolor="#FFFFCC"><img src="../resource/images/eorder/remove/d_tp_hurry.gif" width="32" height="32" /></td>
-                                                                    <td bgcolor="#FFFFCC" class="orderSmall">Appareile provisoire</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td width="20"><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td width="32"><img src="../resource/images/eorder/remove/d_ackers.gif" width="32" height="32" /></td>
-                                                                    <td class="orderSmall">Ackers Acetal</td>
-                                                                  </tr>
-																  
-
-                                                              </table>
-															  </div>
-															  </td>
-                                                            </tr>
-                                                          </table></td>
-                                                          <td rowspan="3" align="center" valign="bottom"><table width="300" border="0" cellpadding="0" cellspacing="1" bgcolor="#FFCC33">
-                                                            <tr>
-                                                              <td height="20" bgcolor="#FFFF99"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                                  <tr>
-                                                                    <td class="TableHeadingNormal">&nbsp;&nbsp;Shade</td>
-                                                                    <td align="right"><input name="button2" type="button" id="button" style="width:40;height:18;font-size:9px" onClick="popup_selectcolor(1);" value="Select"></td>
-                                                                  </tr>
-                                                              </table></td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td bgcolor="#FFFFFF" class="orderSmall" style="font-size:10px" height=20><div class="TableHeadingNormal" id="selectedcolorR">&nbsp;No shade select</div></td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td height="100" align="center" bgcolor="#FFFFFF"><table border="0" cellspacing="5" cellpadding="0">
-                                                                  <tr>
-                                                                    <td id="removecolorpreview" bgcolor="#CCCCCC"><a href="javascript:popup_selectcolor(1);"><img src="../resource/images/eorder/teeth/preview2.gif" width="91" height="56" border="0"></a></td>
-                                                                  </tr>
-                                                              </table></td>
-                                                            </tr>
-                                                          </table>                                                            
-                                                            <br>
-                                                            <br>
-                                                            <br>
-                                                            <br>
-                                                          <img src="../resource/images/eorder/remove/teeth.jpg" width="140" height="254"></td>
-                                                          <td width="260" align="right" valign="top"><table width="100%" border="0" cellpadding="2" cellspacing="1" bgcolor="#FFCC33">
-                                                            <tr>
-                                                              <td height="20" bgcolor="#FFFF99" class="TableHeadingNormal">&nbsp;&nbsp;Vitaflex</td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td bgcolor="#FFFFFF" class="orderSmall"><table width="100%" border="0" cellspacing="0" cellpadding="2">
-                                                                  <tr>
-                                                                    <td><input type="checkbox" name="checkbox325" value="checkbox" /></td>
-                                                                    <td><img src="../resource/images/eorder/remove/d_vitaflex_tryin.gif" width="32" height="32" /></td>
-                                                                    <td class="orderSmall">Essayage dent sur cire</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td bgcolor="#FFFFCC"><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td bgcolor="#FFFFCC"><img src="../resource/images/eorder/remove/d_vitaflex.gif" width="32" height="32" /></td>
-                                                                    <td bgcolor="#FFFFCC" class="orderSmall">Finition direct</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td><img src="../resource/images/eorder/remove/d_vitaflex.gif" width="32" height="32" /></td>
-                                                                    <td class="orderSmall">Retour d'essayage</td>
-                                                                  </tr>
-                                                                  
-
-                                                              </table></td>
-                                                            </tr>
-                                                          </table></td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td width="260" valign="bottom">&nbsp;</td>
-                                                          <td width="260" align="right" valign="bottom">&nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td width="260" valign="top"><table width="100%" border="0" cellpadding="2" cellspacing="1" bgcolor="#FFCC33">
-                                                            <tr>
-                                                              <td height="20" bgcolor="#FFFF99" class="TableHeadingNormal">&nbsp;&nbsp;Repair</td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td bgcolor="#FFFFFF" class="orderSmall"><table width="100%" border="0" cellspacing="0" cellpadding="2">
-                                                                  <tr>
-                                                                    <td><input type="checkbox" name="checkbox325" value="checkbox" /></td>
-                                                                    <td><img src="../resource/images/eorder/remove/d_repair.gif" width="32" height="32" /></td>
-                                                                    <td><img src="../resource/images/eorder/remove/d_fullresine.gif" width="32" height="32" /></td>
-                                                                    <td class="orderSmall">Adjonction de dent</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td bgcolor="#FFFFCC"><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td bgcolor="#FFFFCC"><img src="../resource/images/eorder/remove/d_repair.gif" width="32" height="32" /></td>
-                                                                    <td bgcolor="#FFFFCC"><img src="../resource/images/eorder/remove/d_claspacetal.gif" width="32" height="32" /></td>
-                                                                    <td bgcolor="#FFFFCC" class="orderSmall">Adjonction de Crochet acetal</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td><img src="../resource/images/eorder/remove/d_repair.gif" width="32" height="32" /></td>
-                                                                    <td><img src="../resource/images/eorder/remove/d_claspmetal.gif" width="32" height="32" /></td>
-                                                                    <td class="orderSmall">Adjonction de Crochet metal</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td bgcolor="#FFFFCC"><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td bgcolor="#FFFFCC"><img src="../resource/images/eorder/remove/d_cassure.gif" width="32" height="32" /></td>
-                                                                    <td colspan="2" bgcolor="#FFFFCC" class="orderSmall">Cassure simple (Resine)</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td><img src="../resource/images/eorder/remove/d_rebasage.gif" width="32" height="32" /></td>
-                                                                    <td colspan="2" class="orderSmall">Rebasage partiel ou complet</td>
-                                                                  </tr>
-                                                                  
-                                                                  <tr>
-                                                                    <td bgcolor="#FFFFCC"><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td bgcolor="#FFFFCC"><img src="../resource/images/eorder/remove/d_soudure.gif" width="32" height="32" /></td>
-                                                                    <td colspan="2" bgcolor="#FFFFCC" class="orderSmall">Soudure sur Stellite</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td><img src="../resource/images/eorder/remove/d_renfort.gif" width="32" height="32" /></td>
-                                                                    <td colspan="2" class="orderSmall">Renfort metal</td>
-                                                                  </tr>
-                                                                  
-
-                                                              </table></td>
-                                                            </tr>
-                                                                                                                    </table></td>
-                                                          <td width="260" align="right" valign="top"><table width="100%" border="0" cellpadding="2" cellspacing="1" bgcolor="#FFCC33">
-                                                            <tr>
-                                                              <td height="20" bgcolor="#FFFF99" class="TableHeadingNormal">&nbsp;&nbsp;RPD</td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td bgcolor="#FFFFFF" class="orderSmall"><table width="100%" border="0" cellspacing="0" cellpadding="2">
-                                                                  <tr>
-                                                                    <td><input type="checkbox" name="checkbox325" value="checkbox" /></td>
-                                                                    <td><img src="../resource/images/eorder/remove/d_rpd_tryin.gif" width="32" height="32" /></td>
-                                                                    <td class="orderSmall">&nbsp;</td>
-                                                                    <td class="orderSmall">Essayage plaque</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td bgcolor="#FFFFCC"><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td bgcolor="#FFFFCC"><img src="../resource/images/eorder/remove/d_fullresine_tryin.gif" width="32" height="32" /></td>
-                                                                    <td bgcolor="#FFFFCC" class="orderSmall">&nbsp;</td>
-                                                                    <td bgcolor="#FFFFCC" class="orderSmall">Essayage dent sur cire</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td><img src="../resource/images/eorder/remove/d_rpd_tryin.gif" width="32" height="32" /></td>
-                                                                    <td class="orderSmall"><img src="../resource/images/eorder/remove/d_fullresine_tryin.gif" width="32" height="32" /></td>
-                                                                    <td class="orderSmall">Essayage plaque + dents sur cire</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td bgcolor="#FFFFCC"><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td bgcolor="#FFFFCC"><img src="../resource/images/eorder/remove/d_rpd.gif" width="32" height="32" /></td>
-                                                                    <td bgcolor="#FFFFCC" class="orderSmall">&nbsp;</td>
-                                                                    <td bgcolor="#FFFFCC" class="orderSmall">Finition direct</td>
-                                                                  </tr>
-                                                                  <tr>
-                                                                    <td><input type="checkbox" name="checkbox335" value="checkbox" /></td>
-                                                                    <td><img src="../resource/images/eorder/remove/d_rpd.gif" width="32" height="32" /></td>
-                                                                    <td class="orderSmall">&nbsp;</td>
-                                                                    <td class="orderSmall"> Finition <br>
-                                                                    (retour d'essayage)</td>
-                                                                  </tr>
-                                                                  
-                                                                  
-
-                                                              </table></td>
-                                                            </tr>
-                                                                                                                    </table></td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td valign="top">&nbsp;</td>
-                                                          <td align="center" valign="bottom">&nbsp;</td>
-                                                          <td align="right" valign="top">&nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td colspan="3" align="center" valign="top"><table border="0" cellpadding="2" cellspacing="1" bgcolor="#FFCC66">
-                                                            <tr>
-                                                              <td align="left" bgcolor="#FFFF99" class="TableHeadingNormal">&nbsp;&nbsp;&nbsp;&nbsp;Observations</td>
-                                                            </tr>
-                                                            <tr>
-                                                              <td height="32" align="center" bgcolor="#FFFFFF" class="TableHeadingNormal"><textarea name="textarea" cols="80" rows="5"></textarea></td>
-                                                            </tr>
-                                                          </table></td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td valign="top">&nbsp;</td>
-                                                          <td align="center" valign="bottom">&nbsp;</td>
-                                                          <td align="right" valign="top">&nbsp;</td>
-                                                        </tr>
-                                                      </table>                                                      </td></tr>
-                                                    <tr>
-                                                      <td bgcolor="#FFFFFF">&nbsp;</td>
-                                                    </tr>
-                                                  </table></td>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+    <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+    <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
   </tr>
-</table>  	  </TD>
-    </TR> 	
-  </form>
-</TABLE> 
+  <tr>
+    <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+    <td>
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="4">
+        <tr>
+          <td colspan="4" align="center" bgcolor="#000066" style="font-size:16px"  class="TBHead">Order Info</td>
+        </tr>
+        <tr>
+          <td><h4>Doctor</h4></td>
+          <td><h4>&nbsp;</h4></td>
+          <td><h4>Patient : <?=$patientname?></h4></td>
+          <td><h4>&nbsp;</h4></td>
+        </tr>
+        <tr>
+          <td><h4>Date</h4></td>
+          <td><h4>&nbsp;</h4></td>
+          <td><h4>Finish-date</h4></td>
+          <td><h4>&nbsp;</h4></td>
+        </tr>
+      </table>    </td>
+    <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+  </tr>
+  <tr>
+    <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+    <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+    <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+  </tr>
+</table>
+<br />
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#333333">
+  <tr>
+    <td bgcolor="#FFFFFF">
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="2">
+        <tr>
+          <td width="70" align="right"  class="TBHead2" >select -&gt;</td>
+          <td width="20" align="left" class="TBHead2" ><span class="TBHead" style="font-size:16px">
+            <input type="checkbox" name="checkbox" id="checkbox" onclick="SetFixOrder(this.checked);" />
+          </span></td>
+          <td  style="font-size:16px"  class="TBHead2">
+          Fix order</td>
+        </tr>
+      </table>
+<div align="center" id="FixSelectType">
+<table border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="FFFFFF"  id="FixMethodTypeTB">
+  <tr>
+    <td height="2" bgcolor="#FFFFFF"></td>
+    </tr>
+  <tr>
+    <td width="10" height="10"><img src="../resource/images/eorder/panel/pn1.gif" width="10" height="10" /></td>
+    <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+    <td width="10" height="10"><img src="../resource/images/eorder/panel/pn3.gif" width="10" height="10" /></td>
+  </tr>
+  <tr>
+    <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+    <td height="20"  align="center">
+    <table><tr><td><table>
+      <tr>
+        <td colspan="4"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="10" height="25" align="right"><img src="../resource/images/eorder/panel/hd1.gif" width="10" height="25" /></td>
+              <td align="center" background="../resource/images/eorder/panel/hd2.gif" class="TBHead">Select method</td>
+              <td width="11" height="25" align="left"><img src="../resource/images/eorder/panel/hd3.gif" width="11" height="25" /></td>
+            </tr>
+                </table></td>
+        </tr>
+      <tr>
+        <td align="center" id="FixMethodTypeTD1"   style="cursor:pointer" onclick="SetFixMethod(METHOD.TRYIN);">
+        <img src="../resource/images/eorder/teeth/method/tryin.gif" width="56" height="37"  /><br /> Try-in</td>
+        <td align="center" onclick="SetFixMethod(METHOD.CONTOUR);"   style="cursor:pointer" id="FixMethodTypeTD2">
+        <img src="../resource/images/eorder/teeth/method/contour.gif" width="56" height="37" /><br /> Contour</td>
+        <td align="center" onclick="SetFixMethod(METHOD.FINISH);"   style="cursor:pointer" id="FixMethodTypeTD3">
+        <img src="../resource/images/eorder/teeth/method/finish.gif" width="56" height="37"  /><br /> Finish</td>
+        <td align="center" onclick="SetFixMethod(METHOD.REPAIR);"   style="cursor:pointer" id="FixMethodTypeTD4">
+        <img src="../resource/images/eorder/teeth/method/repair.gif" width="56" height="37"   /><br /> Repair</td>
+        </tr>
+      
+    </table></td>
+    </tr></table></td>
+    <td background="../resource/images/eorder/panel/pn6.gif"></td>
+  </tr>
+  <tr>
+    <td width="10" height="11"><img src="../resource/images/eorder/panel/pn7.gif" width="10" height="11" /></td>
+    <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+    <td width="10" height="11"><img src="../resource/images/eorder/panel/pn9.gif" width="10" height="11" /></td>
+  </tr>
+</table>
+</div>
+<div id="MainFix">
+<table border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+    <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+    <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+  </tr>
+  <tr>
+    <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+    <td>
+    
+    
+    <table border="0" align="center" cellpadding="2" cellspacing="0">
+  <tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage0"></div><script>RefreshFixTeethImage(0);</script></td>
+    <td width="56" height="56"><div id="FixTeethImage8"></div><script>RefreshFixTeethImage(8);</script></td>
+  </tr>
+  <tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage1"></div><script>RefreshFixTeethImage(1);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage9"></div><script>RefreshFixTeethImage(9);</script></td>
+  </tr>
+  <tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage2"></div><script>RefreshFixTeethImage(2);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage10"></div><script>RefreshFixTeethImage(10);</script></td>
+  </tr>
+  <tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage3"></div><script>RefreshFixTeethImage(3);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage11"></div><script>RefreshFixTeethImage(11);</script></td>
+  </tr>
+  <tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage4"></div><script>RefreshFixTeethImage(4);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage12"></div><script>RefreshFixTeethImage(12);</script></td>
+  </tr>
+  <tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage5"></div><script>RefreshFixTeethImage(5);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage13"></div><script>RefreshFixTeethImage(13);</script></td>
+  </tr>
+  <tr>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage6"></div><script>RefreshFixTeethImage(6);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage14"></div><script>RefreshFixTeethImage(14);</script></td>
+  </tr>
+  <tr>
+    <td width="56" height="56"><div id="FixTeethImage7"></div><script>RefreshFixTeethImage(7);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage15"></div><script>RefreshFixTeethImage(15);</script></td>
+  </tr>
+  <tr>
+    <td width="56" height="56"><div id="FixTeethImage16"></div><script>RefreshFixTeethImage(16);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage24"></div><script>RefreshFixTeethImage(24);</script></td>
+  </tr>
+  <tr>
+ 	<td>&nbsp;</td>
+   <td width="56" height="56"><div id="FixTeethImage17"></div><script>RefreshFixTeethImage(17);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage25"></div><script>RefreshFixTeethImage(25);</script></td>
+	<td>&nbsp;</td>
+  </tr>
+  <tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage18"></div><script>RefreshFixTeethImage(18);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage26"></div><script>RefreshFixTeethImage(26);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+  </tr>
+  <tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage19"></div><script>RefreshFixTeethImage(19);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage27"></div><script>RefreshFixTeethImage(27);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+  </tr>
+  <tr>
+ 	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+   <td width="56" height="56"><div id="FixTeethImage20"></div><script>RefreshFixTeethImage(20);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage28"></div><script>RefreshFixTeethImage(28);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+  </tr>
+  <tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage21"></div><script>RefreshFixTeethImage(21);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage29"></div><script>RefreshFixTeethImage(29);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+  </tr>
+  <tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage22"></div><script>RefreshFixTeethImage(22);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage30"></div><script>RefreshFixTeethImage(30);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+  </tr>
+  <tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+    <td width="56" height="56"><div id="FixTeethImage23"></div><script>RefreshFixTeethImage(23);</script></td>
+    <td width="56" height="56"><div id="FixTeethImage31"></div><script>RefreshFixTeethImage(31);</script></td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+  </tr>
+</table>
+    
+    </td>
+    <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+  </tr>
+  <tr>
+    <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+    <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+    <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="left"><table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+        <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+      </tr>
+      <tr>
+        <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+        <td><table width="160" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+          <tr>
+            <td width="10" height="25" align="right" class="TBHead"><img src="../resource/images/eorder/panel/hd1.gif" width="10" height="25" /></td>
+            <td height="25" colspan="3" align="center" background="../resource/images/eorder/panel/hd2.gif" bgcolor="#000066" class="TBHead">Embrasure</td>
+            <td width="11" height="25" align="left" class="TBHead"><img src="../resource/images/eorder/panel/hd3.gif" alt="" width="11" height="25" /></td>
+          </tr>
+          <tr>
+            <td height="8" colspan="5" align="center"></td>
+            </tr>
+          <tr>
+            <td align="center">&nbsp;</td>
+            <td align="center"><img src="../resource/images/eorder/teeth/embrasure/open.gif" width="56" height="56" /></td>
+            <td align="center">&nbsp;</td>
+            <td align="center"><img src="../resource/images/eorder/teeth/embrasure/close.gif" width="56" height="56" /></td>
+            <td align="center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td align="center">&nbsp;</td>
+            <td align="center">&nbsp;</td>
+            <td align="center">&nbsp;</td>
+            <td align="center">&nbsp;</td>
+            <td align="center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td align="center">&nbsp;</td>
+            <td align="center">Open</td>
+            <td align="center">&nbsp;</td>
+            <td align="center">Close</td>
+            <td align="center">&nbsp;</td>
+          </tr>
+
+        </table></td>
+        <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+      </tr>
+      <tr>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+        <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+      </tr>
+    </table></td>
+    <td rowspan="3" align="center" valign="top"><table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+        <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+      </tr>
+      <tr>
+        <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+        <td><table width="400" border="0" cellspacing="0" cellpadding="0">
+              <td bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+              <td width="10" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd1.gif" width="10" height="25" /></td>
+              <td align="center" background="../resource/images/eorder/panel/hd2.gif" bgcolor="#000066" class="TBHead">Shade</td>
+              <td width="11" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd3.gif" alt="" width="11" height="25" /></td>
+              </tr></table><br />
+
+                            
+              
+                <table border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="290"><img src="../resource/images/eorder/preview/preview_01.gif" width="290" height="19" /></td>
+                    </tr>
+                  <tr>
+                    <td width="290"><img src="../resource/images/eorder/preview/preview_02.gif" width="290" height="16" /></td>
+                    </tr>
+                  <tr>
+                    <td width="290"><img src="../resource/images/eorder/preview/preview_03.gif" width="290" height="16" /></td>
+                    </tr>
+                  <tr>
+                    <td width="290"><img src="../resource/images/eorder/preview/preview_04.gif" width="290" height="45" /></td>
+                    </tr>
+                  <tr>
+                    <td width="290"><img src="../resource/images/eorder/preview/preview_05.gif" width="290" height="16" /></td>
+                    </tr>
+                  <tr>
+                    <td width="290"><img src="../resource/images/eorder/preview/preview_06.gif" width="290" height="16" /></td>
+                    </tr>
+                  <tr>
+                    <td width="290"><img src="../resource/images/eorder/preview/preview_07.gif" width="290" height="19" /></td>
+                    </tr>
+                </table>
+                <br /></td>
+            </tr>
+            <tr>
+              <td colspan="3" bordercolor="#FFFFFF"><table width="400" border="0" cellpadding="3" cellspacing="0" bgcolor="#FFFFFF">
+                <tr>
+                  <td width="30">&nbsp;</td>
+                  <td width="282" align="left">S1 - </td>
+                  <td width="70"><button class="BTselect" onclick="OpenFixShadeSelector(1);" style="width:60px;height:20px;">
+                  Select</button></td>
+                </tr>
+                <tr>
+                  <td width="30">&nbsp;</td>
+                  <td width="282" align="left">S2 - </td>
+                  <td width="70"><button class="BTselect" onclick="OpenFixShadeSelector(2);" style="width:60px;height:20px;">
+                  Select</button></td>
+                </tr>
+                <tr>
+                  <td width="30">&nbsp;</td>
+                  <td width="282" align="left">S3 - </td>
+                  <td width="70"><button class="BTselect" onclick="OpenFixShadeSelector(3);" style="width:60px;height:20px;">
+                  Select</button></td>
+                </tr>
+                <tr>
+                  <td width="30">&nbsp;</td>
+                  <td width="282" align="left">S4 - </td>
+                  <td width="70"><button class="BTselect" onclick="OpenFixShadeSelector(4);" style="width:60px;height:20px;">
+                  Select</button></td>
+                </tr>
+              </table></td>
+            </tr>
+            
+
+        </table></td>
+        <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+      </tr>
+      <tr>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+        <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+      </tr>
+    </table></td>
+    <td rowspan="3" align="right" valign="top"><table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+        <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+      </tr>
+      <tr>
+        <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+        <td><table width="250" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+            <tr>
+              <td width="10" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd1.gif" width="10" height="25" /></td>
+              <td align="center" background="../resource/images/eorder/panel/hd2.gif" bgcolor="#000066" class="TBHead">Option</td>
+              <td width="11" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd3.gif" alt="" width="11" height="25" /></td>
+            </tr>
+            <tr>
+              <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="3">&nbsp;</td>
+              </tr>
+            
+        </table></td>
+        <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+      </tr>
+      <tr>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+        <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="left"><table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+        <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+      </tr>
+      <tr>
+        <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+        <td><table width="160" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+            <tr>
+              <td width="10" height="25" align="right" class="TBHead"><img src="../resource/images/eorder/panel/hd1.gif" width="10" height="25" /></td>
+              <td height="25" colspan="2" align="center" background="../resource/images/eorder/panel/hd2.gif" class="TBHead">Type of pontic</td>
+              <td width="11" height="25" align="left" class="TBHead"><img src="../resource/images/eorder/panel/hd3.gif" width="11" height="25" /></td>
+            </tr>
+            <tr>
+              <td align="center">&nbsp;</td>
+              <td align="center"><img src="../resource/images/eorder/teeth/pontic/pontic1.gif" width="56" height="56" /></td>
+              <td align="center"><img src="../resource/images/eorder/teeth/pontic/pontic2.gif" width="56" height="56" /></td>
+              <td align="center">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="center">&nbsp;</td>
+              <td align="center"><img src="../resource/images/eorder/teeth/pontic/pontic3.gif" width="56" height="56" /></td>
+              <td align="center"><img src="../resource/images/eorder/teeth/pontic/pontic4.gif" width="56" height="56" /></td>
+              <td align="center">&nbsp;</td>
+            </tr>
+        </table></td>
+        <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+      </tr>
+      <tr>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+        <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="left"><table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+        <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+      </tr>
+      <tr>
+        <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+        <td><table width="160" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+            <tr>
+              <td width="10" height="20" align="right" class="TBHead"><img src="../resource/images/eorder/panel/hd1.gif" width="10" height="25" /></td>
+              <td height="25" colspan="3" align="center" background="../resource/images/eorder/panel/hd2.gif" bgcolor="#000066" class="TBHead">Type of preparation</td>
+              <td width="11" height="25" align="left" class="TBHead"><img src="../resource/images/eorder/panel/hd3.gif" alt="" width="11" height="25" /></td>
+            </tr>
+            <tr>
+              <td height="8" colspan="5" align="center"></td>
+              </tr>
+            <tr>
+              <td align="center">&nbsp;</td>
+              <td align="center"><img src="../resource/images/eorder/teeth/preparation/preparation1.gif" width="56" height="31" /></td>
+              <td width="8" align="center">&nbsp;</td>
+              <td align="center"><img src="../resource/images/eorder/teeth/preparation/preparation2.gif" width="56" height="31" /></td>
+              <td align="center">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="center">&nbsp;</td>
+              <td align="center">&nbsp;</td>
+              <td width="8" align="center">&nbsp;</td>
+              <td align="center">&nbsp;</td>
+              <td align="center">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="center">&nbsp;</td>
+              <td align="center"><img src="../resource/images/eorder/teeth/preparation/preparation3.gif" width="56" height="31" /></td>
+              <td width="8" align="center">&nbsp;</td>
+              <td align="center"><img src="../resource/images/eorder/teeth/preparation/preparation4.gif" width="56" height="31" /></td>
+              <td align="center">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="center">&nbsp;</td>
+              <td align="center">&nbsp;</td>
+              <td width="8" align="center">&nbsp;</td>
+              <td align="center">&nbsp;</td>
+              <td align="center">&nbsp;</td>
+            </tr>
+            <tr>
+              <td align="center">&nbsp;</td>
+              <td align="center"><img src="../resource/images/eorder/teeth/preparation/preparation5.gif" width="56" height="31" /></td>
+              <td width="8" align="center">&nbsp;</td>
+              <td align="center">&nbsp;</td>
+              <td align="center">&nbsp;</td>
+            </tr>
+            <tr>
+              <td height="8" colspan="5" align="center"></td>
+              </tr>
+        </table></td>
+        <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+      </tr>
+      <tr>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+        <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center"><table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+        <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+        <td rowspan="3" valign="top"><table border="0" cellpadding="0" cellspacing="0" id="AttachImagePreviewTB" style="display:none">
+          <tr>
+            <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+            <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+            <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+          </tr>
+          <tr>
+            <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+            <td><table width="105" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                <tr>
+                  <td align="left"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr bgcolor="#FFFFFF">
+                        <td width="10" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd1.gif" width="10" height="25" /></td>
+                        <td align="center" background="../resource/images/eorder/panel/hd2.gif" bgcolor="#000066" class="TBHead">Attach</td>
+                        <td width="11" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd3.gif" alt="" width="11" height="25" /></td>
+                      </tr>
+                    </table>
+                      <img  width ="100" height="100" id="AttachImagePreviewIMG"/></td>
+                </tr>
+            </table></td>
+            <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+          </tr>
+          <tr>
+            <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+            <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+            <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+        <td><table width="500" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+
+            <tr>
+              <td align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr bgcolor="#FFFFFF">
+                  <td width="10" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd1.gif" width="10" height="25" /></td>
+                  <td align="center" background="../resource/images/eorder/panel/hd2.gif" bgcolor="#000066" class="TBHead">Observation</td>
+                  <td width="11" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd3.gif" alt="" width="11" height="25" /></td>
+                </tr>
+              </table>
+                <textarea name="textarea"  style="width:500px;height:80px"></textarea></td>
+            </tr>
+            <tr>
+              <td align="right">Attach picture &nbsp; <input type="file" name="fileField" style="width:400px;" 
+onchange="findObj('AttachImagePreviewIMG').src=this.value;findObj('AttachImagePreviewTB').style.display=this.value==''?'none':'inline';"
+              /></td>
+            </tr>
+            
+        </table></td>
+        <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+        </tr>
+      <tr>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+        <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+        </tr>
+    </table>
+      </td>
+    </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+    <td align="center" valign="top">&nbsp;</td>
+    <td align="right" valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+    <td align="center" valign="top">&nbsp;</td>
+    <td align="right" valign="top">&nbsp;</td>
+  </tr>
+</table>
+</div>
+
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#333333">
+  <tr>
+    <td bgcolor="#FFFFFF">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2">
+      <tr>
+          <td width="70" align="right" class="TBHead2" >select -&gt;</td>
+          <td width="20" align="left" class="TBHead2" ><span class="TBHead" style="font-size:16px">
+            <input type="checkbox" name="checkbox" id="checkbox" onclick="SetRemoveOrder(this.checked);" />
+          </span></td>      
+        <td align="left" style="font-size:16px"  class="TBHead2">
+          Removable order</td>
+      </tr>
+      </table>
+      <div id="MainRemove"><br />
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center"><table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+        <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+      </tr>
+      <tr>
+        <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+        <td><table width="250" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+
+            <tr>
+              <td><table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td><img src="../resource/images/eorder/teeth/remove/pie.gif" width="56" height="56" /></td>
+                  <td width="50" align="center">PIE</td>
+                  <td width="70" align="center"><input type="checkbox" name="checkbox4" id="checkbox4" />
+                    Upper</td>
+                  <td width="70" align="center"><input type="checkbox" name="checkbox4" id="checkbox5" />
+                    Lower</td>
+                </tr>
+              </table></td>
+            </tr>
+            
+        </table></td>
+        <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+      </tr>
+      <tr>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+        <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+      </tr>
+    </table>
+      </td>
+    <td align="center"><table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+        <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+        <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+      </tr>
+      <tr>
+        <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+        <td><table width="250" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+            <tr>
+              <td><table border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><img src="../resource/images/eorder/teeth/remove/cire.gif" width="56" height="56" /></td>
+                    <td width="50" align="center">CIRE</td>
+                    <td width="70" align="center"><input type="checkbox" name="checkbox2" id="checkbox2" />
+                      Upper</td>
+                    <td width="70" align="center"><input type="checkbox" name="checkbox2" id="checkbox3" />
+                      Lower</td>
+                  </tr>
+              </table></td>
+            </tr>
+        </table></td>
+        <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+      </tr>
+      <tr>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+        <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+        <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<br />
+<br />
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+    <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+    <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+  </tr>
+  <tr>
+    <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+    <td>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="10" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd1.gif" width="10" height="25" /></td>
+        <td align="center" background="../resource/images/eorder/panel/hd2.gif" bgcolor="#000066" class="TBHead">Upper</td>
+        <td width="11" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd3.gif" alt="" width="11" height="25" /></td>
+      </tr>
+    </table>
+    <table border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+      <tr>
+        <td><table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="center"><div id="RemoveTeethImage32"></div></td>
+            </tr>
+        </table></td>
+      </tr>
+    </table></td>
+    <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+  </tr>
+  <tr>
+    <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+    <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+    <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+  </tr>
+</table>
+<br />
+
+        <table border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+            <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+            <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+          </tr>
+          <tr>
+            <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+            <td><table border="0" align="center" cellpadding="2" cellspacing="0">
+                <tr>
+                  <td height="20" align="center">18</td>
+                  <td height="20" align="center">17</td>
+                  <td height="20" align="center">16</td>
+                  <td height="20" align="center">15</td>
+                  <td height="20" align="center">14</td>
+                  <td height="20" align="center">13</td>
+                  <td height="20" align="center">12</td>
+                  <td height="20" align="center">11</td>
+                  <td height="20" align="center">21</td>
+                  <td height="20" align="center">22</td>
+                  <td height="20" align="center">23</td>
+                  <td height="20" align="center">24</td>
+                  <td height="20" align="center">25</td>
+                  <td height="20" align="center">26</td>
+                  <td height="20" align="center">27</td>
+                  <td height="20" align="center">28</td>
+                </tr>
+                <tr>
+                  <td width="56" height="56"><div id="RemoveTeethImage0"></div>                      <script>RefreshRemoveTeethImage(0);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage1"></div>                      <script>RefreshRemoveTeethImage(1);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage2"></div>                      <script>RefreshRemoveTeethImage(2);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage3"></div>                      <script>RefreshRemoveTeethImage(3);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage4"></div>                      <script>RefreshRemoveTeethImage(4);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage5"></div>                      <script>RefreshRemoveTeethImage(5);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage6"></div>                      <script>RefreshRemoveTeethImage(6);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage7"></div>                      <script>RefreshRemoveTeethImage(7);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage8"></div>                      <script>RefreshRemoveTeethImage(8);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage9"></div>                      <script>RefreshRemoveTeethImage(9);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage10"></div>                      <script>RefreshRemoveTeethImage(10);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage11"></div>                      <script>RefreshRemoveTeethImage(11);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage12"></div>                      <script>RefreshRemoveTeethImage(12);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage13"></div>                      <script>RefreshRemoveTeethImage(13);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage14"></div>                      <script>RefreshRemoveTeethImage(14);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage15"></div>                      <script>RefreshRemoveTeethImage(15);</script></td>
+                </tr>
+                <tr>
+                  <td width="56" height="56"><div id="RemoveTeethImage16"></div>                      <script>RefreshRemoveTeethImage(16);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage17"></div>                      <script>RefreshRemoveTeethImage(17);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage18"></div>                      <script>RefreshRemoveTeethImage(18);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage19"></div>                      <script>RefreshRemoveTeethImage(19);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage20"></div>                      <script>RefreshRemoveTeethImage(20);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage21"></div>                      <script>RefreshRemoveTeethImage(21);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage22"></div>                      <script>RefreshRemoveTeethImage(22);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage23"></div>                      <script>RefreshRemoveTeethImage(23);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage24"></div>                      <script>RefreshRemoveTeethImage(24);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage25"></div>                      <script>RefreshRemoveTeethImage(25);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage26"></div>                      <script>RefreshRemoveTeethImage(26);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage27"></div>                      <script>RefreshRemoveTeethImage(27);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage28"></div>                      <script>RefreshRemoveTeethImage(28);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage29"></div>                      <script>RefreshRemoveTeethImage(29);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage30"></div>                      <script>RefreshRemoveTeethImage(30);</script></td>
+                  <td width="56" height="56"><div id="RemoveTeethImage31"></div>                      <script>RefreshRemoveTeethImage(31);</script></td>
+                </tr>
+                <tr>
+                  <td height="20" align="center">38</td>
+                  <td height="20" align="center">37</td>
+                  <td height="20" align="center">36</td>
+                  <td height="20" align="center">35</td>
+                  <td height="20" align="center">34</td>
+                  <td height="20" align="center">33</td>
+                  <td height="20" align="center">32</td>
+                  <td height="20" align="center">31</td>
+                  <td height="20" align="center">41</td>
+                  <td height="20" align="center">42</td>
+                  <td height="20" align="center">43</td>
+                  <td height="20" align="center">44</td>
+                  <td height="20" align="center">45</td>
+                  <td height="20" align="center">46</td>
+                  <td height="20" align="center">47</td>
+                  <td height="20" align="center">48</td>
+                </tr>
+            </table></td>
+            <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+          </tr>
+          <tr>
+            <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+            <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+            <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+          </tr>
+        </table>
+        
+        <br />
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+            <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+            <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+          </tr>
+          <tr>
+            <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="10" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd1.gif" width="10" height="25" /></td>
+                  <td align="center" background="../resource/images/eorder/panel/hd2.gif" bgcolor="#000066" class="TBHead">Lower</td>
+                  <td width="11" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd3.gif" alt="" width="11" height="25" /></td>
+                </tr>
+              </table>
+                <table border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                  <tr>
+                    <td><table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td align="center"><div id="RemoveTeethImage33"></div></td>
+                        </tr>
+                    </table></td>
+                  </tr>
+              </table></td>
+            <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+          </tr>
+          <tr>
+            <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+            <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+            <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+          </tr>
+        </table>
+        <br />
+        <br />
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="300" valign="top"><? $uplotype="Upper"?>
+              <? include("eorder_removedetail.php")?></td>
+            <td rowspan="2" valign="top"><table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+                <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+                <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+              </tr>
+              <tr>
+                <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+                <td><table width="400" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td width="10" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd1.gif" width="10" height="25" /></td>
+                            <td align="center" background="../resource/images/eorder/panel/hd2.gif" bgcolor="#000066" class="TBHead">Shade</td>
+                            <td width="11" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd3.gif" alt="" width="11" height="25" /></td>
+                          </tr>
+                      </table>
+                          <br />
+                          <table border="0" align="center" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td width="290"><img src="../resource/images/eorder/preview/preview_01.gif" width="290" height="19" /></td>
+                            </tr>
+                            <tr>
+                              <td width="290"><img src="../resource/images/eorder/preview/preview_02.gif" width="290" height="16" /></td>
+                            </tr>
+                            <tr>
+                              <td width="290"><img src="../resource/images/eorder/preview/preview_03.gif" width="290" height="16" /></td>
+                            </tr>
+                            <tr>
+                              <td width="290"><img src="../resource/images/eorder/preview/preview_04.gif" width="290" height="45" /></td>
+                            </tr>
+                            <tr>
+                              <td width="290"><img src="../resource/images/eorder/preview/preview_05.gif" width="290" height="16" /></td>
+                            </tr>
+                            <tr>
+                              <td width="290"><img src="../resource/images/eorder/preview/preview_06.gif" width="290" height="16" /></td>
+                            </tr>
+                            <tr>
+                              <td width="290"><img src="../resource/images/eorder/preview/preview_07.gif" width="290" height="19" /></td>
+                            </tr>
+                          </table>
+                        <br /></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" bordercolor="#FFFFFF"><table width="400" border="0" cellpadding="3" cellspacing="0" bgcolor="#FFFFFF">
+                          <tr>
+                            <td width="30">&nbsp;</td>
+                            <td width="282" align="left">S1 - </td>
+                            <td width="70"><button class="BTselect" onclick="OpenFixShadeSelector(1);" style="width:60px;height:20px;"> Select</button></td>
+                          </tr>
+                          <tr>
+                            <td width="30">&nbsp;</td>
+                            <td width="282" align="left">S2 - </td>
+                            <td width="70"><button class="BTselect" onclick="OpenFixShadeSelector(2);" style="width:60px;height:20px;"> Select</button></td>
+                          </tr>
+                          <tr>
+                            <td width="30">&nbsp;</td>
+                            <td width="282" align="left">S3 - </td>
+                            <td width="70"><button class="BTselect" onclick="OpenFixShadeSelector(3);" style="width:60px;height:20px;"> Select</button></td>
+                          </tr>
+                          <tr>
+                            <td width="30">&nbsp;</td>
+                            <td width="282" align="left">S4 - </td>
+                            <td width="70"><button class="BTselect" onclick="OpenFixShadeSelector(4);" style="width:60px;height:20px;"> Select</button></td>
+                          </tr>
+                      </table></td>
+                    </tr>
+                </table></td>
+                <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+              </tr>
+              <tr>
+                <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+                <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+                <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td width="300" valign="top"><? $uplotype="Lower"?>
+              <? include("eorder_removedetail.php")?></td>
+          </tr>
+        </table>
+        <table border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+            <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+            <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+            <td rowspan="3" valign="top"><table border="0" cellpadding="0" cellspacing="0" id="AttachImagePreviewTB2" style="display:none">
+                <tr>
+                  <td width="10" height="10" background="../resource/images/eorder/panel/pn1.gif"></td>
+                  <td height="10" background="../resource/images/eorder/panel/pn2.gif"></td>
+                  <td width="10" height="10" background="../resource/images/eorder/panel/pn3.gif"></td>
+                </tr>
+                <tr>
+                  <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+                  <td><table width="105" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                      <tr>
+                        <td align="left"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr bgcolor="#FFFFFF">
+                              <td width="10" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd1.gif" width="10" height="25" /></td>
+                              <td align="center" background="../resource/images/eorder/panel/hd2.gif" bgcolor="#000066" class="TBHead">Attach</td>
+                              <td width="11" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd3.gif" alt="" width="11" height="25" /></td>
+                            </tr>
+                          </table>
+                            <img  width ="100" height="100" id="AttachImagePreviewIMG2"/></td>
+                      </tr>
+                  </table></td>
+                  <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+                </tr>
+                <tr>
+                  <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+                  <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+                  <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+                </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td width="10" background="../resource/images/eorder/panel/pn4.gif"></td>
+            <td><table width="500" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                <tr>
+                  <td align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr bgcolor="#FFFFFF">
+                        <td width="10" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd1.gif" width="10" height="25" /></td>
+                        <td align="center" background="../resource/images/eorder/panel/hd2.gif" bgcolor="#000066" class="TBHead">Observation</td>
+                        <td width="11" height="25" align="center" class="TBHead"><img src="../resource/images/eorder/panel/hd3.gif" alt="" width="11" height="25" /></td>
+                      </tr>
+                    </table>
+                      <textarea name="textarea2"  style="width:500px;height:80px"></textarea></td>
+                </tr>
+                <tr>
+                  <td align="right">Attach picture &nbsp;
+                      <input type="file" name="fileField2" style="width:400px;" 
+onchange="findObj('AttachImagePreviewIMG2').src=this.value;findObj('AttachImagePreviewTB2').style.display=this.value==''?'none':'inline';"
+              /></td>
+                </tr>
+            </table></td>
+            <td width="10" background="../resource/images/eorder/panel/pn6.gif"></td>
+          </tr>
+          <tr>
+            <td width="10" height="11" background="../resource/images/eorder/panel/pn7.gif"></td>
+            <td height="11" background="../resource/images/eorder/panel/pn8.gif"></td>
+            <td width="10" height="11" background="../resource/images/eorder/panel/pn9.gif"></td>
+          </tr>
+        </table>
+        <br />
+        
+
+</div></td>
+  </tr>
+</table>
+
+
+<script type="text/javascript">
 
 
 
+InitLayer();
+RefreshRemoveTeethImage(32);
+RefreshRemoveTeethImage(33);
 
-
-
-</BODY>
-</HTML>
+hideBG();
+</script>
+</body>
+</html>

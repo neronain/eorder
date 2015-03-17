@@ -146,7 +146,7 @@ function popUpWindow(URLStr, left, top, width, height)
 <input type="hidden" name="enableC" value="CountryChkBox">
   </form>
 </table>
-
+<!--- 
 <br>
 <br>
 <font color="#FF0000">ใช้ output แบบ excel ดีกว่านะครับเอาไปทำรายงานง่ายกว่า<br>
@@ -154,7 +154,8 @@ function popUpWindow(URLStr, left, top, width, height)
 <br>
 วันนี้ถ้าใช้ไม่ได้ รีบโทรหาผมนะครับ<br>
 0867083309<br>
-ความหมายรายละเอียดงาน </font><br>
+ความหมายรายละเอียดงาน </font>
+-----><br>
 <table border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>F:  Fix<br>

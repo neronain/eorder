@@ -9,25 +9,13 @@
   <tr>
     <td>
       <label><input  type="checkbox" value="MarginGoDeep" onchange="setValue('fix_option[MarginGoDeep]',this.checked+0);" <?=array_key_exists ('MarginGoDeep', $fix_option)?"checked":""?>/> 
-      Margin go deep inside the parodental pocket</label><br />
+      Margin ลงลึกใต้เหงือก</label><br />
       <label><input  type="checkbox" value="UnderOcclusion05mm" onchange="setValue('fix_option[UnderOcclusion05mm]',this.checked+0);" <?=array_key_exists ('UnderOcclusion05mm', $fix_option)?" checked":" "?>/>
       Under occlusion 0.5mm</label><br />
       <label><input  type="checkbox" value="UnderOcclusion10mm"  onchange="setValue('fix_option[UnderOcclusion10mm]',this.checked+0);"<?=array_key_exists ('UnderOcclusion10mm', $fix_option)?" checked":" "?>/>
       Under occlusion 1.0mm</label><br />
       <label><input  type="checkbox" value="UnderOcclusion20mm"  onchange="setValue('fix_option[UnderOcclusion20mm]',this.checked+0);" <?=array_key_exists ('UnderOcclusion20mm', $fix_option)?" checked":" "?> />
       Under occlusion 2.0mm</label><br />
-      <!--<label><input  type="checkbox" value="NoMetalMargin" onchange="setValue('fix_option[NoMetalMargin]',this.checked+0);" <?=array_key_exists ('NoMetalMargin', $fix_option)?" checked":" "?> />
-        No metal margin</label><br />
-      <label><input  type="checkbox" value="Metal margin 1 mm Lingual" onchange="setValue('fix_option[Metal margin 1 mm Lingual]',this.checked+0);" <?=array_key_exists ('Metal margin 1 mm Lingual', $fix_option)?" checked":" "?> />
-      Metal margin 1 mm Lingual</label><br />
-      <label><input  type="checkbox" value="Metal margin 0.5 mm Lingual" onchange="setValue('fix_option[Metal margin 0.5 mm Lingual]',this.checked+0);" <?=array_key_exists ('Metal margin 0.5 mm Lingual', $fix_option)?" checked":" "?> />
-      Metal margin 0.5 mm Lingual</label><br />
-      <label><input  type="checkbox" value="SmallMetalMarginAround" onchange="setValue('fix_option[SmallMetalMarginAround]',this.checked+0);" <?=array_key_exists ('SmallMetalMarginAround', $fix_option)?" checked":" "?> />
-      Small metal margin around</label><br />
-      <label><input  type="checkbox" value="Hair line metal margin Lingual" onchange="setValue('fix_option[Hair line metal margin Lingual]',this.checked+0);" <?=array_key_exists ('Hair line metal margin Lingual', $fix_option)?" checked":" "?> />
-      Hair line metal margin Lingual</label><br />
-      <label><input  type="checkbox" value="HairLineMetalMarginAround" onchange="setValue('fix_option[HairLineMetalMarginAround]',this.checked+0);" <?=array_key_exists ('HairLineMetalMarginAround', $fix_option)?" checked":" "?> />
-      Hair line metal margin around</label><br /> -->
       <label><input  type="checkbox" value="No approximal contact" onchange="setValue('fix_option[No approximal contact]',this.checked+0);" <?=array_key_exists ('No approximal contact', $fix_option)?" checked":" "?> />
       No approximal contact</label><br />
       <label><input  type="checkbox" value="SmallTeeth" onchange="setValue('fix_option[SmallTeeth]',this.checked+0);" <?=array_key_exists ('SmallTeeth', $fix_option)?" checked":" "?> />
@@ -35,25 +23,42 @@
       <label><input  type="checkbox" value="RestPrepareForRPDTP" onchange="setValue('fix_option[RestPrepareForRPDTP]',this.checked+0);" <?=array_key_exists ('RestPrepareForRPDTP', $fix_option)?" checked":" "?> />
       Rest , Prepare for RPD/TP</label><br />
       <label><input  type="checkbox" value="AdeptWithRPDTP"  onchange="setValue('fix_option[AdeptWithRPDTP]',this.checked+0);" <?=array_key_exists ('AdeptWithRPDTP', $fix_option)?" checked":" "?> />
-      Adapt with RPD/TP</label><br />
+	    ทำงาน FIX ให้เข้ากับ RPD</label><br />
       <label><input  type="checkbox" value="NoSpaceMakePF"  onchange="setValue('fix_option[NoSpaceMakePF]',this.checked+0);" <?=array_key_exists ('NoSpaceMakePF', $fix_option)?" checked":" "?> />
-      No space make PF</label><br />
+             ถ้าไม่มีพื้นที่ให้ทำเป็น PF ได้</label><br />
       <label><input  type="checkbox" value="No anagonist"  onchange="setValue('fix_option[No anagonist]',this.checked+0);" <?=array_key_exists ('No anagonist', $fix_option)?" checked":" "?> />
-      No anagonist</label><br />
+      No antagonist</label><br />
       <!--<label><input  type="checkbox" value="PorcelainMargin" onchange="setValue('fix_option[PorcelainMargin]',this.checked+0);" <?=array_key_exists ('PorcelainMargin', $fix_option)?" checked":" "?> />
       Porcelain Margin</label><br />
       <label><input  type="checkbox" value="PorcelainMarginAround"  onchange="setValue('fix_option[PorcelainMarginAround]',this.checked+0);" <?=array_key_exists ('PorcelainMarginAround', $fix_option)?" checked":" "?> />
       Porcelain Margin around</label><br /> -->
       <label><input  type="checkbox" value="PonticBuccalPalatalSmaller"  onchange="setValue('fix_option[PonticBuccalPalatalSmaller]',this.checked+0);" <?=array_key_exists ('PonticBuccalPalatalSmaller', $fix_option)?" checked":" "?> />
-      Pontic buccal , palatal smaller than neighbour teeth</label><br />
+      Pontic buccal , palatal smaller</label><br />
       <label><input  type="checkbox" value="Crown endosed for shade/anatomy" onchange="setValue('fix_option[Crown endosed for shade/anatomy]',this.checked+0);" <?=array_key_exists ('Crown endosed for shade/anatomy', $fix_option)?" checked":" "?> />
       Crown endosed for shade/anatomy</label><br />
       <label><input  type="checkbox" value="Bridge enclosed for shade/anatomy"  onchange="setValue('fix_option[Bridge enclosed for shade/anatomy]',this.checked+0);" <?=array_key_exists ('Bridge enclosed for shade/anatomy', $fix_option)?" checked":" "?> />
       Bridge enclosed for shade/anatomy</label><br />
       <label><input  type="checkbox" value="New Dentist"  onchange="setValue('fix_option[New Dentist]',this.checked+0);" <?=array_key_exists ('New Dentist', $fix_option)?" checked":" "?> />
-      New Dentist</label><br />    </td>
+      New Dentist</label><br />  
+	  <label><label><input type="checkbox"  value="ChangeShade" onchange="setValue('fix_remake[ChangeShade]',this.checked+0);" <?=array_key_exists ('ChangeShade', $fix_remake)?" checked":" "?>/>
+      Pink Porcelain</label><br /> 
+      <label><input type="checkbox"  value="ShortMargin" onchange="setValue('fix_remake[ShortMargin]',this.checked+0);" <?=array_key_exists ('ShortMargin', $fix_remake)?" checked":" "?> />
+      High Esthetic</label><br />
+      <label><input type="checkbox"  value="AddContactPoint" onchange="setValue('fix_remake[AddContactPoint]',this.checked+0);" <?=array_key_exists ('AddContactPoint', $fix_remake)?" checked":" "?> />
+      Casting Abutment (UCAL)</label><br />
+      <label><input type="checkbox"  value="RepairCeramic" onchange="setValue('fix_remake[RepairCeramic]',this.checked+0);" <?=array_key_exists ('RepairCeramic', $fix_remake)?" checked":" "?> />
+      Abutment From Doctor</label><br />
+      <label><input type="checkbox"  value="CeramicCracked" onchange="setValue('fix_remake[CeramicCracked]',this.checked+0);" <?=array_key_exists ('CeramicCracked', $fix_remake)?" checked":" "?> />
+      Abutment From Hexa</label><br />
+      <label><input type="checkbox"  value="CanNotInsert" onchange="setValue('fix_remake[CanNotInsert]',this.checked+0);" <?=array_key_exists ('CanNotInsert', $fix_remake)?" checked":" "?> />
+      Abutment From Atlantis</label><br />
+      <label><input type="checkbox"  value="ChangeDesign" onchange="setValue('fix_remake[ChangeDesign]',this.checked+0);" <?=array_key_exists ('ChangeDesign', $fix_remake)?" checked":" "?> />
+      Soft Tissue by Hexa</label><br />
+      <label><input type="checkbox"  value="WrongBite" onchange="setValue('fix_remake[WrongBite]',this.checked+0);" <?=array_key_exists ('WrongBite', $fix_remake)?" checked":" "?> />
+      Preparation Milling Abutment</label><br/>	  
+	  </td>
     </tr>
-  <tr>
+  <?php/*<tr>
     <td><span style="font-size: 18px"><strong>Repair &amp; Finish Remark</strong></span></td>
   </tr>
   <tr>
@@ -72,8 +77,10 @@
       <label><input type="checkbox"  value="ChangeDesign" onchange="setValue('fix_remake[ChangeDesign]',this.checked+0);" <?=array_key_exists ('ChangeDesign', $fix_remake)?" checked":" "?> />
       Change design</label><br />
       <label><input type="checkbox"  value="WrongBite" onchange="setValue('fix_remake[WrongBite]',this.checked+0);" <?=array_key_exists ('WrongBite', $fix_remake)?" checked":" "?> />
-      Wrong bite</label></td>
-    </tr>
+      Wrong bite</label><br/>
+	  <label><input type="checkbox"  value="WrongBite2" onchange="setValue('fix_remake[WrongBite2]',this.checked+0);" <?=array_key_exists ('WrongBite2', $fix_remake)?" checked":" "?> />
+      Wrong bite2</label><br/></td>
+    </tr>*/?>
   <tr>
     <td><span style="font-weight: bold; font-size: 18px">Enclosed / สิ่งที่ส่งมาด้วย</span></td>
   </tr>

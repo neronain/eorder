@@ -96,6 +96,9 @@
 			$fix_margin["MGPM"] = getParameter($fix_prefix_observ,"MGPM");	
 			$fix_margin["MGM1"] = getParameter($fix_prefix_observ,"MGM1");	
 			$fix_margin["MGM5"] = getParameter($fix_prefix_observ,"MGM5");	
+			$fix_margin["MGDM"] = getParameter($fix_prefix_observ,"MGDM");	
+			$fix_margin["MGPD"] = getParameter($fix_prefix_observ,"MGPD");	
+			$fix_margin["MGDH"] = getParameter($fix_prefix_observ,"MGDH");	
 		}
 
 		$option = (!$data->EOF) ? explode(",",$data->Rs("ordf_optmoreinfo")) : array();

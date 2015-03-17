@@ -7,6 +7,7 @@ if(!$DEFINE_ORTHO_CONFIG){
 
 $ortho_work_conf["-"] = "-";
 
+//Ortho work
 $ortho_work_conf["Activator"] = "Activator";
 $ortho_work_conf["Twin block"] = "Twin block";
 $ortho_work_conf["Butterfly Eclipse"] = "Butterfly Eclipse";
@@ -21,16 +22,20 @@ $ortho_work_conf["Model Show"] = "Model Show";
 $ortho_work_conf["Resprepo L"] = "Resprepo L";
 $ortho_work_conf["Resprepo F"] = "Resprepo F";
 $ortho_work_conf["TPA + NANCE"] = "TPA + NANCE";
+$ortho_work_conf["Hawley retainer"] = "Hawley retainer";
+$ortho_work_conf["Wraparound retainer"] = "Wraparound retainer";
+$ortho_work_conf["Bleaching tray"] = "Bleaching tray";
+$ortho_work_conf["Night guard"] = "Night guard";
+$ortho_work_conf["Fashion removable plate"] = "Fashion removable plate";
+$ortho_work_conf["T-appliance"]="T-appliance";
+$ortho_work_conf["V-Beek"]="V-Beek";
+$ortho_work_conf["LRM"]="LRM";
+$ortho_work_conf["Bionator"]="Bionator";
+$ortho_work_conf["Damon splint"]="Damon splint";
+$ortho_work_conf["Bionator"] = "Bionator";
+$ortho_work_conf["Bite Strips"] = "Bite Strips";
 
-$ortho_work_conf["Hawley retainer"] = "ไม่ใช้แล้ว -  Hawley retainer";
-$ortho_work_conf["Wraparound retainer"] = "ไม่ใช้แล้ว - Wraparound retainer";
-$ortho_work_conf["Bleaching tray"] = "ไม่ใช้แล้ว - Bleaching tray";
-$ortho_work_conf["Night guard"] = "ไม่ใช้แล้ว - Night guard";
-$ortho_work_conf["Fashion removable plate"] = "ไม่ใช้แล้ว - Fashion removable plate";
-
-
-
-
+//Ortho Work Upper
 $ortho_workupper_conf["-"] = "-";
 $ortho_workupper_conf["Hawley"] = "Hawley";
 $ortho_workupper_conf["Wrap Around"] = "Wrap Around";
@@ -56,17 +61,52 @@ $ortho_workupper_conf["Transfer Tray"] = "Transfer Tray";
 $ortho_workupper_conf["Mouth guard"] = "Mouth guard";
 $ortho_workupper_conf["Night guard"] = "Night guard";
 $ortho_workupper_conf["Beaching Tray"] = "Beaching Tray";
-//$ortho_workupper_conf["Bi-Helix"] = "Bi-Helix";
 $ortho_workupper_conf["Pendulum"] = "Pendulum";
 $ortho_workupper_conf["C-C Retainer"] = "C-C Retainer";
 $ortho_workupper_conf["LC Retainer"] = "LC Retainer";
 $ortho_workupper_conf["Lingual Holding Arch"] = "Lingual Holding Arch";
 $ortho_workupper_conf["Clear Retainer"] = "Clear Retainer";
 $ortho_workupper_conf["Lingual Indirect Bonding"] = "Lingual Indirect Bonding";
+$ortho_workupper_conf["Solder hook"] = "Solder hook";
+$ortho_workupper_conf["Solder lingual sheath"]="Solder lingual sheath";
+$ortho_workupper_conf["E - rigian"]="E - rigian";
+$ortho_workupper_conf["ALF 3 loop"]="ALF 3 loop";
+$ortho_workupper_conf["ALF 5 loop"]="ALF 5 loop";
+$ortho_workupper_conf["Schwarz  appliance"]="Schwarz  appliance";
+$ortho_workupper_conf["Rick a nator"]="Rick a nator";
+$ortho_workupper_conf["RN sagittal"]="RN sagittal";
+$ortho_workupper_conf["Sander appliance"]="Sander appliance";
+$ortho_workupper_conf["RME"]="RME";
+$ortho_workupper_conf["Palatal stent"]="Palatal stent";
+$ortho_workupper_conf["Tongue  wire  & spinner"]="Tongue  wire  & spinner";
+$ortho_workupper_conf["Distal shoe"]="Distal shoe";
+$ortho_workupper_conf["Band stips"]="Band stips";
+$ortho_workupper_conf["Ortho band"]="Ortho band";
+$ortho_workupper_conf["Spring Hawley"]="Spring Hawley";
+$ortho_workupper_conf["Quad Helix"]="Quad Helix";
+$ortho_workupper_conf["Spinner"]="Spinner";
+$ortho_workupper_conf["Removable spring"]="Removable spring";
+$ortho_workupper_conf["Removable screw"]="Removable screw";
+$ortho_workupper_conf["Buccal tube"]="Buccal tube";
+$ortho_workupper_conf["Cager splint"]="Cager splint";
+$ortho_workupper_conf["Smile Tru"]="Smile Tru";
+$ortho_workupper_conf["Hawley with sticker"] = "Hawley with sticker";
+$ortho_workupper_conf["Hawley Labial with sticker"] = "Hawley Labial with sticker";
+$ortho_workupper_conf["Wrap around with sticker"] = "Wrap around with sticker";
+$ortho_workupper_conf["Wrap around Labial with sticker"] = "Wrap around Labial with sticker";
+$ortho_workupper_conf["Wrap around Buccul with sticker"] = "Wrap around Buccul with sticker";
+$ortho_workupper_conf["Wrap around L&B with sticker"] = "Wrap around L&B with sticker";
+$ortho_workupper_conf["Schwarz appliance with sticker"] = "Schwarz appliance with sticker";
+$ortho_workupper_conf["RN-sagittal with sticker"] = "RN-sagittal with sticker";
+$ortho_workupper_conf["Trampoline 2"]="Trampoline 2";
+$ortho_workupper_conf["Trampoline 2 with sticker"] = "Trampoline 2 with sticker";
+$ortho_workupper_conf["Set up model"] = "Set up model";
+$ortho_workupper_conf["Upper Williams"] = "Upper Williams";
+$ortho_workupper_conf["Obtulator"] = "Obtulator";
+$ortho_workupper_conf["Acrylic Inclined plane"]= "Acrylic Inclined plane";
+$ortho_workupper_conf["Spring Inclined plane"]= "Spring Inclined plane";
 
-
-
-
+//Ortho Lower
 $ortho_worklower_conf["-"] = "-";
 $ortho_worklower_conf["Hawley"] = "Hawley";
 $ortho_worklower_conf["Wrap Around"] = "Wrap Around";
@@ -77,14 +117,9 @@ $ortho_worklower_conf["Wrap Around/L&B"] = "Wrap Around/L&B";
 $ortho_worklower_conf["Remove Spring"] = "Remove Spring";
 $ortho_worklower_conf["Band and Loop"] = "Band and Loop";
 $ortho_worklower_conf["Expansion Screw"] = "Expansion Screw";
-//$ortho_worklower_conf["Nance"] = "Nance";
-//$ortho_worklower_conf["TPA"] = "TPA";
-//$ortho_worklower_conf["TPA+NANCE"] = "TPA+NANCE";
 $ortho_worklower_conf["Fashion"] = "Fashion";
-//$ortho_worklower_conf["Quad Helix"] = "Quad Helix";
 $ortho_worklower_conf["Occlusal Sprint"] = "Occlusal Sprint";
 $ortho_worklower_conf["Stent"] = "Stent";
-//$ortho_worklower_conf["Rapid Hyrax Expansion"] = "Rapid Hyrax Expansion";
 $ortho_worklower_conf["An/Posterior bite"] = "An/Posterior bite";
 $ortho_worklower_conf["Anterior bite"] = "Anterior bite";
 $ortho_worklower_conf["Posterior bite"] = "Posterior bite";
@@ -93,11 +128,40 @@ $ortho_worklower_conf["Mouth guard"] = "Mouth guard";
 $ortho_worklower_conf["Night guard"] = "Night guard";
 $ortho_worklower_conf["Beaching Tray"] = "Beaching Tray";
 $ortho_worklower_conf["Bi-Helix"] = "Bi-Helix";
-//$ortho_worklower_conf["Pendulum"] = "Pendulum";
 $ortho_worklower_conf["C-C Retainer"] = "C-C Retainer";
 $ortho_worklower_conf["LC Retainer"] = "LC Retainer";
 $ortho_worklower_conf["Lingual Holding Arch"] = "Lingual Holding Arch";
 $ortho_worklower_conf["Clear Retainer"] = "Clear Retainer";
 $ortho_worklower_conf["Lingual Indirect Bonding"] = "Lingual Indirect Bonding";
-
-
+$ortho_worklower_conf["Solder hook"]="Solder hook";
+$ortho_worklower_conf["Solder lingual sheath"]="Solder lingual sheath";
+$ortho_worklower_conf["Ligual indirect bonding"]="Ligual indirect bonding";
+$ortho_worklower_conf["E-Regain"]="E-Regain";
+$ortho_worklower_conf["ALF 3 loop"]="ALF 3 loop";
+$ortho_worklower_conf["Schwarz appliance"]="Schwarz appliance";
+$ortho_worklower_conf["Sander appliance"]="Sander appliance";
+$ortho_worklower_conf["Distal shoe"]="Distal shoe";
+$ortho_worklower_conf["Band stips"]="Band stips";
+$ortho_worklower_conf["Ortho band"]="Ortho band";
+$ortho_worklower_conf["Spring Hawley"]="Spring Hawley";
+$ortho_worklower_conf["Power arm"]="Power arm";
+$ortho_worklower_conf["Healing Splint"]="Healing Splint";
+$ortho_worklower_conf["Removable spring"]="Removable spring";
+$ortho_worklower_conf["Removable screw"]="Removable screw";
+$ortho_worklower_conf["Buccal tube"]="Buccal tube";
+$ortho_worklower_conf["Advanced Functicnal Retainer"]="Advanced Functicnal Retainer";
+$ortho_worklower_conf["Cager splint"]="Cager splint";
+$ortho_worklower_conf["Smile Tru"]="Smile Tru";
+$ortho_worklower_conf["Hawley with sticker"] = "Hawley with sticker";
+$ortho_worklower_conf["Hawley Labial with sticker"] = "Hawley Labial with sticker";
+$ortho_worklower_conf["Wrap around with sticker"] = "Wrap around with sticker";
+$ortho_worklower_conf["Wrap around Labial with sticker"] = "Wrap around Labial with sticker";
+$ortho_worklower_conf["Wrap around Buccul with sticker"] = "Wrap around Buccul with sticker";
+$ortho_worklower_conf["Wrap around L&B with sticker"] = "Wrap around L&B with sticker";
+$ortho_worklower_conf["Schwarz appliance with sticker"] = "Schwarz appliance with sticker";
+$ortho_worklower_conf["E-Regain with sticker"] = "E-Regain with sticker";
+$ortho_worklower_conf["Set up model"] = "Set up model";
+$ortho_worklower_conf["Lower Williams"] = "Lower Williams";
+$ortho_worklower_conf["Vinyl splint"] = "Vinyl splint";
+$ortho_worklower_conf["Acrylic Inclined plane"]= "Acrylic Inclined plane";
+$ortho_worklower_conf["Spring Inclined plane"]= "Spring Inclined plane";

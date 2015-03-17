@@ -189,27 +189,30 @@
             
             <? if(count($ordfoptremark)+0>0){ ?>
             
-         <table border="1" bordercolor="#000000" cellspacing="0" cellpadding="2"
+         <?php /*<table border="0" bordercolor="#000000" cellspacing="0" cellpadding="2"
 width="100%">
            <tr>
              <td align="left" valign="top"><strong>Remake</strong><br>
-                 <?=in_array('ChangeShade', $ordfoptremark)?"-Change shade<br>":""?>
+                 <?=in_array('ChangeShade', $ordfoptremark)?"-Pink Porcelain<br>":""?>
                  <?=in_array('ShortMargin', $ordfoptremark)?"-Short margin<br>":""?>
                  <?=in_array('AddContactPoint', $ordfoptremark)?"-Add contact point<br>":""?>
                  <?=in_array('RepairCeramic', $ordfoptremark)?"-Repair ceramic<br>":""?>
                  <?=in_array('CeramicCracked', $ordfoptremark)?"-Ceramic cracked<br>":""?>
                  <?=in_array('CanNotInsert', $ordfoptremark)?"-Can not insert<br>":""?>
                  <?=in_array('ChangeDesign', $ordfoptremark)?"-Change design<br>":""?>
-                 <?=in_array('WrongBite', $ordfoptremark)?"-Wrong bite":""?></td>
+                 <?=in_array('WrongBite', $ordfoptremark)?"-Wrong bite":""?>
+
+				 
+				 </td>
            </tr>
-         </table>
+         </table>*/?>
          <? } ?>
          <? if(count($ordfoptmoreinfo)+0>0){ ?>
          <table border="1" bordercolor="#000000" cellspacing="0" cellpadding="2" 
 width="100%">
            <tr>
              <td align="left" valign="top"><strong>More Info</strong><br>
-                 <?=in_array('MarginGoDeep', $ordfoptmoreinfo)?"-Margin go deep inside the parodental pocket<br>":""?>
+                 <?=in_array('MarginGoDeep', $ordfoptmoreinfo)?"-Margin ลงลึกใต้เหงือก<br>":""?>
                  <?=in_array('UnderOcclusion05mm', $ordfoptmoreinfo)?"-Under occlusion 0.5mm<br>":""?>
                  <?=in_array('UnderOcclusion10mm', $ordfoptmoreinfo)?"-Under occlusion 1.0mm<br>":""?>
                  <?=in_array('UnderOcclusion20mm', $ordfoptmoreinfo)?"-Under occlusion 2.0mm<br>":""?>
@@ -225,17 +228,31 @@ width="100%">
                  <?=in_array('No approximal contact', $ordfoptmoreinfo)?"-No approximal contact<br>":""?>
                  <?=in_array('SmallTeeth', $ordfoptmoreinfo)?"-Small teeth<br>":""?>
                  <?=in_array('RestPrepareForRPDTP', $ordfoptmoreinfo)?"-Rest , Prepare for RPD/TP<br>":""?>
-                 <?=in_array('AdeptWithRPDTP', $ordfoptmoreinfo)?"-Adept with RPD/TP<br>":""?>
+                 <?=in_array('AdeptWithRPDTP', $ordfoptmoreinfo)?"-ทำงาน FIX ให้เข้ากับ RPD<br>":""?>
                  <?=in_array('Adapt with RPD/TP', $ordfoptmoreinfo)?"-Adapt with RPD/TP<br>":""?>
-                 <?=in_array('NoSpaceMakePF', $ordfoptmoreinfo)?"-No space make PF<br>":""?>
-                 <?=in_array('NotHaveAnagonist', $ordfoptmoreinfo)?"-Not have anagonist<br>":""?>
-                 <?=in_array('No anagonist', $ordfoptmoreinfo)?"-No anagonist<br>":""?>
+                 <?=in_array('NoSpaceMakePF', $ordfoptmoreinfo)?"-ถ้าไม่มีพื้นที่ให้ทำเป็น PF ได้<br>":""?>
+                 <?=in_array('NotHaveAnagonist', $ordfoptmoreinfo)?"-Not have antagonist<br>":""?>
+                 <?=in_array('No anagonist', $ordfoptmoreinfo)?"-No antagonist<br>":""?>
                  <?=in_array('PorcelainMargin', $ordfoptmoreinfo)?"-Porcelain Margin<br>":""?>
                  <?=in_array('PorcelainMarginAround', $ordfoptmoreinfo)?"-Porcelain Margin around<br>":""?>
-                 <?=in_array('PonticBuccalPalatalSmaller', $ordfoptmoreinfo)?"-Pontic buccal , palatal smaller than neighbour teeth<br>":""?>      
+                 <?=in_array('PonticBuccalPalatalSmaller', $ordfoptmoreinfo)?"-Pontic buccal , palatal smaller<br>":""?>      
                  <?=in_array('Crown endosed for shade/anatomy', $ordfoptmoreinfo)?"-Crown endosed for shade/anatomy<br>":""?>
                  <?=in_array('Bridge enclosed for shade/anatomy', $ordfoptmoreinfo)?"-Bridge enclosed for shade/anatomy<br>":""?>
-                 <?=in_array('New Dentist', $ordfoptmoreinfo)?"-New Dentist<br>":""?>                 </td>
+                 <?=in_array('New Dentist', $ordfoptmoreinfo)?"-New Dentist<br>":""?>
+                 <?=in_array('Lingual Mistal & Distal margin', $ordfoptmoreinfo)?"-Lingual Mistal & Distal margin<br>":""?>
+                 <?=in_array('Pindex', $ordfoptmoreinfo)?"-Pindex<br>":""?>
+                 <?=in_array('เจาะรู / Drilling Hold', $ordfoptmoreinfo)?"-เจาะรู / Drilling Hold<br>":""?>
+                 <?=in_array('Pink Porcelain', $ordfoptmoreinfo)?"-Pink Porcelain<br>":""?>
+				 <?=in_array('ChangeShade', $ordfoptremark)?"-Pink Porcelain<br>":""?>
+                 <?=in_array('ShortMargin', $ordfoptremark)?"-Short margin<br>":""?>
+                 <?=in_array('AddContactPoint', $ordfoptremark)?"-Add contact point<br>":""?>
+                 <?=in_array('RepairCeramic', $ordfoptremark)?"-Repair ceramic<br>":""?>
+                 <?=in_array('CeramicCracked', $ordfoptremark)?"-Ceramic cracked<br>":""?>
+                 <?=in_array('CanNotInsert', $ordfoptremark)?"-Can not insert<br>":""?>
+                 <?=in_array('ChangeDesign', $ordfoptremark)?"-Change design<br>":""?>
+                 <?=in_array('WrongBite', $ordfoptremark)?"-Wrong bite":""?>
+
+                 </td>
            </tr>
          </table>
          <? } ?>         </td></tr>

@@ -520,7 +520,7 @@ White
   <td bgcolor="#DDDDFF">
 <input name="ordfoptmoreinfo[]" type="checkbox" value="MarginGoDeep"  
 <?=in_array('MarginGoDeep', $ordfoptmoreinfo)?"checked":""?>>
-Margin go deep inside the parodental pocket<br>
+Margin ลงลึกใต้เหงือก<br>
 <input name="ordfoptmoreinfo[]" type="checkbox" value="UnderOcclusion05mm"  
 <?=in_array('UnderOcclusion05mm', $ordfoptmoreinfo)?"checked":""?>>
 Under occlusion 0.5mm<br>
@@ -565,7 +565,7 @@ Adapt with RPD/TP<br>
 No space make PF<br>
 <input name="ordfoptmoreinfo[]" type="checkbox" value="No anagonist"  
 <?=in_array('No anagonist', $ordfoptmoreinfo)?"checked":""?>> 
-No anagonist<br>
+No antagonist<br>
 <input name="ordfoptmoreinfo[]" type="checkbox" value="PorcelainMargin"  
 <?=in_array('PorcelainMargin', $ordfoptmoreinfo)?"checked":""?>>
 Porcelain Margin<br>
@@ -584,15 +584,9 @@ Bridge enclosed for shade/anatomy<br>
 <input name="ordfoptmoreinfo[]" type="checkbox" value="New Dentist"  
 <?=in_array('New Dentist', $ordfoptmoreinfo)?"checked":""?>> 
 New Dentist<br>
-</td>
-</tr>
-<tr>
-  <td colspan="2">Repair &amp;  Remake</td>
-</tr>
-<tr>
-  <td>&nbsp;</td>
-  <td>
-
+<input name="ordfoptmoreinfo[]" type="checkbox" value="Pink Porcelain"  
+<?=in_array('Pink Porcelain', $ordfoptmoreinfo)?"checked":""?>> 
+Pink Porcelain<br>
 <input type="checkbox" name="ordfoptremark[]" value="ChangeShade"  
 <?=in_array('ChangeShade', $ordfoptremark)?"checked":""?>>
 Change shade<br>
