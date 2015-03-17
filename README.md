@@ -13,12 +13,15 @@ git push
 #-------- Extra command ------#
 
 git status (Check Ststus git)
+
 git log (Check log)
+
 git checkout .... (recovery file)
 
 ====================================================
 
 https://www.youtube.com/watch?v=r93gUZbjWEo
+
 https://www.youtube.com/watch?v=FXgsdEg_ne4
 
 
