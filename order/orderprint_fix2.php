@@ -432,16 +432,12 @@
                     <? if(count($ordfoptremark)+0>0){ ?>
                       <table border="0" bordercolor="#000000" cellspacing="0" cellpadding="2" width="100%">
                         <tr>
-                             
-                              <?=in_array('WrongBite2', $ordfoptremark)?"-Wrong bite2":""?>
-							  
 							  </td>
                         </tr>
                       </table>
                     <? } ?>
-                      <? if(count($ordfoptmoreinfo)+0>0){ ?>
-                      <table border="1" bordercolor="#000000" cellspacing="0" cellpadding="2" 
-width="100%">
+                      <? if(count($ordfoptmoreinfo)+0>0||count($ordfoptremark)+0>0){ ?>
+                      <table border="1" bordercolor="#000000" cellspacing="0" cellpadding="2" width="100%">
                         <tr>
                           <td align="left" valign="top"><strong>Additional Info</strong><br />
                               <?=in_array('MarginGoDeep', $ordfoptmoreinfo)?"-Margin ลงลึกใต้เหงือก<br>":""?>
